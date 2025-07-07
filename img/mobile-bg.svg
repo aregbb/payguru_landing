@@ -1,0 +1,23 @@
+<svg width="2196.065430" height="2358.092773" viewBox="0 0 2196.07 2358.09" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <desc>
+        Created with Pixso.
+    </desc>
+    <defs>
+        <filter id="filter_576_3456_dd" x="0.000000" y="0.000000" width="2136.000000" height="2285.000000" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="147.667" result="effect_layerBlur_1"/>
+        </filter>
+        <filter id="filter_576_3457_dd" x="622.000000" y="667.000000" width="1574.065430" height="1691.092773" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+            <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+            <feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+            <feGaussianBlur stdDeviation="98" result="effect_layerBlur_1"/>
+        </filter>
+    </defs>
+    <g filter="url(#filter_576_3456_dd)">
+        <path id="Vector 127" d="M443 1596.15C500.67 1538.44 1074.3 1327.91 758.64 773.05C443 218.19 1466.01 409.06 1666.93 1002.6C1867.85 1596.15 854.35 2189.69 443 1596.15Z" fill="#D9FDFF" fill-opacity="1.000000" fill-rule="evenodd"/>
+    </g>
+    <g filter="url(#filter_576_3457_dd)">
+        <path id="Vector 126" d="M916 1870.24C961.5 1824.74 1414 1658.74 1165 1221.24C916 783.74 1723 934.24 1881.5 1402.24C2040 1870.24 1240.5 2338.24 916 1870.24Z" fill="#6DB3F8" fill-opacity="1.000000" fill-rule="evenodd"/>
+    </g>
+</svg>

@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PayGuru</title>
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet" />
+<!--    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">-->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<img src="./img/bg.png" class="bg">
+<img src="./img/bg-mob.png" class="bg mob">
+
+<section class="main">
+<div class="container">
+    <a href="#" class="logo">
+        <img src="img/logo.svg" alt="PayGuru" />
+    </a>
+    <!-- Hero Section -->
+    <div class="row hero">
+        <div class="col">
+
+            <h1>PayGuru</h1>
+            <p>Универсальный платёжный агрегатор с глобальным покрытием и гибкими возможностями</p>
+            <a href="#about"  class="btn btn-main">Узнать подробнее</a>
+        </div>
+        <div class="col-md-7 text-center">
+            <img src="img/wallet.png" alt="Wallet Graphic" class="hero-image">
+        </div>
+    </div>
+
+    <!-- Platform Section -->
+    <div id="about" class="platform">
+        <h2>О платформе</h2>
+        <p>
+            <strong>PayGuru</strong> — система управления денежными потоками, объединяющая различные<br class="d-none d-md-block"> платёжные методы и инфраструктуру. Единая точка контроля и маршрутизации<br class="d-none d-md-block"> с гибкой логикой обработки, аналитикой и автоматизацией.
+        </p>
+        <img class="hero-image" src="img/man-computer-placeholder.png" alt="User Graphic">
+        <img class="hero-image mobile" src="img/man-computer-placeholder-mob.png" alt="User Graphic">
+    </div>
+</div>
+</section>
+<section class="coverage">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>
+                <span class="text-primary">Глобальное</span><br />
+                покрытие и валюты
+            </h2>
+        </div>
+
+        <div class="row g-3 g-md-5 justify-content-center">
+            <div class="col-6">
+                <div class="text-start info-card p-2 p-md-4 shadow-sm">
+                    <div class="icon mb-4 mb-md-3">
+                        <img src="img/icon-globe.svg" alt="Иконка">
+                    </div>
+                    <h4>15+ стран:</h4>
+                    <p class="text-muted">СНГ, Индия, Азия, Латинская Америка и др.</p>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="text-start info-card p-2 p-md-4 shadow-sm">
+                    <div class="icon mb-4 mb-md-3">
+                        <img src="img/icon-currency.svg" alt="Иконка">
+                    </div>
+                    <h4>13+ валют:</h4>
+                    <p class="text-muted">UZS, TJS, INR, KRW, TRY, BDT, PKR, EGP, VND, ARS и др.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="features">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>
+                <span class="gradient-text">Ключевые</span> возможности
+            </h2>
+        </div>
+
+        <div class="row g-3 g-lg-5 justify-content-center">
+            <!-- Блок 1 -->
+            <div class="col-6 col-lg-4">
+                <div class="feature-card  shadow-sm">
+                    <div class="feature-number">1</div>
+                    <h5>Приём платежей:</h5>
+                    <ul>
+                        <li>Методы: e-commerce, P2P, phone, QR и другие.</li>
+                        <li>Поддержка гибких курсов, трансграничных платежей и частичной оплаты.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Блок 2 -->
+            <div class="col-6 col-lg-4">
+                <div class="feature-card  shadow-sm">
+                    <div class="feature-number">2</div>
+                    <h5>Выплаты:</h5>
+                    <ul>
+                        <li>Лимиты, автоматизированные очереди, таймеры.</li>
+                        <li>Расширенные настройки логики и приоритетов.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Блок 3 -->
+            <div class="col-6 col-lg-4">
+                <div class="feature-card  shadow-sm">
+                    <div class="feature-number">3</div>
+                    <h5>Споры и безопасность:</h5>
+                    <ul>
+                        <li>Telegram-бот для споров (API инициатива или через UI).</li>
+                        <li>Автоматическая проверка чеков, антифрод-паттерны, уведомления 24/7.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="d-inline-block d-lg-none col-6 col-lg-4">
+                <div class="feature-card border-0 bg-transparent shadow-0   ">
+                    <img class="info-img m-auto mb-5 d-flex justify-center" src="img/info.png" alt="Иконка">
+                    <a href="#" class="btn btn-main open-modal">Стать клиентом</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+        <div class=" d-lg-inline-block d-none text-center mt-5">
+            <a href="#" class="btn btn-main open-modal">Стать клиентом</a>
+        </div>
+    </div>
+</section>
+
+<section class="white-label">
+    <div class="container">
+        <div class="text-center pb-1 pb-md-0 mb-5">
+            <h2><span class="gradient-text">White-label</span> возможности</h2>
+        </div>
+
+        <div class="row g-3 g-lg-5">
+            <!-- Готовая инфраструктура -->
+            <div class="col-md-6 col-xl-6">
+                <div class="wl-card p-4">
+                    <div class="wl-icon wl-icon-1">
+                        <img src="img/icon-1.svg" alt="Иконка">
+                    </div>
+                    <h5>Готовая инфраструктура</h5>
+                    <p>С возможностью брендирования <br class="d-block d-md-none">под клиента</p>
+                    <img src="img/img-1.png" class="d-none d-md-flex img-fluid mt-auto" alt="Графика">
+                    <img src="img/img-1-mob.png" class="d-inline-block d-md-none img-fluid mt-auto" alt="Графика">
+                </div>
+            </div>
+
+            <!-- Быстрый запуск -->
+            <div class="col-md-6 col-xl-6">
+                <div class="wl-card p-4">
+                    <div class="wl-icon wl-icon-2">
+                        <img src="img/icon-2.svg" alt="Иконка">
+                    </div>
+                    <h5>Быстрый запуск</h5>
+                    <p>С возможностью кастомизации <br class="d-block d-md-none">методов и бизнес-логики</p>
+                    <img src="img/img-2.png" class="d-none d-md-flex img-fluid mt-auto" alt="Графика">
+                    <img src="img/img-2-mob.png" class="d-inline-block d-md-none img-fluid mt-auto" alt="Графика">
+                </div>
+            </div>
+
+            <!-- Отдельные кабинеты -->
+            <div class="col-md-6 col-xl-6">
+                <div class="wl-card p-4">
+                    <div class="wl-icon wl-icon-3">
+                        <img src="img/icon-3.svg" alt="Иконка">
+                    </div>
+                    <h5>Отдельные кабинеты</h5>
+                    <p>Ролевое управление, распределение <br class="d-block d-md-none"> потоков <br class="d-none d-md-block"> по собственным правилам</p>
+                    <img src="img/img-3.png" class="d-none d-md-flex img-fluid mt-auto" alt="Графика">
+                    <img src="img/img-3-mob.png" class="d-inline-block d-md-none img-fluid mt-auto" alt="Графика">
+                </div>
+            </div>
+
+            <!-- Фундамент для финтеха -->
+            <div class="col-md-6 col-xl-6">
+                <div class="wl-card p-4">
+                    <div class="wl-icon wl-icon-4">
+                        <img src="img/icon-4.svg" alt="Иконка">
+                    </div>
+                    <h5>Фундамент для вашего финтеха</h5>
+                    <p>Для масштабирования трафика <br class="d-block d-md-none">и построения <br class="d-none d-md-block"> внутренних <br class="d-block d-md-none">платёжных систем</p>
+                    <img src="img/img-4.png" class="d-none d-md-flex img-fluid mt-auto" alt="Графика">
+                    <img src="img/img-4-mob.png" class="d-inline-block d-md-none img-fluid mt-auto" alt="Графика">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="plans">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>Пакеты запуска White-Label на базе PayGuru</h2>
+        </div>
+
+        <div class="row g-3 g-md-5 mb-2r">
+            <!-- Тариф: Aggregator -->
+            <div class="col-md-4 col-sm-12">
+                <div class="plan-card">
+                    <div class="plan-label">Пакет</div>
+                    <h4>Demo</h4>
+                    <p class="small">Индивидуальный тестовый доступ</p>
+                    <ul class="plan-info">
+                        <li>Стоимость: <strong>от $5,000</strong></li>
+                        <li>Ставка платформы: -</li>
+
+                    </ul>
+                    <h6>Что входит?</h6>
+                    <ul>
+                        <li>Личный тестовый сервер</li>
+                        <li>Доступ к админ-панели</li>
+                        <li>Возможность провести собственную<br>интеграцию</li>
+
+                    </ul>
+                    <a href="#" class="btn btn-blue mt-auto mb-3 open-modal">Узнать подробнее</a>
+                    <p class="text-center plan-foot small">Стоимость может быть зачтена<br>при переходе на старший пакет </p>
+                </div>
+            </div>
+
+            <!-- Тариф: Enterprise -->
+            <div class="col-md-4 col-sm-12">
+                <div class="plan-card">
+                    <div class="plan-label">Пакет</div>
+                    <h4>StartUp</h4>
+                    <p class="small">Быстрый запуск под брендом</p>
+                    <ul class="plan-info">
+                        <li>Стоимость: <strong>от $35,000</strong></li>
+                        <li>Ставка платформы: 0.4%</li>
+                        <li>Интеграций в месяц: 1</li>
+                    </ul>
+                    <h6>Что входит?</h6>
+                    <ul>
+                        <li>Домен + SSL</li>
+                        <li>Тестовый и продовый сервер</li>
+                        <li>Брендирование платформы</li>
+                        <li>Учебная документация и поддержка<br>запуска</li>
+                    </ul>
+                    <a href="#" class="btn btn-blue mt-auto mb-3 open-modal">Узнать подробнее</a>
+                    <p class="text-center plan-foot small">Идеально для старта в финтехе<br>
+                        с готовой технологической базой</p>
+                </div>
+            </div>
+
+            <!-- Тариф: PayGuru WL Kit -->
+            <div class="col-md-4 col-sm-12">
+                <div class="plan-card">
+                    <div class="plan-label">Пакет</div>
+                    <h4>PSP</h4>
+                    <p class="small">Ваша собственная платёжная система</p>
+                    <ul class="plan-info">
+                        <li>Стоимость: <strong>от $60,000</strong></li>
+                        <li>Ставка платформы: 0.3%</li>
+                        <li>Интеграций в месяц: 2</li>
+                    </ul>
+                    <h6>Что входит?</h6>
+                    <ul>
+                        <li>Всё из StartUp </li>
+                        <li>Подключение Support-бота</li>
+                        <li>Брендирование платформы</li>
+                        <li>Расширенные инструменты приёма<br>и обработки платежей</li>
+                    </ul>
+                    <a href="#" class="btn btn-blue mt-auto mb-3 open-modal">Узнать подробнее</a>
+                    <p class="text-center plan-foot small">Для тех, кто строит платежный бренд<br>
+                        и нуждается в гибкости.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-3 g-md-5 mb-2r">
+            <!-- Тариф: Aggregator -->
+            <div class="col-md-4 col-sm-12">
+                <div class="plan-card">
+                    <div class="plan-label">Пакет</div>
+                    <h4>Aggregator</h4>
+                    <p class="small">Контроль над каскадом</p>
+                    <ul class="plan-info">
+                        <li>Стоимость: <strong>от $60,000</strong></li>
+                        <li>Ставка платформы: 0.3%</li>
+                        <li>Интеграций в месяц: 2</li>
+                    </ul>
+                    <h6>Что входит?</h6>
+                    <ul>
+                        <li>Всё из StartUp</li>
+                        <li>Инструменты управления шлюзами</li>
+                        <li>Гибкая логика выдачи реквизитов</li>
+                        <li>Полный контроль над<br>распределением потоков трафика</li>
+                    </ul>
+                    <a href="#" class="btn btn-blue mt-auto mb-3 open-modal">Узнать подробнее</a>
+                    <p class="text-center plan-foot small">Для команд, которые работают<br> с внешними исполнителями</p>
+                </div>
+            </div>
+
+            <!-- Тариф: Enterprise -->
+            <div class="col-md-4 col-sm-12">
+                <div class="plan-card">
+                    <div class="plan-label">Пакет</div>
+                    <h4>Enterprise</h4>
+                    <p class="small">Всё включено</p>
+                    <ul class="plan-info">
+                        <li>Стоимость: <strong>от $105,000</strong></li>
+                        <li>Ставка платформы: 0.25%</li>
+                        <li>Интеграций в месяц: 4</li>
+                    </ul>
+                    <h6>Что входит?</h6>
+                    <ul>
+                        <li>Всё из PSP и Aggregator</li>
+                        <li>Кастомизация API</li>
+                        <li>PayGuru WL Kit</li>
+                    </ul>
+                    <a href="#" class="btn btn-blue mt-auto mb-3 open-modal">Узнать подробнее</a>
+                    <p class="text-center plan-foot small">Максимум возможностей. Для зрелых<br> команд и масштабируемых запусков</p>
+                </div>
+            </div>
+
+            <!-- Тариф: PayGuru WL Kit -->
+            <div class="col-md-4 col-sm-12">
+                <div class="plan-card">
+                    <div class="plan-label">Add-On</div>
+                    <h4>PayGuru WL Kit</h4>
+                    <ul class="plan-info">
+                        <li>Стоимость: <strong>от $15,000</strong></li>
+                        <li>Полный комплект для запуска </li>
+                        <li>процессингового бизнеса под своим<br> брендом:</li>
+                    </ul>
+                    <ul>
+                        <li><strong>Настроенные бизнес-процессы<br> и Telegram инфраструктура</strong></li>
+                        <li><strong>AI интеграция PayGuru X ChatGPT</strong></li>
+                        <li><strong>Пошаговое руководство и документация</strong></li>
+                        <li><strong>Trello-доски, шаблоны, чеклисты, доступы</strong></li>
+                        <li><strong>Для тех, кто хочет не просто WL,<br>а прибыльный fintech-актив</strong></li>
+                    </ul>
+                    <a href="#" class="btn btn-blue mt-auto mb-3 open-modal">Узнать подробнее</a>
+                    <p class="text-center plan-foot small">Для тех, кто хочет не просто WL,<br>а прибыльный fintech-актив</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add-On: Доп. интеграция -->
+        <div class="addon-card mt-2">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-start align-items-md-center gap-3">
+                <div>
+                    <div class="plan-label">ADD-ON</div>
+                    <h5>Дополнительная интеграция</h5>
+                    <p class="mb-0">Стоимость: от $1,500</p>
+                </div>
+                <a href="#" class="btn btn-blue open-modal">Узнать подробнее</a>
+            </div>
+            <p class="plan-foot small text-center text-md-end mt-2">Интеграция нового шлюза, Мерчанта,<br> Агрегатора по API</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="features features__bg">
+    <div class="container" style="max-width: 1320px;">
+        <div class="text-center mb-5">
+            <h2 class="mb54rem">
+                <span class="gradient-text">Алгоритм </span><br> распределения сделок
+            </h2>
+        </div>
+
+        <div class="row g-3 g-md-4 justify-content-center">
+            <!-- Блок 1 -->
+            <div class="col-6  col-md-4">
+                <div class="feature-card   shadow-sm">
+                    <div class="feature-number">1</div>
+                    <h5>25+ параметров отбора</h5>
+                    <ul>
+                        <li>Надёжность </li>
+                        <li>Нагрузка </li>
+                        <li>Ограничения </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Блок 2 -->
+            <div class="col-6  col-md-4">
+                <div class="feature-card  shadow-sm">
+                    <div class="feature-number">2</div>
+                    <h5>Распределение<br class="d-block d-md-none"> по весам<br class="d-block d-md-none"> и приоритетам</h5>
+                    <ul>
+                        <li>С исключениями по последним сделкам</li>
+
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Блок 3 -->
+            <div class="col-6  col-md-4">
+                <div class="feature-card  shadow-sm">
+                    <div class="feature-number">3</div>
+                    <h5>Интеллектуальные «отступы» </h5>
+                    <ul>
+                        <li>Для трансграничных переводов</li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-6  col-md-4 d-flex d-md-none">
+                <img class="m-auto" src="img/paper.png" alt="Иконка">
+            </div>
+        </div>
+
+
+    </div>
+</section>
+<section class="roles">
+    <div class="container">
+        <h2 class="text-center ">Ролевая модель</h2>
+
+        <div class="role-table-wrapper">
+            <table class="table role-table mb-0">
+                <thead>
+                <tr>
+                    <th>Роль</th>
+                    <th>Основные права</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Owner</td>
+                    <td>Полный контроль над платформой</td>
+                </tr>
+                <tr>
+                    <td>Manager</td>
+                    <td>Настройка тарифов, конфигурация рабочих параметров</td>
+                </tr>
+                <tr>
+                    <td>Administrator</td>
+                    <td>Мониторинг ключевых метрик, частичная настройка</td>
+                </tr>
+                <tr>
+                    <td>Trader</td>
+                    <td>Обработка операций и споров</td>
+                </tr>
+                <tr>
+                    <td>SubTrader</td>
+                    <td>Взаимодействие с выплатами и системой</td>
+                </tr>
+                <tr>
+                    <td>Support</td>
+                    <td>Ведение споров и верификация чеков через Telegram-бот</td>
+                </tr>
+                <tr>
+                    <td>TeamLead</td>
+                    <td>Привлечение контрагентов за комиссионное вознаграждение</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<section class="smart-interface position-relative">
+    <div class="container" style="max-width: 1320px;">
+        <div class="text-center mb-5">
+            <h2>
+                <span class="gradient-text">Smart-интерфейс</span><br>
+                для платёжного<br class="d-block d-md-none"> бизнеса
+            </h2>
+        </div>
+
+        <div class="smart-ui-img text-center mb-5">
+            <img src="img/smart-ui.png" alt="Smart UI интерфейс" class="img-fluid">
+        </div>
+
+        <div class="row g-3 g-lg-4 text-center justify-content-center">
+            <div class="col-6 col-lg-3">
+                <div class="smart-card">
+                    <h5><span class="gradient-text">Smart</span> <span class="gradient-text">Payouts</span></h5>
+                    <p>Auto/manual режимы под фермы + netting + matching</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <div class="smart-card">
+                    <h5><span class="gradient-text">Risk</span> <span class="gradient-text">Shield </span></h5>
+                    <p>Roling reserve, фильтры для подозрительного трафика, соответствие шифрованию PSI DSS</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3">
+                <div class="smart-card">
+                    <h5><span class="gradient-text">Pay</span> <span class="gradient-text">Anywhere</span></h5>
+                    <p>QR-коды, платёжные ссылки, мультивалютные счета</p>
+                </div>
+            </div>
+
+            <div class="col-6 col-lg-3 last-col">
+                <div class="smart-card">
+                    <h5><span class="gradient-text">Real-Time</span><br> <span class="gradient-text">Analytics</span></h5>
+                    <p>Дашборды с анализом конверсии. Прогнозирование трендов. Детальные отчёты в Excel</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="coverage coverage__bg-none">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2>
+                <span class="text-primary">Надёжность</span><br class="d-block d-md-none"> и поддержка
+            </h2>
+        </div>
+
+        <div class="row g-3 g-lg-4 justify-content-center">
+            <div class="col-6  col-lg-4">
+                <div class="text-start info-card shadow-sm">
+                    <div class="icon mb-3">
+                        <img src="img/icon-calling.svg" alt="Иконка">
+                    </div>
+                    <h4>SLA 99.9%</h4>
+                    <p class="text-muted">Круглосуточная поддержка 24/7
+                        без простоев</p>
+                </div>
+            </div>
+            <div class="col-6  col-lg-4">
+                <div class="text-start info-card  shadow-sm">
+                    <div class="icon mb-3">
+                        <img src="img/icon-send.svg" alt="Иконка">
+                    </div>
+                    <h4>Мониторинг</h4>
+                    <p class="text-muted"> Оповещения в Telegram</p>
+                </div>
+            </div>
+            <div class="col-6  col-lg-4">
+                <div class="text-start info-card  shadow-sm">
+                    <div class="icon mb-3">
+                        <img src="img/icon-activity.svg" alt="Иконка">
+                    </div>
+                    <h4>Полное логирование</h4>
+                    <p class="text-muted">Аудит, стабильная работа<br>
+                        под высокой нагрузкой</p>
+                </div>
+            </div>
+            <div class="col-6  col-lg-4 d-flex d-md-none">
+                <img class="m-auto" src="img/activity.svg" alt="Иконка">
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="white-label white-label__bg position-relative">
+    <div class="container" style="max-width: 1320px;">
+        <div class="text-center mb-5">
+            <h2><span class="gradient-text">Скорость</span>  внедрения и развитие</h2>
+        </div>
+
+        <div class="row mb-5 g-5">
+            <!-- Готовая инфраструктура -->
+            <div class="col-md-6 col-xl-6">
+                <div class="wl-card p-4">
+                    <div class="wl-icon wl-icon-5 mb-21px">
+                        <img src="img/icon-calendar.svg" alt="Иконка">
+                    </div>
+                    <h5>Развёртывание<br> под бренд клиента</h5>
+                    <p>До 7 дней (домен, лого, конфигурация)</p>
+                    <img src="img/img-calendar.png" class="ms-auto img-fluid w-50 mt-auto" alt="Графика">
+                </div>
+            </div>
+
+            <!-- Быстрый запуск -->
+            <div class="col-md-6 col-xl-6">
+                <div class="wl-card p-4">
+                    <div class="wl-icon wl-icon-6 mb-21px">
+                        <img src="img/icon-setting.svg" alt="Иконка">
+                    </div>
+                    <h5>Еженедельные обновления</h5>
+                    <p>Новые методы оплаты и функционал<br>
+                        без остановки сервисов</p>
+                    <img src="img/img-setting.png" class="ms-auto img-fluid w-50 mt-auto" alt="Графика">
+                </div>
+            </div>
+
+
+        </div>
+        <h2 class="text-center pt-6 fw-bold">Технологии<br class="d-block d-md-none"> в действии</h2>
+    </div>
+</section>
+
+
+
+
+<div class="bg-footer-mob position-relative">
+
+<section class="tech-section">
+    <div class="container" style="max-width: 1320px;">
+
+        <div class="tech-box tech-card">
+            <h5><span class="gradient-text">Контроль</span></h5>
+            <p>Полный доступ к бизнес-логике, API и параметрам</p>
+        </div>
+        <div class="tech-box tech-card">
+            <h5><span class="gradient-text">Надёжность</span></h5>
+            <p>Поддержка критически важного бизнеса 24/7, проверено миллионами транзакций</p>
+        </div>
+        <div class="tech-box tech-card">
+            <h5><span class="gradient-text">Безопасность</span></h5>
+            <p>Соответствие PCI DSS, встроенные меры защиты</p>
+        </div>
+        <div class="tech-box tech-card">
+            <h5><span class="gradient-text">Гибкость</span></h5>
+            <p>Десятки настроек в UI для тонкой отладки процессов</p>
+        </div>
+        <div class="tech-box tech-card">
+            <h5><span class="gradient-text">Производительность</span></h5>
+            <p>Тысячи TPS без деградации, даже при пиковых нагрузках</p>
+        </div>
+        <div class="tech-box tech-card">
+            <h5><span class="gradient-text">Масштабируемость</span></h5>
+            <p>Быстрый выход в новые юрисдикции</p>
+        </div>
+        <div class="tech-box tech-card">
+            <h5><span class="gradient-text">Автоматизация</span></h5>
+            <p>Более 90% операций проходят без ручного вмешательства; интеллектуальная маршрутизация</p>
+        </div>
+    </div>
+</section>
+<!----
+<section class="tech-section ">
+    <div class="container" style="max-width: 1320px;">
+
+
+        <div class="tech-grid">
+
+                <div class="tech-card   tech-card control">
+                    <h5><span class="gradient-text">Контроль</span></h5>
+                    <p>Полный доступ к бизнес-логике, API и параметрам</p>
+                </div>
+                <div class="tech-card   reliability">
+                    <h5><span class="gradient-text">Надёжность</span></h5>
+                    <p>Поддержка критически важного бизнеса 24/7, проверено миллионами транзакций</p>
+                </div>
+                <div class="tech-card  security">
+                    <h5><span class="gradient-text">Безопасность</span></h5>
+                    <p>Соответствие PCI DSS, встроенные меры защиты</p>
+                </div>
+                <div class="tech-card flexibility">
+                    <h5><span class="gradient-text">Гибкость</span></h5>
+                    <p>Десятки настроек в UI для тонкой отладки процессов</p>
+                </div>
+
+            <div class="tech-row-bottom">
+                <div class="tech-card   performance">
+                    <h5><span class="gradient-text">Производительность</span></h5>
+                    <p>Тысячи TPS без деградации, даже при пиковых нагрузках</p>
+                </div>
+                <div class="tech-card  scalability">
+                    <h5><span class="gradient-text">Масштабируемость</span></h5>
+                    <p>Быстрый выход в новые юрисдикции</p>
+                </div>
+                <div class="tech-card  automation">
+                    <h5><span class="gradient-text">Автоматизация</span></h5>
+                    <p>Более 90% операций проходят без ручного вмешательства; интеллектуальная маршрутизация</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>---->
+<footer class="footer position-relative">
+    <div class="container" style="max-width: 1320px;">
+        <img src="img/logo.svg" alt="PayGuru" class="d-flex justify-content-center justify-content-md-start footer-logo ">
+        <div class="footer-grid">
+
+            <!-- Левая колонка -->
+            <div class="footer-left">
+
+                <h3 class="fw-bold">PayGuru</h3>
+                <p class=" mb-4">Решение, которому доверяют</p>
+                <a href="#" class="index-3 btn btn-blue open-modal">Стать клиентом</a>
+            </div>
+
+            <!-- Правая колонка -->
+            <div class="footer-right">
+                <h5 class="fw-bold ">Контакты</h5>
+                <p><a href="mailto:hello@pay-guru.io">hello@pay-guru.io</a></p>
+                <p><strong>Telegram:</strong> <a href="https://t.me/Alex_PGM">@Alex_PGM</a></p>
+                <div class="footer-links mt-4">
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center mt-9 small text-muted">
+            PayGuru WL Solution. All rights reserved © 2025
+        </div>
+    </div>
+</footer>
+
+</div>
+
+<div class="modal-overlay" id="modal" style="display: none;">
+    <div class="modal-form">
+        <button class="modal-close" id="closeModalBtn">
+            <svg class="d-none d-md-inline-block" width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+
+            <path d="M17 17L3 3" stroke="#A9A9A9" stroke-width="5" stroke-linecap="round" />
+            <path d="M17 3L3.03018 16.9698" stroke="#A9A9A9" stroke-width="5" stroke-linecap="round" />
+        </svg>
+            <svg class="d-inline-block d-md-none"width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M10.5 10.5L1.5 1.5" stroke="#A9A9A9" stroke-width="3" stroke-linecap="round" />
+                <path d="M10.5 1.5L1.5194 10.4806" stroke="#A9A9A9" stroke-width="3" stroke-linecap="round" />
+            </svg>
+
+        </button>
+
+
+        <div class="modal-icon mb-3">
+            <img src="img/user-icon.svg" alt="User icon">
+        </div>
+        <h5 class="modal-title">Данные клиента</h5>
+        <p class="modal-subtitle">*Поля обязательны для заполнения</p>
+
+        <form>
+            <input type="text" placeholder="*Введите ваше Имя" required>
+            <input type="email" placeholder="*Введите вашу почту" required>
+            <label for="detailsModal">Комментарии</label>
+            <textarea id="detailsModal"  rows="4"></textarea>
+            <button type="submit" class="btn-submit">Отправить</button>
+        </form>
+
+<!--        <div class="modal-footer ">-->
+<!--            <a href="#" class="tg-link ">Написать менеджеру</a>-->
+<!--        </div>-->
+    </div>
+</div>
+
+<script>
+    const modal = document.getElementById('modal');
+    const openButtons = document.querySelectorAll('.open-modal');
+    const closeBtn = document.getElementById('closeModalBtn');
+
+    openButtons.forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        });
+    });
+
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        document.body.style.overflow = '';
+    });
+
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+    });
+</script>
+
+</body>
+</html>
