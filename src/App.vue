@@ -1,33 +1,28 @@
 <script setup lang="ts">
-import Hero from "@/sections/Hero.vue";
-import Header from "@/components/Header.vue";
-import Logos from "@/sections/Logos.vue";
-import TechSupport from "@/sections/TechSupport.vue";
-import ContactUs from "@/components/ContactUs.vue";
-import Footer from "@/sections/Footer.vue";
-import TechnologiesInProcess from "@/sections/TechnologiesInProcess.vue";
-import WhiteLabel from "@/sections/WhiteLabel.vue";
-import FastStart from "@/sections/FastStart.vue";
-import Features from "@/sections/Features.vue";
-import Geography from "@/sections/Geography.vue";
-import Banner from "@/sections/Banner.vue";
+import { computed } from "vue";
+import { useRoute } from "vue-router"
+
+import BaseLayout from "@/layouts/BaseLayout.vue";
+import EmptyLayout from "@/layouts/EmptyLayout.vue";
+
+const route = useRoute();
+
+const layouts = {
+  default: BaseLayout,
+  empty: EmptyLayout,
+} as const;
+
+const layoutComponent = computed(() => {
+  const key = (route.meta.layout as keyof typeof layouts) || "default";
+  return layouts[key] ?? layouts.default;
+});
+
 </script>
 
 <template>
-  <Banner />
-  <Header />
-  <main>
-    <Hero />
-    <Logos />
-    <Geography />
-    <TechnologiesInProcess />
-    <Features />
-    <WhiteLabel />
-    <FastStart />
-    <TechSupport />
-    <ContactUs />
-    <Footer />
-  </main>
+  <component :is="layoutComponent">
+    <router-view />
+  </component>
 </template>
 
 <style scoped>
