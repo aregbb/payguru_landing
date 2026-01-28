@@ -33,7 +33,7 @@ const items = ref([
           <span>PayGuru</span>
         </div>
         <div class="footer__nav">
-          <a v-for="(item, i) in items" :href="item.link">{{ item.label }}</a>
+          <a v-for="(item) in items" :href="item.link">{{ item.label }}</a>
         </div>
         <div class="footer__text">2026 Integranova Dynamics, LLC.</div>
       </div>
