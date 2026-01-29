@@ -1,7 +1,23 @@
 <script setup lang="ts">
+import { ref } from "vue";
 
 import Container from "@/components/Container.vue";
 import Button from "@/components/Button.vue";
+import Modal from "@/components/Modal.vue";
+import BaseInput from "@/components/BaseInput.vue";
+
+import { ChevronRightIcon } from "@heroicons/vue/24/solid";
+import BaseCheckbox from "@/components/BaseCheckbox.vue";
+
+const isContactFormVisible = ref(false);
+
+const contactForm = ref({
+  name: "",
+  email: "",
+  comment: ""
+})
+
+const isFormApproved = ref(false);
 </script>
 
 <template>
@@ -13,9 +29,24 @@ import Button from "@/components/Button.vue";
         Короткий звонок с экспертом поможет выбрать оптимальное решение, быстро запуститься <br>
         и избежать ошибок на старте и в процессе работы
       </div>
-      <Button class="contact-us__action" variant="secondary">Запланировать звонок</Button>
+      <Button class="contact-us__action" variant="secondary" @click="isContactFormVisible = true">Запланировать звонок</Button>
     </Container>
   </section>
+  <Modal class="contact-us__modal" v-model="isContactFormVisible">
+    <h3>Связаться с нами</h3>
+    <div class="contact-us__modal-content">
+      <BaseInput v-model="contactForm.name" label="Имя" required />
+      <BaseInput v-model="contactForm.email" label="Контакт (email или telegram)" placeholder="example@mail.com | @example" required />
+    </div>
+    <BaseCheckbox class="contact-us__modal-check" v-model="isFormApproved">
+      Я соглашаюсь на обработку персональных данных <br> и соглашаюсь с <router-link :to="'/privacy'"> политикой конфиденциальности </router-link>
+    </BaseCheckbox>
+    <Button class="contact-us__modal-action">
+      <div class="flex items-end">
+        <span>Создать обращение</span> <ChevronRightIcon style="margin-left: 3px; width: 14px; color: white" />
+      </div>
+    </Button>
+  </Modal>
 </template>
 
 <style scoped lang="scss">
@@ -78,6 +109,19 @@ import Button from "@/components/Button.vue";
 
     filter: blur(34px) saturate(1.18);
     transform: scale(1.08);
+  }
+
+  &__modal-content {
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  &__modal-check {
+    margin-top: 16px;
+  }
+  &__modal-action {
+    margin-top: 24px;
   }
 }
 </style>
