@@ -18,27 +18,27 @@ const items = ref([
   {
     icon: Diagram,
     title: "Производительность",
-    text: "Стабильная работа при пиковых нагрузках"
+    text: "Стабильная работа <br> при пиковых нагрузках"
   },
   {
     icon: Shield,
     title: "Безопасность",
-    text: "Соответствие PCI DSS, встроенные меры защиты"
+    text: "Соответствие PCI DSS, <br> встроенные меры защиты"
   },
   {
     icon: Filters,
     title: "Функциональность",
-    text: "Сотни параметров в UI для тонкой настройки"
+    text: "Сотни параметров в UI <br> для тонкой настройки"
   },
   {
     icon: Unlock,
     title: "Контроль",
-    text: "Полный доступ к бизнес-логике, API и параметрам"
+    text: "Полный доступ к бизнес-логике, <br> API и параметрам"
   },
   {
     icon: HandShake,
     title: "Надежность",
-    text: "Поддержка критически важного бизнеса 24/7"
+    text: "Поддержка критически важного <br> бизнеса 24/7"
   },
 ])
 </script>
@@ -54,7 +54,7 @@ const items = ref([
         <div class="technologies__item" v-for="item in items">
           <img class="technologies__item-icon" :src="item.icon" />
           <div class="technologies__item-title">{{ item.title }}</div>
-          <div class="technologies__item-text">{{ item.text }}</div>
+          <div class="technologies__item-text" v-html="item.text" />
         </div>
       </div>
     </Container>
@@ -70,12 +70,14 @@ const items = ref([
 
     h2 {
       font-size: 62px;
+      letter-spacing: -1.24px;
     }
 
     &-text {
       margin-top: 25px;
       color: #65758A;
       font-size: 24px;
+      letter-spacing: -1.2px;
     }
   }
 
@@ -87,7 +89,7 @@ const items = ref([
   }
 
   &__item {
-    padding: 32px;
+    padding: 28px 32px;
     border-radius: 20px;
     width: 376px;
     box-shadow:
@@ -97,13 +99,15 @@ const items = ref([
     &-title {
       margin-top: 24px;
       font-size: 22px;
+      letter-spacing: -0.88px;
       line-height: 30px;
-      font-weight: bold;
+      font-weight: 500;
       margin-bottom: 16px;
     }
     &-text {
       font-size: 17px;
       line-height: 23px;
+      letter-spacing: -0.68px;
       color: #65758A;
     }
   }

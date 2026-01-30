@@ -15,7 +15,7 @@ const items = ref([
   {
     icon: SettingsPurple,
     title: "Постоянные обновления",
-    text: "Новый функционал и методы оплаты без остановки сервисов."
+    text: "Новый функционал и методы <br> оплаты без остановки сервисов."
   },
   {
     icon: Rocket,
@@ -38,7 +38,7 @@ const items = ref([
           <div v-for="item in items" class="white-label__item">
             <img :src="item.icon" />
             <div class="white-label__item-title">{{ item.title }}</div>
-            <div class="white-label__item-text">{{ item.text }}</div>
+            <div class="white-label__item-text" v-html="item.text" />
           </div>
         </div>
       </div>
@@ -52,11 +52,19 @@ const items = ref([
   padding: 100px 0;
   color: #fff;
 
+  h2 {
+    font-size: 62px;
+    line-height: 60px;
+    letter-spacing: -2.48px;
+  }
+
   &__head {
     text-align: center;
     &-text {
       margin-top: 25px;
       font-size: 24px;
+      letter-spacing: -1.2px;
+      font-weight: lighter;
       color: #FFFFFF;
       opacity: 0.75;
     }
@@ -77,15 +85,20 @@ const items = ref([
       font-size: 27px;
       font-weight: bold;
       line-height: 30px;
-      margin-top: 32px;
+      letter-spacing: -1.08px;
+      margin-top: 27px;
       margin-bottom: 16px;
+      text-align: left;
+      padding-left: 28px;
     }
 
     &-text {
+      text-align: left;
       padding: 0 28px;
       color: #627286;
       font-size: 18px;
       line-height: 26px;
+      letter-spacing: -0.72px;
       margin-bottom: 51px;
     }
   }

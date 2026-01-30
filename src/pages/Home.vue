@@ -20,7 +20,7 @@ import Features from "@/sections/Features.vue";
   <WhiteLabel />
   <FastStart />
   <TechSupport />
-  <ContactUs />
+<!--  <ContactUs />-->
 </template>
 
 <style scoped lang="scss">

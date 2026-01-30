@@ -3,21 +3,9 @@ import { ref } from "vue";
 
 import Container from "@/components/Container.vue";
 import Button from "@/components/Button.vue";
-import Modal from "@/components/Modal.vue";
-import BaseInput from "@/components/BaseInput.vue";
-
-import { ChevronRightIcon } from "@heroicons/vue/24/solid";
-import BaseCheckbox from "@/components/BaseCheckbox.vue";
+import ContactModal from "@/components/modals/ContactModal.vue";
 
 const isContactFormVisible = ref(false);
-
-const contactForm = ref({
-  name: "",
-  email: "",
-  comment: ""
-})
-
-const isFormApproved = ref(false);
 </script>
 
 <template>
@@ -32,24 +20,11 @@ const isFormApproved = ref(false);
       <Button class="contact-us__action" variant="secondary" @click="isContactFormVisible = true">Запланировать звонок</Button>
     </Container>
   </section>
-  <Modal class="contact-us__modal" v-model="isContactFormVisible">
-    <h3>Связаться с нами</h3>
-    <div class="contact-us__modal-content">
-      <BaseInput v-model="contactForm.name" label="Имя" required />
-      <BaseInput v-model="contactForm.email" label="Контакт (email или telegram)" placeholder="example@mail.com | @example" required />
-    </div>
-    <BaseCheckbox class="contact-us__modal-check" v-model="isFormApproved">
-      Я соглашаюсь на обработку персональных данных <br> и соглашаюсь с <router-link :to="'/privacy'"> политикой конфиденциальности </router-link>
-    </BaseCheckbox>
-    <Button class="contact-us__modal-action">
-      <div class="flex items-end">
-        <span>Создать обращение</span> <ChevronRightIcon style="margin-left: 3px; width: 14px; color: white" />
-      </div>
-    </Button>
-  </Modal>
+  <ContactModal v-if="isContactFormVisible" />
 </template>
 
 <style scoped lang="scss">
+
 .contact-us {
   background: #020617;
   padding: 100px 0;
@@ -64,10 +39,15 @@ const isFormApproved = ref(false);
     z-index: 1;
   }
 
+  h2 {
+    letter-spacing: -2px;
+  }
+
   &__info {
     font-size: 19px;
     line-height: 27px;
     margin-top: 20px;
+    letter-spacing: -1.62px;
   }
   &__action {
     margin-top: 32px;
@@ -75,53 +55,27 @@ const isFormApproved = ref(false);
 
   &__gradient {
     position: absolute;
-    inset: -18%;              // запас под blur
+    inset: 0;
     z-index: 0;
     pointer-events: none;
 
     background:
-        /* главный синий прожектор снизу */
-        radial-gradient(1920px 700px at 50% 112%,
-            rgba(56, 138, 215, 1) 0%,
-            rgba(56, 138, 215, 0.62) 34%,
-            rgba(56, 138, 215, 0) 74%
+        radial-gradient(
+                75% 185% at 50% 115%,
+                rgba(54, 138, 215, 1) 0%,
+                rgba(54, 138, 215, 0.62) 28%,
+                rgba(54, 138, 215, 0.22) 52%,
+                rgba(54, 138, 215, 0) 72%
+        ),
+        radial-gradient(
+                55% 140% at 62% 112%,
+                rgba(54, 138, 215, 0.22) 0%,
+                rgba(54, 138, 215, 0) 70%
         ),
 
-          /* второй синий слой — поднимает подсвет вверх (ключевое отличие от твоего) */
-        radial-gradient(1100px 620px at 55% 35%,
-            rgba(56, 138, 215, 0.28) 0%,
-            rgba(56, 138, 215, 0.14) 40%,
-            rgba(56, 138, 215, 0) 78%
-        ),
+        #020617;
 
-          /* мягкий фиолетовый слева снизу */
-        radial-gradient(900px 620px at 8% 118%,
-            rgba(201, 135, 253, 0.35) 0%,
-            rgba(201, 135, 253, 0.16) 40%,
-            rgba(201, 135, 253, 0) 78%
-        ),
-
-          /* верх чуть затемнён, но НЕ в ноль (у тебя сейчас он слишком давит) */
-        linear-gradient(180deg,
-            rgba(2, 6, 23, 0.35) 0%,
-            rgba(2, 6, 23, 0.0) 55%
-        );
-
-    filter: blur(34px) saturate(1.18);
-    transform: scale(1.08);
-  }
-
-  &__modal-content {
-    margin-top: 24px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-  &__modal-check {
-    margin-top: 16px;
-  }
-  &__modal-action {
-    margin-top: 24px;
+    background-repeat: no-repeat;
   }
 }
 </style>

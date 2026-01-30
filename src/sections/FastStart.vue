@@ -5,6 +5,10 @@ import LogoWithBrads from "@/assets/img/logo-with-brands.png"
 import Check from "@/assets/img/icons/Check.svg";
 import Container from "@/components/Container.vue";
 import Button from "@/components/Button.vue";
+import ContactModal from "@/components/modals/ContactModal.vue";
+import {ChevronRightIcon} from "@heroicons/vue/24/solid";
+
+const isContactModalVisible = ref(false);
 
 const items = ref([
   {
@@ -41,17 +45,19 @@ const items = ref([
                 </div>
               </div>
             </div>
-            <Button class="first-start__action" variant="secondary">
-              Запросить доступ к демо >
+            <Button class="first-start__action" variant="secondary" @click="isContactModalVisible = true">
+              <div class="flex items-end">
+                <span>Запросить доступ к демо</span>
+                <ChevronRightIcon style="margin-left: 3px; width: 14px;" />
+              </div>
             </Button>
           </div>
         </div>
-        <div class="first-start__right">
-          <img alt="picture" :src="LogoWithBrads" />
-        </div>
+        <div class="first-start__right" :style="{ backgroundImage: `url(${LogoWithBrads})` }" />
       </div>
     </Container>
   </section>
+  <ContactModal v-if="isContactModalVisible" @close="isContactModalVisible = false" />
 </template>
 
 <style scoped lang="scss">
@@ -60,8 +66,27 @@ const items = ref([
   background: #020617;
   color: #fff;
 
+  h2 {
+    font-size: 62px;
+    line-height: 60px;
+    letter-spacing: -2.48px;
+    font-weight: 500;
+  }
+
   &__content {
     display: flex;
+  }
+
+  &__left {
+    width: 473px;
+  }
+
+  &__right {
+    width: 712px;
+    margin-top: -30px;
+    height: 552px;
+    background-size: cover;
+    background-repeat: no-repeat;
   }
 
   &__list {

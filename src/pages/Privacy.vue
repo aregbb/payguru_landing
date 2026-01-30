@@ -1,8 +1,15 @@
 <script setup lang="ts">
-import {ref } from "vue";
+import {ref, onBeforeMount } from "vue";
 import Logo from "@/assets/img/Logo.svg"
+import { useRoute } from "vue-router";
+
+const route = useRoute();
 
 const activeTab = ref(1);
+
+onBeforeMount(() => {
+  if (route.query.tab === 'terms' ) activeTab.value = 2;
+})
 
 </script>
 

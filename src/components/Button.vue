@@ -20,12 +20,12 @@ withDefaults(defineProps<{
 .ui-btn {
   font-family: "NT Somic", system-ui, sans-serif;
   font-size: 16px;
-  font-weight: 400;
   padding: 14.5px 20px;
   border-radius: 10px;
   border: none;
   cursor: pointer;
   line-height: 1;
+  font-weight: 500;
   &--primary {
     background: linear-gradient(104.74deg, #1D65FF 0%, #A200FF 98.96%);
     color: white;

@@ -4,7 +4,7 @@
 
 <template>
   <section class="banner">
-    <div>Pay Guru — спонсор конференции G GATE CoNF 26, Июнь 26-27 Тбилиси, Грузия. Присоединиться.</div>
+    <a href="https://ggateconf.com/" style="cursor: pointer;">Pay Guru — спонсор конференции G GATE CoNF 26, Июнь 26-27 Тбилиси, Грузия. <span style="text-decoration: underline">Присоединиться.</span></a>
   </section>
 </template>
 

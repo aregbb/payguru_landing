@@ -1,10 +1,14 @@
 <script setup lang="ts">
-// import { useReveal } from "@/composables/useReveal";
-// const { el } = useReveal();
+import { ref } from "vue";
+
 import Container from "../components/Container.vue";
 import bgImg from "@/assets/img/DesktopBg.png"
 import Button from "@/components/Button.vue";
 import HeroBg from "@/assets/img/heroBg.png"
+import ContactModal from "@/components/modals/ContactModal.vue";
+
+
+const isContactModalVisible = ref(false);
 </script>
 
 <template>
@@ -13,41 +17,48 @@ import HeroBg from "@/assets/img/heroBg.png"
     <div class="hero__bg" />
     <div class="hero__bg-figure" :style="{ backgroundImage: `url(${HeroBg})` }" />
     <Container>
-      <div class="hero__content container-page relative pt-10 sm:pt-14 pb-12">
+      <div class="hero__content">
         <div class="hero__content--left">
-          <h1 class="hero__title mt-2 text-4xl sm:text-5xl tracking-tight">
-            Полный контроль<br class="hidden sm:block" />
+          <h1 class="hero__title">
+            Полный контроль <br />
             над денежными потоками
           </h1>
-          <p class="hero__text mt-4 muted max-w-xl">
-            Многофункциональная система оркестрации
-            платежей с глобальным покрытием
+          <p class="hero__text">
+            <strong>Pay Guru</strong> — это многофункциональная система
+            оркестрации платежей с глобальным покрытием
           </p>
-          <div class="mt-6 flex flex-wrap gap-3">
-            <Button>Запланировать звонок</Button>
+          <div class="hero__action">
+            <Button @click="isContactModalVisible = true">Запланировать звонок</Button>
           </div>
         </div>
 
-        <!-- мокап справа -->
         <img class="hero__content-picture" :src="bgImg" alt="">
       </div>
     </Container>
   </section>
+  <ContactModal v-if="isContactModalVisible" @close="isContactModalVisible = false" />
 </template>
 
 <style lang="scss" scoped>
 .hero {
+  position: relative;
   height: 500px;
+
+  h1 {
+    margin: 0;
+  }
   &__bg {
     background: linear-gradient(180deg, rgba(204, 209, 219, 0.7) 0%, rgba(221, 228, 244, 0.7) 97.6%);
     width: 100%;
     position: absolute;
     height: 100%;
+    z-index: -2;
   }
   &__bg-figure {
     width: 100%;
     height: 100%;
     position: absolute;
+    z-index: -1;
     background-repeat: no-repeat;
     background-size: cover;
   }
@@ -58,12 +69,21 @@ import HeroBg from "@/assets/img/heroBg.png"
 
     &--left {
       min-width: 46%;
-      align-self: center;
+      align-self: start;
+      margin-top: 72px;
+    }
+    &-picture {
+      margin-left: -16px;
     }
   }
   &__text {
+    margin-top: 30px;
     line-height: 33px;
     font-size: 24px;
+    letter-spacing: -0.96px;
+  }
+  &__action {
+    margin-top: 36px;
   }
 }
 </style>

@@ -6,26 +6,22 @@ import Container from "@/components/Container.vue";
 
 const items = ref([
   {
-    link: "#",
-    label: "О нас"
+    link: "",
+    label: "English"
   },
   {
-    link: "#",
-    label: "API Документация"
+    link: "/privacy?tab=terms",
+    label: "Terms of Service"
   },
   {
-    link: "#",
-    label: "Условия"
-  },
-  {
-    link: "#",
-    label: "Контакты"
+    link: "/privacy",
+    label: "Privacy Policy"
   },
 ])
 </script>
 
 <template>
-  <div class="footer">
+  <footer class="footer">
     <Container>
       <div class="footer__content">
         <div class="footer__logo">
@@ -33,12 +29,12 @@ const items = ref([
           <span>PayGuru</span>
         </div>
         <div class="footer__nav">
-          <a v-for="(item) in items" :href="item.link">{{ item.label }}</a>
+          <router-link class="footer__text" v-for="(item) in items" :to="item.link">{{ item.label }}</router-link>
         </div>
         <div class="footer__text">2026 Integranova Dynamics, LLC.</div>
       </div>
     </Container>
-  </div>
+  </footer>
 </template>
 
 <style scoped lang="scss">
@@ -50,6 +46,7 @@ const items = ref([
   &__content {
     display: flex;
     justify-content: space-between;
+    align-items: end;
     color: #FFFFFF;
   }
   &__logo {
@@ -62,6 +59,11 @@ const items = ref([
     display: flex;
     gap: 60px;
     align-items: center;
+  }
+  &__text {
+    font-size: 17px;
+    letter-spacing: -0.68px;
+    line-height: 24px;
   }
 }
 </style>

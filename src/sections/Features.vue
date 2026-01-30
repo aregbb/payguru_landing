@@ -5,6 +5,8 @@ import { ref } from "vue";
 import FeaturesImg from "@/assets/img/featuresImg.png"
 import Check from "@/assets/img/icons/whiteCheck.svg";
 import Button from "@/components/Button.vue";
+import ContactModal from "@/components/modals/ContactModal.vue";
+import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 
 const items = ref([
   {
@@ -20,6 +22,8 @@ const items = ref([
     text: "Детальные логи, аудит операций и прозрачная трассировка запросов"
   },
 ]);
+
+const isContactModalVisible = ref(false);
 </script>
 
 <template>
@@ -39,12 +43,16 @@ const items = ref([
               </div>
             </div>
         </div>
-        <Button class="features__action" variant="secondary">
-          Запланировать звонок >
+        <Button class="features__action" variant="secondary" @click="isContactModalVisible = true">
+          <div class="flex items-end">
+            <span>Запланировать звонок</span>
+            <ChevronRightIcon style="margin-left: 3px; width: 15px;" />
+          </div>
         </Button>
       </div>
       </div>
     </Container>
+    <ContactModal v-if="isContactModalVisible" @close="isContactModalVisible = false" />
   </div>
 </template>
 
@@ -68,19 +76,23 @@ const items = ref([
 
     &-item {
       display: flex;
-      gap: 7.5px;
+      gap: 10px;
 
       &-check {
         width: 22.5px;
+        margin-top: 5px;
         height: 22.5px;
       }
       &-title {
-        font-size: 21px;
-        line-height: 22.5px;
+        font-size: 28px;
+        line-height: 30px;
+        font-weight: 500;
+        letter-spacing: -1.12px;
       }
       &-text {
-        margin-top: 10px;
-        font-size: 16px;
+        margin-top: 13px;
+        letter-spacing: -0.84px;
+        font-size: 21px;
         color: #FFFFFF;
         opacity: 0.7;
       }

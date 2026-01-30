@@ -23,7 +23,7 @@ const featuresList = ref([
   {
     icon: Eye,
     title: "Прозрачные статус-коды",
-    description: "Чёткая, логична я и предсказуемая система статусов <br/> с понятным поведением в каждом сценарии <br/> и документацией по каждому статусу",
+    description: "Чёткая, логичная и предсказуемая система статусов <br/> с понятным поведением в каждом сценарии <br/> и документацией по каждому статусу",
   },
   {
     icon: Filter,
@@ -68,7 +68,7 @@ const featuresList = ref([
   background: #FBFCFE;
   &__wrap {
     display: flex;
-    gap: 49px;
+    gap: 85px;
   }
 
   &__left-bg {
@@ -81,7 +81,7 @@ const featuresList = ref([
 
   &--right {
     display: flex;
-    gap: 16px;
+    gap: 15.5px;
     flex-direction: column;
   }
 
@@ -89,6 +89,7 @@ const featuresList = ref([
     font-size: 50px;
     line-height: 60px;
     margin: 0 0 23px;
+    letter-spacing: -2px;
   }
 
   &__card {
@@ -96,7 +97,7 @@ const featuresList = ref([
         0px 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
         0px 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
     backdrop-filter: blur(32px);
-    padding: 32px;
+    padding: 29px 32px;
     border-radius: 20px;
 
     &-icon {
@@ -106,12 +107,14 @@ const featuresList = ref([
     &-title {
       margin: 16px 0;
       font-size: 23px;
+      letter-spacing: -0.46px;
       line-height: 30px;
       font-weight: 500;
     }
     &-description {
       color: #65758A;
       font-size: 17px;
+      letter-spacing: -0.68px;
       line-height: 24px;
     }
   }
@@ -119,6 +122,7 @@ const featuresList = ref([
   .text-additional {
     font-size: 18px;
     line-height: 27px;
+    letter-spacing: -0.54px;
   }
 }
 </style>
