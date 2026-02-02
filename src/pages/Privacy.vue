@@ -5,7 +5,7 @@ import { useRoute } from "vue-router";
 
 const route = useRoute();
 
-const activeTab = ref(1);
+const activeTab = ref(2);
 
 onBeforeMount(() => {
   if (route.query.tab === 'terms' ) activeTab.value = 2;
@@ -17,10 +17,10 @@ onBeforeMount(() => {
   <div class="privacy-page">
     <header class="privacy-page__header header">
       <div class="privacy-page__container header__content">
-        <div class="header__logo">
+        <router-link :to="'/'" class="header__logo">
           <img :src="Logo" alt="logo" />
-          <span>PayGuru</span>
-        </div>
+          <span class="header__logo-text">PayGuru</span>
+        </router-link>
         <div class="header__text">Legal Center</div>
       </div>
     </header>
@@ -28,8 +28,8 @@ onBeforeMount(() => {
       <div class="privacy-page__container">
         <div class="privacy-page__content">
           <ul class="privacy-page__content-left">
-            <li class="tab" :class="{ 'tab--active': activeTab === 1 }" @click="activeTab = 1">Privacy Policy</li>
             <li class="tab" :class="{ 'tab--active': activeTab === 2 }" @click="activeTab = 2">Terms of Service</li>
+            <li class="tab" :class="{ 'tab--active': activeTab === 1 }" @click="activeTab = 1">Privacy Policy</li>
           </ul>
           <div class="privacy-page__content-right">
             <template v-if="activeTab === 1">
@@ -265,13 +265,16 @@ onBeforeMount(() => {
         </div>
       </div>
     </section>
+    <footer>
+      <div class="privacy-page__container">
+        Copyright © 2026, Integranova Dynamics, LLC.
+      </div>
+    </footer>
   </div>
 </template>
 
 <style scoped lang="scss">
 .privacy-page {
-  padding-bottom: 100px;
-
   a {
     color: #3888c2
   }
@@ -294,14 +297,13 @@ onBeforeMount(() => {
 
     &__logo {
       display: flex;
-      font-weight: bold;
-      font-size: 32px;
-      gap: 10px;
       align-items: center;
+      color: black;
+      gap: 9px;
 
-      img {
-        width: 50px;
-        height: 50px;
+      &-text {
+        font-weight: bold;
+        font-size: 23px;
       }
     }
     &__text {
@@ -370,6 +372,13 @@ onBeforeMount(() => {
     &-right {
       width: fit-content;
     }
+  }
+  footer {
+    margin-top: 40px;
+    padding: 13px 0 16px 0;
+    border-top: 1px solid #d2dde5;
+    text-align: right;
+    font-size: 12px;
   }
 }
 </style>

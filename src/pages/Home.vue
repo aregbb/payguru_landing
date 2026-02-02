@@ -8,6 +8,7 @@ import Hero from "@/sections/Hero.vue";
 import Logos from "@/sections/Logos.vue";
 import TechSupport from "@/sections/TechSupport.vue";
 import Features from "@/sections/Features.vue";
+import ContactUs from "@/components/ContactUs.vue";
 </script>
 
 <template>
@@ -19,7 +20,7 @@ import Features from "@/sections/Features.vue";
   <WhiteLabel />
   <FastStart />
   <TechSupport />
-<!--  <ContactUs />-->
+  <ContactUs />
 </template>
 
 <style scoped lang="scss">

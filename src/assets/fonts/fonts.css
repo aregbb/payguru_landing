@@ -1,23 +1,21 @@
-@font-face {
-    font-family: "NT Somic";
-    src: url("./NTSomic-Regular.ttf") format("truetype");
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
+@font-face{
+    font-family:"NT Somic";
+    src:url("/fonts/NTSomic-Regular.ttf") format("truetype");
+    font-weight:400;
+    font-style:normal;
+    font-display:swap;
 }
-
-@font-face {
-    font-family: "NT Somic";
-    src: url("./NTSomic-Medium.ttf") format("truetype");
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
+@font-face{
+    font-family:"NT Somic";
+    src:url("/fonts/NTSomic-Medium.ttf") format("truetype");
+    font-weight:500;
+    font-style:normal;
+    font-display:swap;
 }
-
-@font-face {
-    font-family: "NT Somic";
-    src: url("./NTSomic-Bold.ttf") format("truetype");
-    font-weight: 700;
-    font-style: normal;
-    font-display: swap;
+@font-face{
+    font-family:"NT Somic";
+    src:url("/fonts/NTSomic-Bold.ttf") format("truetype");
+    font-weight:700;
+    font-style:normal;
+    font-display:swap;
 }

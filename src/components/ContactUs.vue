@@ -47,7 +47,7 @@ const isContactFormVisible = ref(false);
     font-size: 19px;
     line-height: 27px;
     margin-top: 20px;
-    letter-spacing: -1.62px;
+    letter-spacing: -1.14px;
   }
   &__action {
     margin-top: 32px;
