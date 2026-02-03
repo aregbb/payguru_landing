@@ -45,7 +45,7 @@ onBeforeMount(() => {
               <div class="flex justify-between items-baseline">
                 <h1>Privacy Policy for PayGuru Platform</h1>
                 <a
-                    href="/docs/Privacy.docx"
+                    href="/static/docs/Privacy.docx"
                     download
                     class="btn-primary"
                 >
@@ -139,7 +139,7 @@ onBeforeMount(() => {
               <div class="flex justify-between items-baseline">
                 <h1>Terms of Service for PayGuru Platform</h1>
                 <a
-                    href="/docs/Terms.docx"
+                    href="/static/docs/Terms.docx"
                     download
                     class="btn-primary"
                 >
