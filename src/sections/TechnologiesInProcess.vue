@@ -65,12 +65,22 @@ const items = ref([
 .technologies {
   padding: 100px 0;
 
+  @media (max-width: 640px) {
+    padding: 40px 0;
+  }
+
   &__head {
     text-align: center;
 
     h2 {
       font-size: 62px;
       letter-spacing: -1.24px;
+
+      @media (max-width: 640px) {
+        font-size: 36px;
+        line-height: 1;
+        letter-spacing: -0.5px;
+      }
     }
 
     &-text {
@@ -78,6 +88,11 @@ const items = ref([
       color: #65758A;
       font-size: 24px;
       letter-spacing: -1.2px;
+
+      @media (max-width: 640px) {
+        font-size: 24px;
+        margin-top: 16px;
+      }
     }
   }
 
@@ -86,6 +101,11 @@ const items = ref([
     flex-wrap: wrap;
     gap: 24px;
     margin-top: 40px;
+
+    @media (max-width: 640px) {
+      margin-top: 16px;
+      gap: 16px;
+    }
   }
 
   &__item {
@@ -96,6 +116,17 @@ const items = ref([
         0px 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
         0px 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
 
+    @media (max-width: 640px) {
+      width: 100%;
+      padding: 24px 28px;
+    }
+
+    &-icon {
+      @media (max-width: 640px) {
+        width: 40px;
+      };
+    }
+
     &-title {
       margin-top: 24px;
       font-size: 22px;
@@ -103,6 +134,11 @@ const items = ref([
       line-height: 30px;
       font-weight: 500;
       margin-bottom: 16px;
+
+      @media (max-width: 640px) {
+        margin-top: 5px;
+        margin-bottom: 10px;
+      }
     }
     &-text {
       font-size: 17px;

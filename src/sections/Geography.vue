@@ -23,25 +23,26 @@ const items = ref([
 
 <template>
   <section class="geography">
-    <div class="geography__background" :style="{ backgroundImage: `url(${Background})` }" />
     <Container>
-      <div>
-        <h2>География и покрытие</h2>
-        <div class="geography__card">
-          <div class="geography__card-title">Мы работаем на всех континентах</div>
-          <div class="flex justify-between align-baseline" style="margin-top: 16px;">
-            <div class="geography__card-text">50+ стран</div>
-            <img alt="icon" :src="WebIcon" />
+      <div class="geography__content">
+        <div>
+          <h2>География и покрытие</h2>
+          <div class="geography__card">
+            <div class="geography__card-title">Мы работаем на всех континентах</div>
+            <div class="flex justify-between align-baseline" style="margin-top: 16px;">
+              <div class="geography__card-text">50+ стран</div>
+              <img alt="icon" :src="WebIcon" />
+            </div>
+          </div>
+          <div class="geography__list">
+            <div v-for="item in items" class="geography__list-item">
+              <img class="geography__list-item-check" :src="Check"  />
+              <div class="geography__list-item-text" v-html="item.text" />
+            </div>
           </div>
         </div>
-        <div class="geography__list">
-          <div v-for="item in items" class="geography__list-item">
-            <img class="geography__list-item-check" :src="Check"  />
-            <div class="geography__list-item-text" v-html="item.text" />
-          </div>
-        </div>
+        <div class="geography__image-bg" :style="{ backgroundImage: `url(${Background})` }" />
       </div>
-      <div class="geography__image-bg" :style="{ backgroundImage: `url(${Background})` }" />
     </Container>
   </section>
 </template>
@@ -53,10 +54,27 @@ const items = ref([
   padding: 100px 0;
   position: relative;
 
+  @media (max-width: 640px) {
+    padding: 40px 0 40px 0;
+  }
+
   h2 {
     font-size: 62px;
     line-height: 60px;
     letter-spacing: -2.48px;
+
+    @media (max-width: 640px) {
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
+  }
+
+  &__content {
+    @media (max-width: 640px) {
+      display: flex;
+      flex-direction: column-reverse;
+    }
   }
 
   &__card {
@@ -88,6 +106,10 @@ const items = ref([
                 #061229 100%
         );
 
+    @media (max-width: 640px) {
+      margin-top: 300px;
+    }
+
     &-title {
       font-size: 21px;
       font-weight: 500;
@@ -110,6 +132,11 @@ const items = ref([
     max-width: 563px;
     margin-top: 60px;
 
+    @media (max-width: 640px) {
+      margin-top: 24px;
+      gap: 16px;
+    }
+
     &-item {
       display: flex;
       gap: 10px;
@@ -123,6 +150,10 @@ const items = ref([
         letter-spacing: -0.84px;
         color: #FFFFFFBF;
         opacity: 0.75;
+
+        @media (max-width: 640px) {
+          font-size: 18px;
+        }
       }
     }
   }
@@ -135,6 +166,14 @@ const items = ref([
     right: 100px;
     background-size: contain;
     background-repeat: no-repeat;
+
+    @media (max-width: 640px) {
+      width: 100%;
+      height: 220px;
+      top: 110px;
+      left: 53%;
+      transform: translateX(-50%);
+    }
   }
 }
 </style>

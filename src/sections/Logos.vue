@@ -85,9 +85,23 @@ const secondRowItems = ref([
   flex-direction: column;
   gap: 60px;
   align-items: center;
+
+  @media (max-width: 640px) {
+    gap: 30px;
+    padding: 40px 0;
+  }
+
   &__first-row, &__second-row {
     display: flex;
     gap: 40px;
+
+    @media (max-width: 640px) {
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      row-gap: 30px;
+    }
   }
 }
 </style>

@@ -52,10 +52,20 @@ const items = ref([
   padding: 100px 0;
   color: #fff;
 
+  @media(max-width: 640px) {
+    padding: 40px 0;
+  }
+
   h2 {
     font-size: 62px;
     line-height: 60px;
     letter-spacing: -2.48px;
+
+    @media (max-width: 640px) {
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+    }
   }
 
   &__head {
@@ -67,6 +77,12 @@ const items = ref([
       font-weight: lighter;
       color: #FFFFFF;
       opacity: 0.75;
+
+      @media (max-width: 640px) {
+        font-size: 23px;
+        letter-spacing: -0.5px;
+        margin-top: 16px;
+      }
     }
   }
 
@@ -74,12 +90,22 @@ const items = ref([
     display: flex;
     gap: 24px;
     margin-top: 40px;
+
+    @media (max-width: 640px) {
+      flex-wrap: wrap;
+    }
   }
   &__item {
     width: 376px;
     border: 1px solid #FFFFFF1A;
     border-radius: 20px;
     background: #FFFFFF0D;
+
+    img {
+      @media (max-width: 640px) {
+        width: 250px;
+      }
+    }
 
     &-title {
       font-size: 27px;
@@ -90,6 +116,14 @@ const items = ref([
       margin-bottom: 16px;
       text-align: left;
       padding-left: 28px;
+
+      @media (max-width: 640px) {
+        font-size: 22px;
+        line-height: 1;
+        letter-spacing: -0.5px;
+        margin-top: 0px;
+        margin-bottom: 10px;
+      }
     }
 
     &-text {
@@ -100,6 +134,11 @@ const items = ref([
       line-height: 26px;
       letter-spacing: -0.72px;
       margin-bottom: 51px;
+
+      @media (max-width: 640px) {
+        line-height: 24px;
+        margin-bottom: 30px;
+      }
     }
   }
 }

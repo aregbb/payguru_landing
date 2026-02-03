@@ -33,6 +33,10 @@ const isContactFormVisible = ref(false);
   position: relative;
   overflow: hidden;
 
+  @media (max-width: 640px) {
+    padding: 40px 0;
+  }
+
   :deep(.container),
   > .container {
     position: relative;
@@ -41,6 +45,13 @@ const isContactFormVisible = ref(false);
 
   h2 {
     letter-spacing: -2px;
+
+    @media (max-width: 640px) {
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      text-align: center;
+    }
   }
 
   &__info {
@@ -48,9 +59,20 @@ const isContactFormVisible = ref(false);
     line-height: 27px;
     margin-top: 20px;
     letter-spacing: -1.14px;
+
+    @media (max-width: 640px) {
+      font-size: 17px;
+      line-height: 24px;
+      margin-top: 16px;
+      letter-spacing: -0.5px;
+    }
   }
   &__action {
     margin-top: 32px;
+
+    @media (max-width: 640px) {
+      margin-top: 16px;
+    }
   }
 
   &__gradient {

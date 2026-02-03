@@ -43,11 +43,22 @@ const items = ref([
   padding: 100px 0;
   align-items: center;
 
+  @media (max-width: 640px) {
+    padding: 40px 0;
+  }
+
   &__content {
     display: flex;
     justify-content: space-between;
     align-items: end;
     color: #FFFFFF;
+
+    @media (max-width: 640px) {
+      flex-wrap: wrap;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
   }
   &__logo {
     display: flex;
@@ -59,11 +70,19 @@ const items = ref([
     display: flex;
     gap: 60px;
     align-items: center;
+
+    @media (max-width: 640px) {
+      gap: 20px;
+    }
   }
   &__text {
     font-size: 17px;
     letter-spacing: -0.68px;
     line-height: 24px;
+
+    @media (max-width: 640px) {
+      font-size: 16px;
+    }
   }
 }
 </style>

@@ -66,9 +66,18 @@ const featuresList = ref([
   padding: 100px 0;
   position: relative;
   background: #FBFCFE;
+
+  @media (max-width: 640px) {
+    padding: 40px 0;
+  }
   &__wrap {
     display: flex;
     gap: 85px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      gap: 10px;
+    }
   }
 
   &__left-bg {
@@ -77,6 +86,12 @@ const featuresList = ref([
     background-repeat: no-repeat;
     position: absolute;
     bottom: 0;
+
+    @media (max-width: 640px) {
+      width: 100%;
+      height: 400px;
+      z-index: -1;
+    }
   }
 
   &--right {
@@ -90,15 +105,27 @@ const featuresList = ref([
     line-height: 60px;
     margin: 0 0 23px;
     letter-spacing: -2px;
+
+    @media (max-width: 640px) {
+      font-size: 32px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      text-align: center;
+      margin-bottom: 16px;
+    }
   }
 
   &__card {
     box-shadow:
         0px 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
         0px 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
-    backdrop-filter: blur(32px);
+    //backdrop-filter: blur(32px);
     padding: 29px 32px;
     border-radius: 20px;
+
+    @media (max-width: 640px) {
+      padding: 24px;
+    }
 
     &-icon {
       width: 44px;
@@ -110,6 +137,12 @@ const featuresList = ref([
       letter-spacing: -0.46px;
       line-height: 30px;
       font-weight: 500;
+
+      @media (max-width: 640px) {
+        font-size: 22px;
+        line-height: 1;
+        margin: 10px 0;
+      }
     }
     &-description {
       color: #65758A;

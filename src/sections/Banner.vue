@@ -20,6 +20,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 640px) {
+    flex-direction: column;
+    height: 100%;
+    padding: 10px 16px;
+  }
 }
 @keyframes announcement-gradient {
   0% {

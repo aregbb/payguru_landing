@@ -5,7 +5,6 @@ type Size = "sm" | "md" | "lg" | "xl";
 
 const props = withDefaults(defineProps<{
   as?: string;
-  size?: Size;
   noXPadding?: boolean;
   noYPadding?: boolean;
 }>(), {
@@ -13,16 +12,6 @@ const props = withDefaults(defineProps<{
   size: "xl",
   noXPadding: false,
   noYPadding: true,
-});
-
-const sizeClass = computed(() => {
-  switch (props.size) {
-    case "sm": return "container--sm";
-    case "md": return "container--md";
-    case "lg": return "container--lg";
-    case "xl": return "container--desk";
-    default: return "container--desk";
-  }
 });
 
 // const paddingClass = computed(() => {
@@ -36,7 +25,6 @@ const sizeClass = computed(() => {
   <component
       :is="as"
       class="container mx-auto w-full"
-      :class="[sizeClass]"
   >
     <slot />
   </component>
@@ -44,10 +32,27 @@ const sizeClass = computed(() => {
 
 <style scoped lang="scss">
 .container {
-  &--desk {
-    width: 1176px;
-    margin: 0 auto;
-    height: 100%;
+  height: 100%;
+  width: 100%;
+  margin: 0 auto;
+  padding-inline: 16px;
+
+  @media (min-width: 640px) {
+    max-width: 640px;
+    padding-inline: 24px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 768px;
+  }
+
+  @media (min-width: 1024px) {
+    max-width: 1024px;
+  }
+
+  @media (min-width: 1280px) {
+    max-width: 1176px;
+    padding: 0;
   }
 }
 </style>

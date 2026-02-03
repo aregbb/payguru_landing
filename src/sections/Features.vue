@@ -30,7 +30,7 @@ const isContactModalVisible = ref(false);
   <div class="features">
     <Container>
       <div class="features__content">
-        <img :src="FeaturesImg" alt="picture" />
+        <img class="features__bg" :src="FeaturesImg" alt="picture" />
         <div class="features__list">
           <div class="features__list-item" v-for="item in items">
             <img class="features__list-item-check" :src="Check" />
@@ -62,10 +62,25 @@ const isContactModalVisible = ref(false);
   background: #564CF1;
   color: #fff;
 
+  @media (max-width: 640px) {
+    padding: 40px 0;
+  }
+
   &__content {
     display: flex;
     align-items: center;
     gap: 62px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      gap: 20px;
+    }
+  }
+
+  &__bg {
+    @media (max-width: 640px) {
+      width: 250px;
+    }
   }
 
   &__list {
@@ -73,6 +88,10 @@ const isContactModalVisible = ref(false);
     display: flex;
     flex-direction: column;
     gap: 40px;
+
+    @media (max-width: 640px) {
+      margin-top: 0;
+    }
 
     &-item {
       display: flex;
@@ -88,6 +107,11 @@ const isContactModalVisible = ref(false);
         line-height: 30px;
         font-weight: 500;
         letter-spacing: -1.12px;
+
+        @media (max-width: 640px) {
+          font-size: 22px;
+          letter-spacing: -0.5px;
+        }
       }
       &-text {
         margin-top: 13px;
@@ -95,6 +119,11 @@ const isContactModalVisible = ref(false);
         font-size: 21px;
         color: #FFFFFF;
         opacity: 0.7;
+
+        @media (max-width: 640px) {
+          margin-top: 6px;
+          font-size: 18px;
+        }
       }
     }
   }

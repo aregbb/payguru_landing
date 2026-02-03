@@ -42,7 +42,7 @@ onBeforeMount(() => {
           </ul>
           <div class="privacy-page__content-right">
             <template v-if="activeTab === 'privacy'">
-              <div class="flex justify-between items-baseline">
+              <div class="privacy-page__content-header flex justify-between items-baseline">
                 <h1>Privacy Policy for PayGuru Platform</h1>
                 <a
                     href="/static/docs/Privacy.docx"
@@ -136,7 +136,7 @@ onBeforeMount(() => {
               </div>
             </template>
             <template v-if="activeTab === 'terms'">
-              <div class="flex justify-between items-baseline">
+              <div class="privacy-page__content-header flex justify-between items-baseline">
                 <h1>Terms of Service for PayGuru Platform</h1>
                 <a
                     href="/static/docs/Terms.docx"
@@ -292,6 +292,11 @@ onBeforeMount(() => {
     width: 90%;
     margin: 0 auto;
     position: relative;
+
+    @media (max-width: 640px) {
+      width: 100%;
+      padding: 0 16px;
+    }
   }
 
   .header {
@@ -312,16 +317,28 @@ onBeforeMount(() => {
 
       img {
         width: 40px;
+
+        @media (max-width: 640px) {
+          width: 34px;
+        }
       }
 
       &-text {
         font-weight: bold;
         font-size: 34px;
+
+        @media (max-width: 640px) {
+          font-size: 28px;
+        }
       }
     }
     &__text {
       font-size: 32px;
       color: rgb(56, 136, 194);
+
+      @media (max-width: 640px) {
+        font-size: 28px;
+      }
     }
   }
 
@@ -331,12 +348,28 @@ onBeforeMount(() => {
     color: rgb(93, 100, 111);
     line-height: 1;
     margin-top: 0;
+
+    @media (max-width: 640px) {
+      font-size: 28px;
+    }
   }
 
   &__content {
     padding-top: 40px;
     display: flex;
     gap: 45px;
+
+    @media (max-width: 640px) {
+      flex-direction: column;
+      gap: 16px;
+      padding-top: 16px;
+    }
+
+    &-header {
+      @media (max-width: 640px) {
+        flex-direction: column;
+      }
+    }
 
     ul {
       margin: 10px;
@@ -364,6 +397,14 @@ onBeforeMount(() => {
       padding: 0;
       list-style: none;
       margin-top: 0;
+
+      @media (max-width: 640px) {
+        display: flex;
+        width: 100%;
+        padding: 0 !important;
+        gap: 20px;
+        margin: 0 !important;
+      }
 
       .tab {
         color: #3888c2;

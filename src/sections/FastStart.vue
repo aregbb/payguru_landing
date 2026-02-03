@@ -66,19 +66,38 @@ const items = ref([
   background: #020617;
   color: #fff;
 
+  @media (max-width: 640px) {
+    padding: 40px 0;
+  }
+
   h2 {
     font-size: 62px;
     line-height: 60px;
     letter-spacing: -2.48px;
     font-weight: 500;
+
+    @media (max-width: 640px) {
+      font-size: 34px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      margin-top: 16px;
+    }
   }
 
   &__content {
     display: flex;
+
+    @media (max-width: 640px) {
+      flex-direction: column-reverse;
+    }
   }
 
   &__left {
     width: 473px;
+
+    @media (max-width: 640px) {
+      width: 100%;
+    }
   }
 
   &__right {
@@ -87,6 +106,14 @@ const items = ref([
     height: 552px;
     background-size: cover;
     background-repeat: no-repeat;
+
+    @media (max-width: 640px) {
+      margin-top: 40px;
+      width: 100%;
+      height: 300px;
+      background-size: contain;
+      background-position-x: -55px;
+    }
   }
 
   &__list {

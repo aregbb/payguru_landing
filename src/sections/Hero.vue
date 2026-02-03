@@ -7,7 +7,6 @@ import Button from "@/components/Button.vue";
 import HeroBg from "@/assets/img/heroBg.png"
 import ContactModal from "@/components/modals/ContactModal.vue";
 
-
 const isContactModalVisible = ref(false);
 </script>
 
@@ -44,6 +43,11 @@ const isContactModalVisible = ref(false);
   position: relative;
   height: 500px;
 
+  @media (max-width: 640px) {
+    height: auto;
+    padding: 40px 0;
+  }
+
   h1 {
     margin: 0;
   }
@@ -53,6 +57,9 @@ const isContactModalVisible = ref(false);
     position: absolute;
     height: 100%;
     z-index: -2;
+    @media (max-width: 640px) {
+      top: 0;
+    }
   }
   &__bg-figure {
     width: 100%;
@@ -67,13 +74,29 @@ const isContactModalVisible = ref(false);
     align-items: end;
     height: 100%;
 
+    @media (max-width: 640px) {
+      flex-direction: column-reverse;
+      height: auto;
+    }
+
     &--left {
       min-width: 46%;
       align-self: start;
       margin-top: 72px;
+
+      @media (max-width: 640px) {
+        width: 100%;
+        margin-top: 20px;
+      }
     }
     &-picture {
       margin-left: -16px;
+
+      @media (max-width: 640px) {
+        margin-left: 0;
+        align-self: center;
+        width: 100%;
+      }
     }
   }
   &__text {
@@ -81,6 +104,10 @@ const isContactModalVisible = ref(false);
     line-height: 33px;
     font-size: 24px;
     letter-spacing: -0.96px;
+
+    @media (max-width: 640px) {
+      font-size: 21px;
+    }
   }
   &__action {
     margin-top: 36px;
