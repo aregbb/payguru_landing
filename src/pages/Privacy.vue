@@ -1,14 +1,23 @@
 <script setup lang="ts">
-import {ref, onBeforeMount } from "vue";
+import { onBeforeMount, computed } from "vue";
 import Logo from "@/assets/img/Logo.svg"
-import { useRoute } from "vue-router";
+import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
+const router = useRouter();
 
-const activeTab = ref(2);
+function setTab(tab: 'privacy' | 'terms') {
+  router.replace({ hash: `#${tab}` })
+}
+
+const activeTab = computed<"privacy" | "terms">(() => {
+  const h = (route.hash || "").replace("#", "");
+  if (h === "terms") return "terms";
+  return "privacy"; // дефолт
+});
 
 onBeforeMount(() => {
-  if (route.query.tab === 'terms' ) activeTab.value = 2;
+  if (!route.hash) router.replace({ hash: "#terms" });
 })
 
 </script>
@@ -28,11 +37,11 @@ onBeforeMount(() => {
       <div class="privacy-page__container">
         <div class="privacy-page__content">
           <ul class="privacy-page__content-left">
-            <li class="tab" :class="{ 'tab--active': activeTab === 2 }" @click="activeTab = 2">Terms of Service</li>
-            <li class="tab" :class="{ 'tab--active': activeTab === 1 }" @click="activeTab = 1">Privacy Policy</li>
+            <li class="tab" :class="{ 'tab--active': activeTab === 'terms' }" @click="setTab('terms')">Terms of Service</li>
+            <li class="tab" :class="{ 'tab--active': activeTab === 'privacy' }" @click="setTab('privacy')">Privacy Policy</li>
           </ul>
           <div class="privacy-page__content-right">
-            <template v-if="activeTab === 1">
+            <template v-if="activeTab === 'privacy'">
               <div class="flex justify-between items-baseline">
                 <h1>Privacy Policy for PayGuru Platform</h1>
                 <a
@@ -126,7 +135,7 @@ onBeforeMount(() => {
                 The platform operator reserves the right to update this Policy to reflect technical, operational or regulatory changes.
               </div>
             </template>
-            <template v-if="activeTab === 2">
+            <template v-if="activeTab === 'terms'">
               <div class="flex justify-between items-baseline">
                 <h1>Terms of Service for PayGuru Platform</h1>
                 <a
@@ -301,9 +310,13 @@ onBeforeMount(() => {
       color: black;
       gap: 9px;
 
+      img {
+        width: 40px;
+      }
+
       &-text {
         font-weight: bold;
-        font-size: 23px;
+        font-size: 34px;
       }
     }
     &__text {

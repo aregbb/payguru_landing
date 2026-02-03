@@ -10,11 +10,11 @@ const items = ref([
     label: "English"
   },
   {
-    link: "/privacy?tab=terms",
+    link: "/docs#terms",
     label: "Terms of Service"
   },
   {
-    link: "/privacy",
+    link: "/docs#privacy",
     label: "Privacy Policy"
   },
 ])

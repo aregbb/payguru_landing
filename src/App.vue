@@ -14,6 +14,7 @@ const layouts = {
 
 const layoutComponent = computed(() => {
   const key = (route.meta.layout as keyof typeof layouts) || "default";
+  console.log(key)
   return layouts[key] ?? layouts.default;
 });
 

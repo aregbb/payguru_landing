@@ -15,7 +15,7 @@ const isContactFormVisible = ref(false);
       <h2>Консультация специалиста</h2>
       <div class="contact-us__info">
         Короткий звонок с экспертом поможет выбрать оптимальное решение, быстро запуститься <br>
-        и избежать ошибок на старте и в процессе работы
+        и избежать ошибок на старте и в процессе работы.
       </div>
       <Button class="contact-us__action" variant="secondary" @click="isContactFormVisible = true">Запланировать звонок</Button>
     </Container>

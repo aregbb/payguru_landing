@@ -32,7 +32,7 @@ const items = ref([
         <h2>White Label PayGuru</h2>
         <div class="white-label__head-text">
           Готовая платёжная инфраструктура для обработки и управления <br />
-          денежными потоками enterprise-уровня
+          денежными потоками enterprise-уровня.
         </div>
         <div class="white-label__list">
           <div v-for="item in items" class="white-label__item">

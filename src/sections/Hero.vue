@@ -25,7 +25,7 @@ const isContactModalVisible = ref(false);
           </h1>
           <p class="hero__text">
             <strong>Pay Guru</strong> — это многофункциональная система
-            оркестрации платежей с глобальным покрытием
+            оркестрации платежей с глобальным покрытием.
           </p>
           <div class="hero__action">
             <Button @click="isContactModalVisible = true">Запланировать звонок</Button>

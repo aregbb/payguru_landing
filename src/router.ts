@@ -5,13 +5,13 @@ const routes = [
         path: "/",
         name: "home",
         component: () => import("@/pages/Home.vue"),
-        meta: { layout: "default" },
+        meta: { layout: "default", title: "pages.main" },
     },
     {
-        path: "/privacy",
-        name: "privacy",
+        path: "/docs",
+        name: "docs",
         component: () => import("@/pages/Privacy.vue"),
-        meta: { layout: "empty" },
+        meta: { layout: "empty", title: "pages.main" },
     },
 ];
 

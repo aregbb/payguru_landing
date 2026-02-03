@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <a href="https://ggateconf.com/" class="banner">
-    Pay Guru — спонсор конференции G GATE CoNF 26, Июнь 26-27 Тбилиси, Грузия. <span style="text-decoration: underline"> Присоединиться.</span>
+  <a href="https://sigma.world/ru/summits/eurasia/" class="banner">
+    Schedule a demo and see what we’re building. Meet us at SiGMA Eurasia in Dubai, February 9-11. <span style=" margin-left: 5px; text-decoration: underline"> See more.</span>
   </a>
 </template>
 

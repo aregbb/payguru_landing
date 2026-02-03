@@ -13,32 +13,32 @@ const items = ref([
   {
     icon: Settings,
     title: "Автоматизация",
-    text: "99% операций без ручного вмешательства"
+    text: "99% операций без ручного вмешательства."
   },
   {
     icon: Diagram,
     title: "Производительность",
-    text: "Стабильная работа <br> при пиковых нагрузках"
+    text: "Стабильная работа <br> при пиковых нагрузках."
   },
   {
     icon: Shield,
     title: "Безопасность",
-    text: "Соответствие PCI DSS, <br> встроенные меры защиты"
+    text: "Соответствие PCI DSS, <br> встроенные меры защиты."
   },
   {
     icon: Filters,
     title: "Функциональность",
-    text: "Сотни параметров в UI <br> для тонкой настройки"
+    text: "Сотни параметров в UI <br> для тонкой настройки."
   },
   {
     icon: Unlock,
     title: "Контроль",
-    text: "Полный доступ к бизнес-логике, <br> API и параметрам"
+    text: "Полный доступ к бизнес-логике, <br> API и параметрам."
   },
   {
     icon: HandShake,
     title: "Надежность",
-    text: "Поддержка критически важного <br> бизнеса 24/7"
+    text: "Поддержка критически важного <br> бизнеса 24/7."
   },
 ])
 </script>
@@ -48,7 +48,7 @@ const items = ref([
     <Container>
       <div class="technologies__head">
         <h2>Технологии в действии</h2>
-        <div class="technologies__head-text">Полный контроль над платежами и бизнес-процессами</div>
+        <div class="technologies__head-text">Полный контроль над платежами и бизнес-процессами.</div>
       </div>
       <div class="technologies__list">
         <div class="technologies__item" v-for="item in items">
