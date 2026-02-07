@@ -17,6 +17,10 @@ const items = ref([
     link: "/docs#privacy",
     label: "Privacy Policy"
   },
+  {
+    link: "https://t.me/AlexPG_BizDev",
+    label: "Contact"
+  }
 ])
 </script>
 
@@ -29,7 +33,7 @@ const items = ref([
           <span>PayGuru</span>
         </div>
         <div class="footer__nav">
-          <router-link class="footer__text" v-for="(item) in items" :to="item.link">{{ item.label }}</router-link>
+          <a class="footer__text" v-for="(item) in items" :href="item.link">{{ item.label }}</a>
         </div>
         <div class="footer__text">2026 Integranova Dynamics, LLC.</div>
       </div>
@@ -72,7 +76,7 @@ const items = ref([
     align-items: center;
 
     @media (max-width: 640px) {
-      gap: 20px;
+      gap: 16px;
     }
   }
   &__text {

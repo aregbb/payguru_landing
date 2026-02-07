@@ -71,6 +71,7 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 
     @media (max-width: 640px) {
       margin-top: 24px;
+      align-self: center;
     }
   }
 
@@ -84,6 +85,7 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
       font-size: 18px;
       margin-top: 24px;
       letter-spacing: -0.5px;
+      padding-left: 14px;
 
       br {
         display: none;
@@ -99,6 +101,7 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 
     @media (max-width: 640px) {
       font-size: 28px;
+      text-align: center;
     }
   }
 
@@ -113,6 +116,7 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 
     @media (max-width: 640px) {
       margin-top: 24px;
+      padding-left: 30px;
     }
 
     li {
@@ -159,6 +163,8 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 
       @media (max-width: 640px) {
         font-size: 18px;
+        padding-left: 14px;
+        text-align: center;
         margin-top: 16px;
         line-height: 20px;
 
@@ -173,6 +179,8 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 
       @media (max-width: 640px) {
         margin-top: 220px;
+        display: flex;
+        flex-direction: column;
       }
     }
 
