@@ -90,7 +90,7 @@ const items = ref([
       letter-spacing: -1.2px;
 
       @media (max-width: 640px) {
-        font-size: 24px;
+        font-size: 18px;
         margin-top: 16px;
       }
     }

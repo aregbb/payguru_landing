@@ -79,9 +79,13 @@ const items = ref([
       opacity: 0.75;
 
       @media (max-width: 640px) {
-        font-size: 23px;
+        font-size: 18px;
         letter-spacing: -0.5px;
-        margin-top: 16px;
+        margin-top: 24px;
+
+        br {
+          display: none;
+        }
       }
     }
   }
@@ -93,6 +97,7 @@ const items = ref([
 
     @media (max-width: 640px) {
       flex-wrap: wrap;
+      justify-content: center;
     }
   }
   &__item {
@@ -103,7 +108,7 @@ const items = ref([
 
     img {
       @media (max-width: 640px) {
-        width: 250px;
+        width: 290px;
       }
     }
 

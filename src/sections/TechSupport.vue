@@ -61,6 +61,17 @@ const featuresList = ref([
   </section>
 </template>
 
+<style lang="scss">
+.tech-support {
+  &__card {
+    @media (max-width: 640px) {
+      br {
+        display: none;
+      }
+    }
+  }
+}
+</style>
 <style scoped lang="scss">
 .tech-support {
   padding: 100px 0;
@@ -98,6 +109,7 @@ const featuresList = ref([
     display: flex;
     gap: 15.5px;
     flex-direction: column;
+    position: relative;
   }
 
   h3 {
@@ -121,6 +133,7 @@ const featuresList = ref([
         0px 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
     //backdrop-filter: blur(32px);
     padding: 29px 32px;
+    background: white;
     border-radius: 20px;
 
     @media (max-width: 640px) {
@@ -156,6 +169,13 @@ const featuresList = ref([
     font-size: 18px;
     line-height: 27px;
     letter-spacing: -0.54px;
+
+    @media (max-width: 640px) {
+      text-align: center;
+      br {
+        display: none;
+      }
+    }
   }
 }
 </style>

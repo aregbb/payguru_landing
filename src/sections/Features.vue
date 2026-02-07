@@ -79,7 +79,7 @@ const isContactModalVisible = ref(false);
 
   &__bg {
     @media (max-width: 640px) {
-      width: 250px;
+      width: 300px;
     }
   }
 
@@ -91,6 +91,7 @@ const isContactModalVisible = ref(false);
 
     @media (max-width: 640px) {
       margin-top: 0;
+      gap: 24px;
     }
 
     &-item {
@@ -131,6 +132,10 @@ const isContactModalVisible = ref(false);
   &__action {
     width: 240px;
     margin-left: 30px;
+
+    @media (max-width: 640px) {
+      margin: 0 auto;
+    }
   }
 }
 </style>

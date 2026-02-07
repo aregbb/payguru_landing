@@ -66,7 +66,7 @@ const items = ref([
     @media (max-width: 640px) {
       font-size: 34px;
       line-height: 1;
-      letter-spacing: -0.5px;
+      letter-spacing: -0.8px;
     }
   }
 
@@ -108,6 +108,8 @@ const items = ref([
 
     @media (max-width: 640px) {
       margin-top: 300px;
+      width: 100%;
+      padding: 16px;
     }
 
     &-title {
@@ -168,10 +170,10 @@ const items = ref([
     background-repeat: no-repeat;
 
     @media (max-width: 640px) {
-      width: 100%;
+      width: 95%;
       height: 220px;
       top: 110px;
-      left: 53%;
+      left: 50%;
       transform: translateX(-50%);
     }
   }

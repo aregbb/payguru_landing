@@ -65,6 +65,7 @@ const items = ref([
   padding: 100px 0;
   background: #020617;
   color: #fff;
+  position: relative;
 
   @media (max-width: 640px) {
     padding: 40px 0;
@@ -80,7 +81,7 @@ const items = ref([
       font-size: 34px;
       line-height: 1;
       letter-spacing: -0.5px;
-      margin-top: 16px;
+      text-align: center;
     }
   }
 
@@ -108,11 +109,13 @@ const items = ref([
     background-repeat: no-repeat;
 
     @media (max-width: 640px) {
-      margin-top: 40px;
-      width: 100%;
-      height: 300px;
+      top: 135px;
+      width: 390px;
+      height: 280px;
+      position: absolute;
       background-size: contain;
-      background-position-x: -55px;
+      left: 50%;
+      transform: translateX(-61%);
     }
   }
 
@@ -121,6 +124,11 @@ const items = ref([
     display: flex;
     flex-direction: column;
     gap: 40px;
+
+    @media (max-width: 640px) {
+      margin-top: 335px;
+      gap: 24px;
+    }
 
     &-item {
       display: flex;
@@ -145,6 +153,10 @@ const items = ref([
   &__action {
     width: 261px;
     margin-left: 30px;
+
+    @media (max-width: 640px) {
+      margin: 16px auto 0;
+    }
   }
 }
 </style>

@@ -20,7 +20,7 @@ const isContactFormVisible = ref(false);
       <Button class="contact-us__action" variant="secondary" @click="isContactFormVisible = true">Запланировать звонок</Button>
     </Container>
   </section>
-  <ContactModal v-if="isContactFormVisible" />
+  <ContactModal v-if="isContactFormVisible" @close="isContactFormVisible = false" />
 </template>
 
 <style scoped lang="scss">
@@ -65,13 +65,17 @@ const isContactFormVisible = ref(false);
       line-height: 24px;
       margin-top: 16px;
       letter-spacing: -0.5px;
+
+      br {
+        display: none;
+      }
     }
   }
   &__action {
     margin-top: 32px;
 
     @media (max-width: 640px) {
-      margin-top: 16px;
+      margin-top: 24px;
     }
   }
 

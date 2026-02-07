@@ -3,7 +3,7 @@
 
 withDefaults(defineProps<{
   disabled?: boolean;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'blue';
 }>(), {
   disabled: false,
   variant: 'primary',
@@ -28,6 +28,10 @@ withDefaults(defineProps<{
   font-weight: 500;
   &--primary {
     background: linear-gradient(104.74deg, #1D65FF 0%, #A200FF 98.96%);
+    color: white;
+  }
+  &--blue {
+    background: #363FF9;
     color: white;
   }
   &--secondary {

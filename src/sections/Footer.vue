@@ -57,7 +57,7 @@ const items = ref([
       flex-wrap: wrap;
       flex-direction: column;
       align-items: center;
-      gap: 16px;
+      gap: 20px;
     }
   }
   &__logo {

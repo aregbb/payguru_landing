@@ -50,6 +50,13 @@ const isContactModalVisible = ref(false);
 
   h1 {
     margin: 0;
+
+    @media (max-width: 640px) {
+      text-align: center;
+      br {
+        display: none;
+      }
+    }
   }
   &__bg {
     background: linear-gradient(180deg, rgba(204, 209, 219, 0.7) 0%, rgba(221, 228, 244, 0.7) 97.6%);
@@ -86,7 +93,7 @@ const isContactModalVisible = ref(false);
 
       @media (max-width: 640px) {
         width: 100%;
-        margin-top: 20px;
+        margin-top: 30px;
       }
     }
     &-picture {
@@ -107,10 +114,22 @@ const isContactModalVisible = ref(false);
 
     @media (max-width: 640px) {
       font-size: 21px;
+      margin-top: 24px;
+      text-align: center;
+      margin-bottom: 0;
+
+      br {
+        display: none;
+      }
     }
   }
   &__action {
     margin-top: 36px;
+
+    @media (max-width: 640px) {
+      margin-top: 24px;
+      justify-self: center;
+    }
   }
 }
 </style>

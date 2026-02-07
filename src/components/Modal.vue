@@ -70,9 +70,14 @@ onUnmounted(() => {
   padding: 40px;
   max-width: 642px;
   width: 100%;
-
   box-shadow:
       0 10px 30px rgba(0, 0, 0, 0.15);
+
+  @media (max-width: 640px) {
+    padding: 24px;
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .modal-close {
