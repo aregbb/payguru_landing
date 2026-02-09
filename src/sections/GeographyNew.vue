@@ -152,7 +152,7 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 
     @media (max-width: 640px) {
       flex-direction: column;
-      margin-top: 20px;
+      margin-top: 30px;
     }
 
     &-text {
@@ -193,8 +193,9 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
       background-repeat: no-repeat;
 
       @media (max-width: 640px) {
-        left: 0;
-        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 365px;
         height: 250px;
       }
     }
