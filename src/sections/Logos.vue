@@ -86,21 +86,34 @@ const secondRowItems = ref([
   gap: 60px;
   align-items: center;
 
-  @media (max-width: 640px) {
+  @include down(md) {
     gap: 30px;
     padding: 40px 0;
   }
 
+  @include between(md, lg) {
+    gap: 30px;
+  }
+
   &__first-row, &__second-row {
     display: flex;
+    align-items: center;
     gap: 40px;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
       gap: 20px;
       row-gap: 30px;
+    }
+
+    @include between(md, xl) {
+      flex-wrap: wrap;
+      align-self: center;
+      justify-content: center;
+      gap: 20px;
+      row-gap: 20px;
     }
   }
 }

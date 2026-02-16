@@ -29,27 +29,7 @@ withDefaults(defineProps<{
 <style scoped lang="scss">
 .container {
   height: 100%;
-  width: 100%;
-  margin: 0 auto;
-  padding-inline: 16px;
-
-  @media (min-width: 640px) {
-    max-width: 640px;
-    padding-inline: 24px;
-  }
-
-  @media (min-width: 768px) {
-    max-width: 768px;
-  }
-
-  @media (min-width: 1024px) {
-    max-width: 1024px;
-  }
-
-  @media (min-width: 1280px) {
-    max-width: 1176px;
-    padding: 0;
-  }
+  @include container();
 }
 </style>
 

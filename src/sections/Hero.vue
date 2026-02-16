@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import Container from "../components/Container.vue";
+import Container from "@/components/Container.vue";
 import bgImg from "@/assets/img/DesktopBg.png"
 import Button from "@/components/Button.vue";
 import HeroBg from "@/assets/img/heroBg.png"
@@ -12,7 +12,6 @@ const isContactModalVisible = ref(false);
 
 <template>
   <section class="hero relative overflow-hidden">
-    <!-- фон -->
     <div class="hero__bg" />
     <div class="hero__bg-figure" :style="{ backgroundImage: `url(${HeroBg})` }" />
     <Container>
@@ -43,15 +42,19 @@ const isContactModalVisible = ref(false);
   position: relative;
   height: 500px;
 
-  @media (max-width: 640px) {
+  @include down(md) {
     height: auto;
     padding: 40px 0;
+  }
+
+  @include between(md, xl) {
+    height: auto;
   }
 
   h1 {
     margin: 0;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       text-align: center;
       br {
         display: none;
@@ -64,7 +67,7 @@ const isContactModalVisible = ref(false);
     position: absolute;
     height: 100%;
     z-index: -2;
-    @media (max-width: 640px) {
+    @include down(md) {
       top: 0;
     }
   }
@@ -75,15 +78,23 @@ const isContactModalVisible = ref(false);
     z-index: -1;
     background-repeat: no-repeat;
     background-size: cover;
+
+    @include down(lg) {
+      top: 0;
+    }
   }
   &__content {
     display: flex;
     align-items: end;
     height: 100%;
 
-    @media (max-width: 640px) {
+    @include down(lg) {
       flex-direction: column-reverse;
       height: auto;
+    }
+    @include between(lg, xl) {
+      padding: 20px 0 60px 0;
+      //flex-direction: column-reverse;
     }
 
     &--left {
@@ -91,18 +102,35 @@ const isContactModalVisible = ref(false);
       align-self: start;
       margin-top: 72px;
 
-      @media (max-width: 640px) {
+      @include down(md) {
         width: 100%;
         margin-top: 30px;
+      }
+      @include between(md, lg) {
+        margin-top: 30px;
+        margin-bottom: 60px;
+      }
+      @include between(lg, xl) {
+        width: 35%;
+        margin-top: 35px;
       }
     }
     &-picture {
       margin-left: -16px;
 
-      @media (max-width: 640px) {
+      @include down(md) {
         margin-left: 0;
         align-self: center;
         width: 100%;
+      }
+      @include between(md, lg) {
+        margin: 40px auto 0 auto;
+      }
+      @include between(lg, xl) {
+        width: 635px;
+        position: absolute;
+        right: 0;
+        bottom: 0;
       }
     }
   }
@@ -112,7 +140,7 @@ const isContactModalVisible = ref(false);
     font-size: 24px;
     letter-spacing: -0.96px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 21px;
       margin-top: 24px;
       text-align: center;
@@ -126,7 +154,7 @@ const isContactModalVisible = ref(false);
   &__action {
     margin-top: 36px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin-top: 24px;
       justify-self: center;
     }

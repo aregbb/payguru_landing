@@ -1,13 +1,16 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import Container from "@/components/Container.vue";
-
 import GeographyBg from "@/assets/img/geographyBg.png"
 import Button from "@/components/Button.vue";
 import {ChevronRightIcon} from "@heroicons/vue/24/solid";
+import ContactModal from "@/components/modals/ContactModal.vue";
+
+const isContactModalVisible = ref(false);
 </script>
 
 <template>
-  <section class="geography">
+  <section class="geography section-padding">
     <Container>
       <h2>Мы работаем на всех континентах</h2>
       <div class="geography__text">
@@ -22,7 +25,7 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
           </div>
           <ul class="geography__list">
             <li>
-              <strong>Антифрод-фильтры:</strong> по суммам, частоте, BIN/<br>ISSUER, времени суток, гео, поведенческим
+              <strong>Антифрод-фильтры: </strong>по суммам, частоте, BIN/<br>ISSUER, времени суток, гео, поведенческим
               <br> паттернам.
             </li>
             <li>
@@ -30,26 +33,34 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
               по направлению.
             </li>
           </ul>
-          <Button variant="blue" class="geography__action">
+          <Button variant="blue" class="geography__action" @click="isContactModalVisible = true">
             <div class="flex items-end">
-              <span>Консультация специалиста</span><ChevronRightIcon style="margin-left: 3px; width: 14px; color: white" />
+              <span>Консультация специалиста</span>
+              <ChevronRightIcon style="margin-left: 3px; width: 14px; color: white" />
             </div>
           </Button>
         </div>
       </div>
     </Container>
   </section>
+  <ContactModal v-if="isContactModalVisible" @close="isContactModalVisible = false" />
 </template>
 
 <style scoped lang="scss">
 .geography {
   background: #E4E9F4;
   color: #65758A;
-  padding: 100px 0 155px 0;
   position: relative;
+  padding-bottom: 157px;
+  padding-top: 81px;
 
-  @media (max-width: 640px) {
-    padding: 40px 0 40px 0;
+  @include down(lg) {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  @include down(sm) {
+    padding-top: 40px;
+    padding-bottom: 40px;
   }
 
   h2 {
@@ -59,19 +70,30 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
     line-height: 60px;
     letter-spacing: -2.48px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 34px;
       line-height: 1;
       letter-spacing: -0.8px;
     }
+
+    @include between(sm, xl) {
+      font-size: 52px;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
   }
 
   &__action {
-    margin-top: 44px;
+    margin-top: 40px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin-top: 24px;
       align-self: center;
+    }
+
+    @include between(sm, xl) {
+      margin-top: 24px;
+      width: fit-content;
     }
   }
 
@@ -81,11 +103,20 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
     font-size: 24px;
     letter-spacing: -0.96px;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       font-size: 18px;
       margin-top: 24px;
       letter-spacing: -0.5px;
       padding-left: 14px;
+
+      br {
+        display: none;
+      }
+    }
+
+    @include between(sm, xl) {
+      margin-top: 16px;
+      font-size: 22px;
 
       br {
         display: none;
@@ -97,33 +128,46 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
     color: #020617;
     font-size: 40px;
     letter-spacing: -1.6px;
-    margin-top: 32px;
+    margin-top: 42px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 28px;
       text-align: center;
+    }
+
+    @include between(md, xl) {
+      margin-top: 16px;
+      font-size: 32px;
+    }
+    @include between(sm, lg) {
+      margin-top: 16px;
     }
   }
 
   &__list {
     margin-top: 37px;
     margin-bottom: 0;
-    padding-left: 15px;
+    padding-left: 19px;
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 10px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin-top: 24px;
       padding-left: 30px;
+    }
+
+    @include between(sm, xl) {
+      margin-top: 16px;
     }
 
     li {
       position: relative;
       font-size: 18px;
+      letter-spacing: -0.72px;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         font-size: 16px;
 
         br {
@@ -134,8 +178,8 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
       &::before {
         content: "";
         position: absolute;
-        left: -15px;
-        top: 0.6em; /* вертикальное выравнивание */
+        left: -18px;
+        top: 8px;
         width: 6px;
         height: 6px;
         background-color: #1D65FF;
@@ -150,18 +194,24 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
     position: relative;
     justify-content: space-between;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       flex-direction: column;
       margin-top: 30px;
     }
 
+    @include between(md, xl) {
+      margin-top: 40px;
+      align-items: center;
+    }
+
     &-text {
-      margin-top: 31px;
+      margin-top: 43px;
+      margin-right: 13px;
       line-height: 27px;
       font-size: 18px;
       letter-spacing: -0.8px;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         font-size: 18px;
         padding-left: 14px;
         text-align: center;
@@ -172,13 +222,35 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
           display: none;
         }
       }
+      @include between(sm, xl) {
+        margin-top: 16px;
+      }
+      @include between(md, lg) {
+        br {
+         display: none;
+        }
+      }
     }
 
     &-right {
       margin-left: auto;
 
-      @media (max-width: 640px) {
-        margin-top: 220px;
+      @include between(lg, xl) {
+        max-width: 550px;
+      }
+
+
+      @include between(md, lg) {
+        max-width: 380px;
+
+        br {
+          display: none;
+        }
+      }
+
+      @include down(md) {
+        width: fit-content;
+        margin: 240px auto 0;
         display: flex;
         flex-direction: column;
       }
@@ -192,11 +264,22 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
       background-size: contain;
       background-repeat: no-repeat;
 
-      @media (max-width: 640px) {
+      @include between(md, lg) {
+        left: -70px;
+        width: 380px;
+        margin: 0 auto;
+        height: 300px;
+      }
+      @include down(md) {
         left: 50%;
         transform: translateX(-50%);
         width: 365px;
         height: 250px;
+      }
+      @include between(lg, xl) {
+        width: 50%;
+        left: 0;
+        height: 350px;
       }
     }
   }

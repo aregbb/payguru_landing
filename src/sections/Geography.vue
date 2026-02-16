@@ -54,7 +54,7 @@ const items = ref([
   padding: 100px 0;
   position: relative;
 
-  @media (max-width: 640px) {
+  @include down(sm) {
     padding: 40px 0 40px 0;
   }
 
@@ -63,7 +63,7 @@ const items = ref([
     line-height: 60px;
     letter-spacing: -2.48px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 34px;
       line-height: 1;
       letter-spacing: -0.8px;
@@ -71,7 +71,7 @@ const items = ref([
   }
 
   &__content {
-    @media (max-width: 640px) {
+    @include down(sm) {
       display: flex;
       flex-direction: column-reverse;
     }
@@ -106,7 +106,7 @@ const items = ref([
                 #061229 100%
         );
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin-top: 300px;
       width: 100%;
       padding: 16px;
@@ -134,7 +134,7 @@ const items = ref([
     max-width: 563px;
     margin-top: 60px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin-top: 24px;
       gap: 16px;
     }
@@ -153,7 +153,7 @@ const items = ref([
         color: #FFFFFFBF;
         opacity: 0.75;
 
-        @media (max-width: 640px) {
+        @include down(sm) {
           font-size: 18px;
         }
       }
@@ -169,7 +169,7 @@ const items = ref([
     background-size: contain;
     background-repeat: no-repeat;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       width: 95%;
       height: 220px;
       top: 110px;

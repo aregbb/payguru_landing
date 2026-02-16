@@ -27,7 +27,7 @@ const isContactModalVisible = ref(false);
 </script>
 
 <template>
-  <div class="features">
+  <div class="features section-padding">
     <Container>
       <div class="features__content">
         <img class="features__bg" :src="FeaturesImg" alt="picture" />
@@ -58,28 +58,30 @@ const isContactModalVisible = ref(false);
 
 <style scoped lang="scss">
 .features {
-  padding: 100px 0;
   background: #564CF1;
   color: #fff;
-
-  @media (max-width: 640px) {
-    padding: 40px 0;
-  }
 
   &__content {
     display: flex;
     align-items: center;
     gap: 62px;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       flex-direction: column;
       gap: 20px;
+    }
+    @include between(md, xl) {
+      justify-content: center;
     }
   }
 
   &__bg {
-    @media (max-width: 640px) {
+    @include down(md) {
       width: 300px;
+    }
+
+    @include between(md, xl) {
+      width: 40%;
     }
   }
 
@@ -89,9 +91,14 @@ const isContactModalVisible = ref(false);
     flex-direction: column;
     gap: 40px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin-top: 0;
       gap: 24px;
+    }
+
+    @include between(md, xl) {
+      width: 50%;
+      margin-top: 0;
     }
 
     &-item {
@@ -109,7 +116,7 @@ const isContactModalVisible = ref(false);
         font-weight: 500;
         letter-spacing: -1.12px;
 
-        @media (max-width: 640px) {
+        @include down(sm) {
           font-size: 22px;
           letter-spacing: -0.5px;
         }
@@ -121,7 +128,7 @@ const isContactModalVisible = ref(false);
         color: #FFFFFF;
         opacity: 0.7;
 
-        @media (max-width: 640px) {
+        @include down(sm) {
           margin-top: 6px;
           font-size: 18px;
         }
@@ -133,7 +140,7 @@ const isContactModalVisible = ref(false);
     width: 240px;
     margin-left: 30px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin: 0 auto;
     }
   }

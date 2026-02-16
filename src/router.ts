@@ -1,4 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
+import { ref, nextTick } from "vue";
+
+export const isRouteLoading = ref(true);
 
 const routes = [
     {
@@ -18,10 +21,25 @@ const routes = [
 export const router = createRouter({
     history: createWebHistory(),
     routes,
-    scrollBehavior(to, _, savedPosition) {
+    scrollBehavior(to, from, savedPosition) {
+        console.log(from)
         if (savedPosition) return savedPosition;
-        // если на лендинге якоря — оставим поведение браузера
-        if (to.hash) return { el: to.hash, top: 80, behavior: "smooth" };
+
+        if (to.hash) return { el: to.hash };
+
         return { top: 0 };
     },
+});
+
+router.beforeResolve(() => {
+    isRouteLoading.value = true;
+});
+
+router.afterEach(async () => {
+    await nextTick();
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            isRouteLoading.value = false;
+        });
+    });
 });

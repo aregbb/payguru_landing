@@ -9,7 +9,7 @@ const isContactFormVisible = ref(false);
 </script>
 
 <template>
-  <section class="contact-us">
+  <section class="contact-us section-padding">
     <div class="contact-us__gradient" />
     <Container>
       <h2>Консультация специалиста</h2>
@@ -27,15 +27,10 @@ const isContactFormVisible = ref(false);
 
 .contact-us {
   background: #020617;
-  padding: 100px 0;
   text-align: center;
   color: white;
   position: relative;
   overflow: hidden;
-
-  @media (max-width: 640px) {
-    padding: 40px 0;
-  }
 
   :deep(.container),
   > .container {
@@ -46,11 +41,14 @@ const isContactFormVisible = ref(false);
   h2 {
     letter-spacing: -2px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 32px;
       line-height: 1;
       letter-spacing: -0.5px;
       text-align: center;
+    }
+    @include between(sm, lg) {
+      font-size: 48px;
     }
   }
 
@@ -60,7 +58,7 @@ const isContactFormVisible = ref(false);
     margin-top: 20px;
     letter-spacing: -1.14px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 17px;
       line-height: 24px;
       margin-top: 16px;
@@ -70,11 +68,16 @@ const isContactFormVisible = ref(false);
         display: none;
       }
     }
+    @include between(sm, lg) {
+      br {
+        display: none;
+      }
+    }
   }
   &__action {
     margin-top: 32px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin-top: 24px;
     }
   }

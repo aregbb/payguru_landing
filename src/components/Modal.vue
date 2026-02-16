@@ -73,7 +73,7 @@ onUnmounted(() => {
   box-shadow:
       0 10px 30px rgba(0, 0, 0, 0.15);
 
-  @media (max-width: 640px) {
+  @include down(sm) {
     padding: 24px;
     width: 100%;
     max-width: 100%;

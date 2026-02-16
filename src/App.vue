@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeMount } from "vue";
+import { computed } from "vue";
 import { useRoute } from "vue-router"
 
 import BaseLayout from "@/layouts/BaseLayout.vue";
@@ -7,26 +7,23 @@ import EmptyLayout from "@/layouts/EmptyLayout.vue";
 
 const route = useRoute();
 
+const layout = computed(() => {
+  const key = (route.meta.layout as keyof typeof layouts) || "default";
+  return layouts[key];
+});
+
 const layouts = {
   default: BaseLayout,
   empty: EmptyLayout,
 } as const;
 
-const layoutComponent = computed(() => {
-  const key = (route.meta.layout as keyof typeof layouts) || "default";
-  console.log(key)
-  return layouts[key] ?? layouts.default;
-});
-
-onBeforeMount(() => {
-
-})
-
 </script>
 
 <template>
-  <component :is="layoutComponent">
-    <router-view />
+  <component :is="layout">
+    <RouterView v-slot="{ Component }">
+      <component :is="Component" />
+    </RouterView>
   </component>
 </template>
 

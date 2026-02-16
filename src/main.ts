@@ -1,10 +1,10 @@
-import { createApp, watch } from 'vue'
-import './style.css'
+import {createApp, nextTick, watch} from 'vue'
+import './style.scss'
 import "@/assets/css/tailwind.css"
 import "@/assets/fonts/fonts.css"
 import App from './App.vue'
 
-import { router } from "@/router";
+import {isRouteLoading, router} from "@/router";
 import { i18n } from "@/i18n";
 
 const setTitle = () => {
@@ -26,3 +26,12 @@ watch(
 );
 
 createApp(App).use(router).use(i18n).mount('#app')
+
+router.isReady().then(async () => {
+    await nextTick();
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            isRouteLoading.value = false
+        })
+    })
+})

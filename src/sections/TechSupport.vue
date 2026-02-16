@@ -35,7 +35,7 @@ const featuresList = ref([
 </script>
 
 <template>
-  <section class="tech-support">
+  <section class="tech-support section-padding">
     <div class="tech-support__left-bg" :style="{ backgroundImage: `url(${TechSupportLeftBg})` }" />
     <div class="tech-support__right-bg" :style="{ backgroundImage: `url(${TechSupportRightBg})` }" />
     <Container class="tech-support__wrap">
@@ -64,7 +64,7 @@ const featuresList = ref([
 <style lang="scss">
 .tech-support {
   &__card {
-    @media (max-width: 640px) {
+    @include down(lg) {
       br {
         display: none;
       }
@@ -74,20 +74,20 @@ const featuresList = ref([
 </style>
 <style scoped lang="scss">
 .tech-support {
-  padding: 100px 0;
   position: relative;
   background: #FBFCFE;
 
-  @media (max-width: 640px) {
-    padding: 40px 0;
-  }
   &__wrap {
     display: flex;
     gap: 85px;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       flex-direction: column;
       gap: 10px;
+    }
+    @include between(sm, lg) {
+      gap: 40px;
+      flex-direction: column;
     }
   }
 
@@ -98,10 +98,15 @@ const featuresList = ref([
     position: absolute;
     bottom: 0;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       width: 100%;
       height: 400px;
       z-index: -1;
+    }
+
+    @include between(sm, lg) {
+      width: 100%;
+      height: 600px;
     }
   }
 
@@ -110,6 +115,16 @@ const featuresList = ref([
     gap: 15.5px;
     flex-direction: column;
     position: relative;
+
+    @include between(md, xl) {
+      max-width: 45%;
+    }
+    @include between(sm, lg) {
+      flex-wrap: wrap;
+      flex-direction: row;
+      width: 100%;
+      max-width: none;
+    }
   }
 
   h3 {
@@ -118,12 +133,17 @@ const featuresList = ref([
     margin: 0 0 23px;
     letter-spacing: -2px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 32px;
       line-height: 1;
       letter-spacing: -0.5px;
       text-align: center;
       margin-bottom: 16px;
+    }
+
+    @include between(sm, xl) {
+      font-size: 41px;
+      line-height: 1.3;
     }
   }
 
@@ -136,8 +156,13 @@ const featuresList = ref([
     background: white;
     border-radius: 20px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       padding: 24px;
+    }
+
+    @include between(sm, lg) {
+      padding: 24px;
+      width: 345px;
     }
 
     &-icon {
@@ -151,7 +176,7 @@ const featuresList = ref([
       line-height: 30px;
       font-weight: 500;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         font-size: 22px;
         line-height: 1;
         margin: 10px 0;
@@ -170,7 +195,7 @@ const featuresList = ref([
     line-height: 27px;
     letter-spacing: -0.54px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       text-align: center;
       br {
         display: none;

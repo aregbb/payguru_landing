@@ -28,7 +28,7 @@ const items = ref([
 </script>
 
 <template>
-  <section class="first-start">
+  <section class="first-start section-padding">
     <Container>
       <div class="first-start__content">
         <div class="first-start__left">
@@ -62,14 +62,9 @@ const items = ref([
 
 <style scoped lang="scss">
 .first-start {
-  padding: 100px 0;
   background: #020617;
   color: #fff;
   position: relative;
-
-  @media (max-width: 640px) {
-    padding: 40px 0;
-  }
 
   h2 {
     font-size: 62px;
@@ -77,18 +72,21 @@ const items = ref([
     letter-spacing: -2.48px;
     font-weight: 500;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       font-size: 34px;
       line-height: 1;
       letter-spacing: -0.5px;
       text-align: center;
+    }
+    @include between(md, xl) {
+      font-size: 52px;
     }
   }
 
   &__content {
     display: flex;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       flex-direction: column-reverse;
     }
   }
@@ -96,7 +94,7 @@ const items = ref([
   &__left {
     width: 473px;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       width: 100%;
     }
   }
@@ -108,7 +106,7 @@ const items = ref([
     background-size: cover;
     background-repeat: no-repeat;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       top: 135px;
       width: 390px;
       height: 280px;
@@ -116,6 +114,25 @@ const items = ref([
       background-size: contain;
       left: 50%;
       transform: translateX(-61%);
+    }
+    @include between(sm, md) {
+      transform: translateX(-57%);
+    }
+
+    @include between(md, lg) {
+      width: 450px;
+      position: absolute;
+      right: 60px;
+      top: 150px;
+      background-size: contain;
+    }
+
+    @include between(lg, xl) {
+      width: 55%;
+      margin-top: 20px;
+      margin-left: -50px;
+      height: 420px;
+      background-size: contain;
     }
   }
 
@@ -125,8 +142,12 @@ const items = ref([
     flex-direction: column;
     gap: 40px;
 
-    @media (max-width: 640px) {
+    @include down(md) {
       margin-top: 335px;
+      gap: 24px;
+    }
+
+    @include between(md, xl) {
       gap: 24px;
     }
 
@@ -154,7 +175,7 @@ const items = ref([
     width: 261px;
     margin-left: 30px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin: 16px auto 0;
     }
   }

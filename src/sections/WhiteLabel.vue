@@ -26,7 +26,7 @@ const items = ref([
 </script>
 
 <template>
-  <section class="white-label">
+  <section class="white-label section-padding">
     <Container>
       <div class="white-label__head">
         <h2>White Label PayGuru</h2>
@@ -46,25 +46,36 @@ const items = ref([
   </section>
 </template>
 
+<style lang="scss">
+.white-label {
+  &__item {
+    @include between(sm, lg) {
+      br {
+        display: none;
+      }
+    }
+  }
+}
+</style>
 <style scoped lang="scss">
 .white-label {
   background: #020617;
-  padding: 100px 0;
   color: #fff;
-
-  @media(max-width: 640px) {
-    padding: 40px 0;
-  }
 
   h2 {
     font-size: 62px;
     line-height: 60px;
     letter-spacing: -2.48px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 34px;
       line-height: 1;
       letter-spacing: -0.5px;
+    }
+    @include between(sm, xl) {
+      font-size: 52px;
+      letter-spacing: -1.5px;
+      line-height: 1.1;
     }
   }
 
@@ -78,7 +89,7 @@ const items = ref([
       color: #FFFFFF;
       opacity: 0.75;
 
-      @media (max-width: 640px) {
+      @include down(md) {
         font-size: 18px;
         letter-spacing: -0.5px;
         margin-top: 24px;
@@ -95,8 +106,11 @@ const items = ref([
     gap: 24px;
     margin-top: 40px;
 
-    @media (max-width: 640px) {
+    @include down(lg) {
       flex-wrap: wrap;
+      justify-content: center;
+    }
+    @include between(sm, xl) {
       justify-content: center;
     }
   }
@@ -106,9 +120,25 @@ const items = ref([
     border-radius: 20px;
     background: #FFFFFF0D;
 
+    @include between(lg, xl) {
+      width: 30%;
+    }
+
+    @include between(sm, md) {
+      width: 40%;
+    }
+
+    @include between(md, lg) {
+      width: 224px;
+    }
+
     img {
-      @media (max-width: 640px) {
+      @include down(sm) {
         width: 290px;
+      }
+
+      @include between(sm, xl) {
+        width: 100%;
       }
     }
 
@@ -122,12 +152,21 @@ const items = ref([
       text-align: left;
       padding-left: 28px;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         font-size: 22px;
         line-height: 1;
         letter-spacing: -0.5px;
         margin-top: 0px;
         margin-bottom: 10px;
+      }
+      @include between(sm, lg) {
+        font-size: 18px;
+        padding: 0 0 0 16px;
+        margin-top: 16px;
+      }
+      @include between(lg, xl) {
+        font-size: 22px;
+        margin-top: 16px;
       }
     }
 
@@ -140,9 +179,16 @@ const items = ref([
       letter-spacing: -0.72px;
       margin-bottom: 51px;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         line-height: 24px;
         margin-bottom: 30px;
+      }
+      @include between(sm, lg) {
+        font-size: 16px;
+        padding-inline: 16px;
+      }
+      @include between(md, xl) {
+        margin-bottom: 41px;
       }
     }
   }

@@ -44,7 +44,7 @@ const items = ref([
 </script>
 
 <template>
-  <section class="technologies">
+  <section class="technologies section-padding">
     <Container>
       <div class="technologies__head">
         <h2>Технологии в действии</h2>
@@ -63,11 +63,6 @@ const items = ref([
 
 <style scoped lang="scss">
 .technologies {
-  padding: 100px 0;
-
-  @media (max-width: 640px) {
-    padding: 40px 0;
-  }
 
   &__head {
     text-align: center;
@@ -76,10 +71,14 @@ const items = ref([
       font-size: 62px;
       letter-spacing: -1.24px;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         font-size: 36px;
         line-height: 1;
         letter-spacing: -0.5px;
+      }
+      @include between(sm, xl) {
+        font-size: 52px;
+        line-height: 1.2;
       }
     }
 
@@ -89,9 +88,14 @@ const items = ref([
       font-size: 24px;
       letter-spacing: -1.2px;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         font-size: 18px;
         margin-top: 16px;
+      }
+      @include between(md, xl) {
+        font-size: 22px;
+        margin-top: 16px;
+        letter-spacing: -0.6px;
       }
     }
   }
@@ -102,9 +106,13 @@ const items = ref([
     gap: 24px;
     margin-top: 40px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       margin-top: 16px;
       gap: 16px;
+    }
+
+    @include between(md, xl) {
+      justify-content: center;
     }
   }
 
@@ -116,13 +124,20 @@ const items = ref([
         0px 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
         0px 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       width: 100%;
       padding: 24px 28px;
     }
 
+    @include between(sm, md) {
+      width: 280px;
+    }
+    @include between(md, lg) {
+      width: 320px;
+    }
+
     &-icon {
-      @media (max-width: 640px) {
+      @include down(sm) {
         width: 40px;
       };
     }
@@ -135,7 +150,7 @@ const items = ref([
       font-weight: 500;
       margin-bottom: 16px;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         margin-top: 5px;
         margin-bottom: 10px;
       }

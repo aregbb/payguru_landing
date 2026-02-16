@@ -293,7 +293,7 @@ onBeforeMount(() => {
     margin: 0 auto;
     position: relative;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       width: 100%;
       padding: 0 16px;
     }
@@ -318,7 +318,7 @@ onBeforeMount(() => {
       img {
         width: 40px;
 
-        @media (max-width: 640px) {
+        @include down(sm) {
           width: 34px;
         }
       }
@@ -327,7 +327,7 @@ onBeforeMount(() => {
         font-weight: bold;
         font-size: 34px;
 
-        @media (max-width: 640px) {
+        @include down(sm) {
           font-size: 28px;
         }
       }
@@ -336,7 +336,7 @@ onBeforeMount(() => {
       font-size: 32px;
       color: rgb(56, 136, 194);
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         font-size: 28px;
       }
     }
@@ -349,7 +349,7 @@ onBeforeMount(() => {
     line-height: 1;
     margin-top: 0;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       font-size: 28px;
     }
   }
@@ -359,14 +359,14 @@ onBeforeMount(() => {
     display: flex;
     gap: 45px;
 
-    @media (max-width: 640px) {
+    @include down(sm) {
       flex-direction: column;
       gap: 16px;
       padding-top: 16px;
     }
 
     &-header {
-      @media (max-width: 640px) {
+      @include down(sm) {
         flex-direction: column;
       }
     }
@@ -398,7 +398,7 @@ onBeforeMount(() => {
       list-style: none;
       margin-top: 0;
 
-      @media (max-width: 640px) {
+      @include down(sm) {
         display: flex;
         width: 100%;
         padding: 0 !important;

@@ -3,7 +3,7 @@
 </script>
 
 <template>
-  <a href="https://sigma.world/ru/summits/eurasia/" class="banner">
+  <a href="https://sigma.world/ru/summits/eurasia/" class="banner" autofocus>
     Schedule a demo and see what we’re building. Meet us at SiGMA Eurasia in Dubai, February 9-11. <span style=" margin-left: 5px; text-decoration: underline"> See more.</span>
   </a>
 </template>
@@ -21,10 +21,13 @@
   align-items: center;
   justify-content: center;
 
-  @media (max-width: 640px) {
+  @include down(md) {
     flex-direction: column;
     height: 100%;
     padding: 10px 16px;
+  }
+  @media (max-width: 1023px) {
+    flex-direction: column;
   }
 }
 @keyframes announcement-gradient {
