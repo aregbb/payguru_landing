@@ -2,9 +2,9 @@
 import { ref } from "vue";
 
 import Container from "@/components/Container.vue";
-import bgImg from "@/assets/img/DesktopBg.png"
+import bgImg from "@/assets/img/DesktopBg.webp"
 import Button from "@/components/Button.vue";
-import HeroBg from "@/assets/img/heroBg.png"
+import HeroBg from "@/assets/img/heroBg.webp"
 import ContactModal from "@/components/modals/ContactModal.vue";
 
 const isContactModalVisible = ref(false);
@@ -30,7 +30,7 @@ const isContactModalVisible = ref(false);
           </div>
         </div>
 
-        <img class="hero__content-picture" :src="bgImg" alt="">
+        <img rel="preload" class="hero__content-picture" :src="bgImg" alt="">
       </div>
     </Container>
   </section>

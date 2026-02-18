@@ -1,27 +1,26 @@
 import { createI18n } from "vue-i18n";
-import ru from "@/locales/ru.json";
-import en from "@/locales/en.json";
 
 export type AppLocale = "ru" | "en";
 
 const STORAGE_KEY = "app_locale";
 
-// function getInitialLocale(): AppLocale {
-//     const saved = localStorage.getItem(STORAGE_KEY) as AppLocale | null;
-//     if (saved === "ru" || saved === "en") return saved;
-//
-//     const browser = (navigator.language || "en").toLowerCase();
-//     return browser.startsWith("ru") ? "ru" : "en";
-// }
-
 export const i18n = createI18n({
-    legacy: false, // важно для Composition API
-    locale: 'ru',
+    legacy: false,
+    locale: "ru",
     fallbackLocale: "en",
-    messages: { ru, en },
+    messages: {} // пусто!
 });
 
-export function setLocale(locale: AppLocale) {
+async function loadLocaleMessages(locale: AppLocale) {
+    const messages = await import(`./locales/${locale}.json`);
+    i18n.global.setLocaleMessage(locale, messages.default);
+}
+
+export async function setLocale(locale: AppLocale) {
+    if (!i18n.global.availableLocales.includes(locale)) {
+        await loadLocaleMessages(locale);
+    }
+
     i18n.global.locale.value = locale;
     localStorage.setItem(STORAGE_KEY, locale);
 }

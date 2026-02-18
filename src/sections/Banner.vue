@@ -1,9 +1,5 @@
-<script setup lang="ts">
-
-</script>
-
 <template>
-  <a href="https://sigma.world/ru/summits/eurasia/" class="banner" autofocus>
+  <a href="https://sigma.world/ru/summits/eurasia/" class="banner">
     Schedule a demo and see what we’re building. Meet us at SiGMA Eurasia in Dubai, February 9-11. <span style=" margin-left: 5px; text-decoration: underline"> See more.</span>
   </a>
 </template>
@@ -12,23 +8,16 @@
 .banner {
   transition: opacity .3s;
   animation: announcement-gradient 12s infinite;
+  line-height: 1;
+  padding: 13px 16px;
   text-align: center;
-  height: 46px;
+  min-height: 46px;
+  display: block;
+  width: 100%;
+  font-weight: bold;
   background-image: linear-gradient(270deg, #01b9f5, #4768fb 26.44%, #363ff9 51.44%, #4768fb 74.52%, #01b9f5);
   background-size: 400% 400%;
   color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  @include down(md) {
-    flex-direction: column;
-    height: 100%;
-    padding: 10px 16px;
-  }
-  @media (max-width: 1023px) {
-    flex-direction: column;
-  }
 }
 @keyframes announcement-gradient {
   0% {

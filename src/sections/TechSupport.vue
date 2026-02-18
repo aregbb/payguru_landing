@@ -5,8 +5,7 @@ import Cloud from "@/assets/img/icons/cloud.svg"
 import Eye from "@/assets/img/icons/eye.svg"
 import Filter from "@/assets/img/icons/filter.svg"
 import List from "@/assets/img/icons/list.svg"
-import TechSupportLeftBg from "@/assets/img/TechSupportLeftBg.png"
-import TechSupportRightBg from "@/assets/img/TechSupportRightBg.svg"
+import TechSupportLeftBg from "@/assets/img/TechSupportLeftBg.webp"
 import Container from "@/components/Container.vue";
 
 const featuresList = ref([
@@ -37,7 +36,6 @@ const featuresList = ref([
 <template>
   <section class="tech-support section-padding">
     <div class="tech-support__left-bg" :style="{ backgroundImage: `url(${TechSupportLeftBg})` }" />
-    <div class="tech-support__right-bg" :style="{ backgroundImage: `url(${TechSupportRightBg})` }" />
     <Container class="tech-support__wrap">
       <div class="tech-support--left">
         <h3>
@@ -93,7 +91,7 @@ const featuresList = ref([
 
   &__left-bg {
     width: 960px;
-    height: 804px;
+    height: 920px;
     background-repeat: no-repeat;
     position: absolute;
     bottom: 0;
@@ -106,7 +104,7 @@ const featuresList = ref([
 
     @include between(sm, lg) {
       width: 100%;
-      height: 600px;
+      height: 750px;
     }
   }
 
@@ -131,7 +129,8 @@ const featuresList = ref([
     font-size: 50px;
     line-height: 60px;
     margin: 0 0 23px;
-    letter-spacing: -2px;
+    letter-spacing: -1.5px;
+    font-weight: 500;
 
     @include down(sm) {
       font-size: 32px;

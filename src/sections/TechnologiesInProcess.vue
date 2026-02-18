@@ -63,13 +63,13 @@ const items = ref([
 
 <style scoped lang="scss">
 .technologies {
-
   &__head {
     text-align: center;
 
     h2 {
       font-size: 62px;
       letter-spacing: -1.24px;
+      font-weight: 500;
 
       @include down(sm) {
         font-size: 36px;
@@ -120,9 +120,10 @@ const items = ref([
     padding: 28px 32px;
     border-radius: 20px;
     width: 376px;
+    border: 1px solid #64748B1A;
     box-shadow:
-        0px 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
-        0px 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
+        0 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
+        0 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
 
     @include down(sm) {
       width: 100%;

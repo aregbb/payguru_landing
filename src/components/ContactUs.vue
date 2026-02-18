@@ -40,6 +40,7 @@ const isContactFormVisible = ref(false);
 
   h2 {
     letter-spacing: -2px;
+    font-weight: 500;
 
     @include down(sm) {
       font-size: 32px;
@@ -75,7 +76,7 @@ const isContactFormVisible = ref(false);
     }
   }
   &__action {
-    margin-top: 32px;
+    margin: 32px auto 0 auto;
 
     @include down(sm) {
       margin-top: 24px;

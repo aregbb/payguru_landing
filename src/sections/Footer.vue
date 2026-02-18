@@ -13,7 +13,7 @@ const items = [
 </script>
 
 <template>
-  <footer class="footer section-padding">
+  <footer class="footer">
     <Container>
       <div class="footer__content">
         <div class="footer__logo">
@@ -41,6 +41,7 @@ const items = [
 .footer {
   background: black;
   align-items: center;
+  padding: 60px 0;
 
   &__content {
     display: flex;

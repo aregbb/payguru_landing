@@ -20,7 +20,11 @@ withDefaults(defineProps<{
 .ui-btn {
   font-family: "NT Somic", system-ui, sans-serif;
   font-size: 16px;
-  padding: 14.5px 20px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  justify-content: center;
   border-radius: 10px;
   border: none;
   cursor: pointer;

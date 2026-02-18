@@ -6,6 +6,7 @@ import App from './App.vue'
 
 import {isRouteLoading, router} from "@/router";
 import { i18n } from "@/i18n";
+import { setLocale } from "@/i18n";
 
 const setTitle = () => {
     const { t } = i18n.global;
@@ -13,10 +14,10 @@ const setTitle = () => {
 
     const appName = " Pay Guru "
     const titleKey = route.meta?.title as string | 'Pay Guru система оркестрации платежей';
-    console.log(route, titleKey, t('nav.about'))
     document.title = titleKey ? `${appName} ${t(titleKey)}` : appName;
 }
 
+await setLocale("ru");
 
 router.afterEach(() => setTitle());
 

@@ -2,7 +2,7 @@
 import Container from "@/components/Container.vue";
 import { ref } from "vue";
 
-import FeaturesImg from "@/assets/img/featuresImg.png"
+import FeaturesImg from "@/assets/img/featuresImg.webp"
 import Check from "@/assets/img/icons/whiteCheck.svg";
 import Button from "@/components/Button.vue";
 import ContactModal from "@/components/modals/ContactModal.vue";
@@ -11,15 +11,15 @@ import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 const items = ref([
   {
     title: "Круглосуточная поддержка 24/7",
-    text: "Дежурная команда специалистов для оперативного реагирования."
+    text: "Дежурная команда специалистов <br> для оперативного реагирования."
   },
   {
     title: "Мониторинг",
-    text: "Непрерывный контроль сервисов с автоматическими оповещениями в Telegram."
+    text: "Непрерывный контроль сервисов <br> с автоматическими оповещениями в Telegram."
   },
   {
     title: "Полное логирование",
-    text: "Детальные логи, аудит операций и прозрачная трассировка запросов."
+    text: "Подробное логгирование, аудит операций <br> и прозрачная трассировка запросов."
   },
 ]);
 
@@ -38,9 +38,7 @@ const isContactModalVisible = ref(false);
               <div class="features__list-item-title">
                 {{ item.title }}
               </div>
-              <div class="features__list-item-text">
-                {{ item.text }}
-              </div>
+              <div class="features__list-item-text" v-html="item.text" />
             </div>
         </div>
         <Button class="features__action" variant="secondary" @click="isContactModalVisible = true">
@@ -60,11 +58,16 @@ const isContactModalVisible = ref(false);
 .features {
   background: #564CF1;
   color: #fff;
+  will-change: auto;
+  transform: none;
 
   &__content {
     display: flex;
     align-items: center;
     gap: 62px;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    will-change: transform;
 
     @include down(md) {
       flex-direction: column;
@@ -76,6 +79,9 @@ const isContactModalVisible = ref(false);
   }
 
   &__bg {
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    will-change: transform;
     @include down(md) {
       width: 300px;
     }

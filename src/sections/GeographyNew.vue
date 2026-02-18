@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Container from "@/components/Container.vue";
-import GeographyBg from "@/assets/img/geographyBg.png"
+import GeographyBg from "@/assets/img/geographyBg.webp";
 import Button from "@/components/Button.vue";
 import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 import ContactModal from "@/components/modals/ContactModal.vue";
@@ -62,6 +62,10 @@ const isContactModalVisible = ref(false);
     padding-top: 40px;
     padding-bottom: 40px;
   }
+  @include between(lg, xl) {
+    padding-bottom: 80px;
+    padding-top: 80px;
+  }
 
   h2 {
     text-align: center;
@@ -69,6 +73,7 @@ const isContactModalVisible = ref(false);
     font-size: 62px;
     line-height: 60px;
     letter-spacing: -2.48px;
+    font-weight: 500;
 
     @include down(sm) {
       font-size: 34px;
@@ -133,6 +138,7 @@ const isContactModalVisible = ref(false);
     @include down(sm) {
       font-size: 28px;
       text-align: center;
+      margin-top: 0;
     }
 
     @include between(md, xl) {
@@ -250,9 +256,12 @@ const isContactModalVisible = ref(false);
 
       @include down(md) {
         width: fit-content;
-        margin: 240px auto 0;
+        margin: 345px auto 0;
         display: flex;
         flex-direction: column;
+      }
+      @include down(sm) {
+        margin: 250px auto 0;
       }
     }
 
@@ -273,13 +282,17 @@ const isContactModalVisible = ref(false);
       @include down(md) {
         left: 50%;
         transform: translateX(-50%);
-        width: 365px;
+        width: 522px;
+        height: 320px;
+      }
+      @include down(sm) {
+        width: 350px;
         height: 250px;
       }
       @include between(lg, xl) {
         width: 50%;
         left: 0;
-        height: 350px;
+        height: 300px;
       }
     }
   }

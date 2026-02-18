@@ -2,9 +2,9 @@
 import Container from "@/components/Container.vue";
 import { ref } from "vue";
 
-import Rocket from "@/assets/img/rocket.png"
-import SettingsBlue from "@/assets/img/settings-blue.png"
-import SettingsPurple from "@/assets/img/settings-purple.png"
+import Rocket from "@/assets/img/rocket.webp"
+import SettingsBlue from "@/assets/img/settings-blue.webp"
+import SettingsPurple from "@/assets/img/settings-purple.webp"
 
 const items = ref([
   {

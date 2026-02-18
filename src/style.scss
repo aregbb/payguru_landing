@@ -64,7 +64,7 @@ a {
     padding: 100px 0;
 
     @include down(md) {
-        padding: 40px 0;
+        padding: 60px 0;
     }
 
     @include between(md, xl) {
@@ -80,5 +80,5 @@ a {
     text-fill-color: transparent;
     color: transparent;
     display: inline-block;
-    font-weight: 700;
+    font-weight: 500;
 }

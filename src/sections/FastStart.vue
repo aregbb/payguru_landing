@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import LogoWithBrads from "@/assets/img/logo-with-brands.png"
+import LogoWithBrads from "@/assets/img/logo-with-brands.webp"
 import Check from "@/assets/img/icons/Check.svg";
 import Container from "@/components/Container.vue";
 import Button from "@/components/Button.vue";
@@ -103,8 +103,12 @@ const items = ref([
     width: 712px;
     margin-top: -30px;
     height: 552px;
-    background-size: cover;
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    will-change: transform;
 
     @include down(md) {
       top: 135px;
@@ -113,26 +117,27 @@ const items = ref([
       position: absolute;
       background-size: contain;
       left: 50%;
-      transform: translateX(-61%);
+      transform: translateX(-235px);
     }
     @include between(sm, md) {
-      transform: translateX(-57%);
+      transform: translateX(-235px);
     }
 
     @include between(md, lg) {
-      width: 450px;
+      width: 447px;
+      height: 350px;
       position: absolute;
-      right: 60px;
-      top: 150px;
-      background-size: contain;
+      right: 25px;
+      top: 152px;
+      background-size: cover;
     }
 
     @include between(lg, xl) {
       width: 55%;
       margin-top: 20px;
-      margin-left: -50px;
+      margin-left: -35px;
       height: 420px;
-      background-size: contain;
+      background-size: cover;
     }
   }
 
