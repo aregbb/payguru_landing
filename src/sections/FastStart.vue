@@ -85,6 +85,9 @@ const items = ref([
 
   &__content {
     display: flex;
+    transform: translate3d(0,0,0);
+    backface-visibility: hidden;
+    will-change: transform;
 
     @include down(md) {
       flex-direction: column-reverse;
@@ -104,8 +107,8 @@ const items = ref([
     margin-top: -30px;
     height: 552px;
     background-repeat: no-repeat;
-    background-size: cover;
     background-position: center;
+    background-size: contain;
     transform: translate3d(0,0,0);
     backface-visibility: hidden;
     will-change: transform;
@@ -127,8 +130,8 @@ const items = ref([
       width: 447px;
       height: 350px;
       position: absolute;
-      right: 25px;
-      top: 152px;
+      right: -40px;
+      top: 100px;
       background-size: cover;
     }
 

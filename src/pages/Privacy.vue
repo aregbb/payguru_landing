@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { onBeforeMount, computed } from "vue";
-import Logo from "@/assets/img/Logo.svg"
+import Logo from "@/assets/img/logo-blue.svg"
 import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
@@ -43,7 +43,7 @@ onBeforeMount(() => {
           <div class="privacy-page__content-right">
             <template v-if="activeTab === 'privacy'">
               <div class="privacy-page__content-header flex justify-between items-baseline">
-                <h1>Privacy Policy for PayGuru Platform</h1>
+                <h1>Privacy Policy</h1>
                 <a
                     href="/static/docs/Privacy.docx"
                     download
@@ -53,21 +53,19 @@ onBeforeMount(() => {
                 </a>
               </div>
 
-              <div>
+              <div class="chapter">
                 <h4>1. General Provisions</h4>
                 This Privacy Policy (the “Policy”) governs the processing of information in connection with the use of the PayGuru technological platform.
                 <br>
                 The PayGuru platform is a technological solution designed to automate and coordinate interactions between authorized participants within agreed partner models. The platform is not intended for public consumer use and does not provide services directly to end users.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>2. Jurisdiction and Regulation</h4>
                 Information processing is conducted within the operational structure registered under the jurisdiction of Nevis.
                 <br>
                 This jurisdiction is selected to ensure operational flexibility and coordination between infrastructure participants. Unless otherwise agreed in writing, applicable law shall be the law of the operating company’s jurisdiction.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>3. Purpose of Information Processing</h4>
                 The platform processes information solely for the following purposes: <br>
                 <ul>
@@ -79,8 +77,7 @@ onBeforeMount(() => {
                 </ul>
                 Information processing is limited to the scope necessary to achieve the above purposes.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>4. Categories of Processed Information</h4>
                 As part of its technical operations, the platform may process and temporarily store the following categories of information:
                 <br>
@@ -95,8 +92,7 @@ onBeforeMount(() => {
                 <br>
                 In certain scenarios, including e-commerce or payment orchestration models, the platform may technically receive, transmit or relay data provided by participants <strong>solely for the purpose of routing such data to authorized third-party service providers.</strong> Such processing is automated, transient and limited to technical transmission, without independent use, retention or control of such data by the platform.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>5. Technical Security Measures</h4>
                 The platform applies technical and organizational measures to protect processed information, including:
                 <br>
@@ -110,8 +106,7 @@ onBeforeMount(() => {
                 <br>
                 The platform’s security architecture follows principles aligned with applicable PCI DSS requirements within the technical scope of platform operations.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>6. Interaction with Third Parties</h4>
                 Information may be transmitted to third parties only to the extent necessary to: <br>
                 <ul>
@@ -121,15 +116,13 @@ onBeforeMount(() => {
                 </ul>
                 All third-party interactions are limited to the minimum scope required for platform functionality.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>7. Data Retention</h4>
                 Information is retained for the period established by the platform’s internal technical and operational policies.
                 <br>
                 Data deletion or anonymization is performed automatically upon expiration of the applicable retention period or upon agreement with the relevant platform participant.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>8. Final Provisions</h4>
                 Use of the PayGuru platform constitutes acceptance of this Privacy Policy. <br>
                 The platform operator reserves the right to update this Policy to reflect technical, operational or regulatory changes.
@@ -137,7 +130,7 @@ onBeforeMount(() => {
             </template>
             <template v-if="activeTab === 'terms'">
               <div class="privacy-page__content-header flex justify-between items-baseline">
-                <h1>Terms of Service for PayGuru Platform</h1>
+                <h1>Terms of Service</h1>
                 <a
                     href="/static/docs/Terms.docx"
                     download
@@ -146,8 +139,7 @@ onBeforeMount(() => {
                   Download
                 </a>
               </div>
-
-              <div>
+              <div class="chapter">
                 <h4>1. General Provisions</h4>
                 These Terms of Service (hereinafter referred to as the “Terms”) govern the access to and use of the PayGuru technological platform, including its web interfaces, APIs, dashboards and related infrastructure.
                 <br>
@@ -156,8 +148,7 @@ onBeforeMount(() => {
                 <br>
                 PayGuru <strong>does not act as a bank, payment institution, money service business, escrow agent or financial intermediary,</strong> unless explicitly agreed otherwise in a separate written agreement.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>2. Access and Registration</h4>
                 Access to the platform is granted only after: <br>
                 <ul>
@@ -168,8 +159,7 @@ onBeforeMount(() => {
                 Registration, access provisioning and API credentials issuance are performed manually by authorized administrators or designated representatives.
                 The Company reserves the right to refuse or revoke access at its sole discretion.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>3. Platform Functionality</h4>
                 The PayGuru platform provides a set of <strong>technical tools for managing and coordinating payment flows,</strong> including but not limited to:
                 <br>
@@ -183,8 +173,7 @@ onBeforeMount(() => {
                 </ul>
                 All functionality is <strong>configured individually per partner and project</strong>  and reflects technical coordination logic rather than financial execution.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>4. Role of PayGuru and Payment Operations</h4>
                 PayGuru acts solely as <strong>a technological intermediary and orchestration layer.</strong>
                 PayGuru: <br>
@@ -198,8 +187,7 @@ onBeforeMount(() => {
                 <br>
                 Any transfer of value occurs <strong>outside of PayGuru’s control</strong> and responsibility.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>5. User Responsibilities</h4>
                 The user agrees to: <br>
                 <ul>
@@ -210,16 +198,14 @@ onBeforeMount(() => {
                 independently assess the risks associated with payment operations and third-party providers. <br>
                 The user acknowledges that <strong>all business, financial and regulatory risks remain solely on the user and their counterparties.</strong>
               </div>
-              <hr>
-              <div>
-                <h4>6. Security and Confidentiality </h4><br>
+              <div class="chapter">
+                <h4>6. Security and Confidentiality </h4>
                 The user is responsible for safeguarding access credentials, API keys and authentication data. <br>
                 The platform employs technical security measures including encryption, access controls, logging and monitoring.<br>
                 However, PayGuru <strong>does not guarantee uninterrupted operation or absolute security</strong> and shall not be liable for incidents caused by external systems, providers or user-side failures.<br>
               </div>
-              <hr>
-              <div>
-                <h4>7. Disputes and Adjustments</h4> <br>
+              <div class="chapter">
+                <h4>7. Disputes and Adjustments</h4>
                 The platform may provide technical mechanisms for dispute handling, transaction adjustments and status corrections.
                 Such mechanisms: <br>
                 <ul>
@@ -229,8 +215,7 @@ onBeforeMount(() => {
                 </ul>
                 Final responsibility for dispute resolution lies with the parties involved in the underlying transaction.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>8. Limitation of Liability</h4>
                 To the maximum extent permitted by applicable law: <br>
                 <ul>
@@ -243,15 +228,13 @@ onBeforeMount(() => {
 
                 The platform is provided <strong>“as is” and “as available”</strong> without warranties of any kind.
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>9. Amendments</h4>
                 The Company reserves the right to modify these Terms at any time. <br>
                 Updated versions will be published on the website or made available through the platform interface. <br>
                 Continued use of the platform constitutes acceptance of the updated Terms. <br>
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>10. Governing Law and Company Information</h4>
                 The platform is operated by: <br>
                 <ul>
@@ -262,8 +245,7 @@ onBeforeMount(() => {
                 These Terms shall be governed by and construed in accordance with the laws applicable to the operating company’s jurisdiction, unless otherwise agreed in writing.
                 <br>
               </div>
-              <hr>
-              <div>
+              <div class="chapter">
                 <h4>11. Final Provisions</h4>
                 PayGuru functions exclusively as <strong>a technological coordination platform</strong> between independent participants.
                 <br>
@@ -293,15 +275,18 @@ onBeforeMount(() => {
     margin: 0 auto;
     position: relative;
 
-    @include down(sm) {
-      width: 100%;
-      padding: 0 16px;
+    @include down(md) {
+      width: 85%;
+      margin: 0 auto;
     }
   }
 
   .header {
-    padding: 32px 0;
+    padding: 31.5px 0;
     border-bottom: 1px solid rgb(56, 136, 194);
+    height: 133.5px;
+    display: flex;
+    align-items: center;
 
     &__content {
       display: flex;
@@ -312,11 +297,11 @@ onBeforeMount(() => {
     &__logo {
       display: flex;
       align-items: center;
-      color: black;
+      color: #363FF9;
       gap: 9px;
 
       img {
-        width: 40px;
+        width: 60px;
 
         @include down(sm) {
           width: 34px;
@@ -324,8 +309,9 @@ onBeforeMount(() => {
       }
 
       &-text {
-        font-weight: bold;
-        font-size: 34px;
+        font-weight: 500;
+        line-height: 60px;
+        font-size: 50px;
 
         @include down(sm) {
           font-size: 28px;
@@ -354,19 +340,29 @@ onBeforeMount(() => {
     }
   }
 
+  h4 {
+    margin: 10px 0;
+    font-size: 14px;
+    text-transform: uppercase;
+  }
+
+  .chapter {
+    line-height: 28px;
+  }
+
   &__content {
     padding-top: 40px;
     display: flex;
     gap: 45px;
 
-    @include down(sm) {
+    @include down(md) {
       flex-direction: column;
       gap: 16px;
       padding-top: 16px;
     }
 
     &-header {
-      @include down(sm) {
+      @include down(md) {
         flex-direction: column;
       }
     }
@@ -394,11 +390,11 @@ onBeforeMount(() => {
 
     &-left {
       width: 250px;
-      padding: 0;
+      padding: 0 !important;
       list-style: none;
-      margin-top: 0;
+      margin: 0 !important;
 
-      @include down(sm) {
+      @include down(md) {
         display: flex;
         width: 100%;
         padding: 0 !important;
@@ -428,11 +424,15 @@ onBeforeMount(() => {
     }
   }
   footer {
-    margin-top: 40px;
+    margin-top: 100px;
     padding: 13px 0 16px 0;
     border-top: 1px solid #d2dde5;
     text-align: right;
     font-size: 12px;
+
+    @include down(md) {
+      text-align: center;
+    }
   }
 }
 </style>
