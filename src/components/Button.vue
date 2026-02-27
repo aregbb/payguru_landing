@@ -35,7 +35,7 @@ withDefaults(defineProps<{
     color: white;
   }
   &--blue {
-    background: #363FF9;
+    background: linear-gradient(90deg, #003A98 0%, #0076FF 100%);
     color: white;
   }
   &--secondary {

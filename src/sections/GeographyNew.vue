@@ -2,6 +2,7 @@
 import { ref } from "vue";
 import Container from "@/components/Container.vue";
 import GeographyBg from "@/assets/img/geographyBg.webp";
+import geoBg from "@/assets/img/geoBg.webp";
 import Button from "@/components/Button.vue";
 import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 import ContactModal from "@/components/modals/ContactModal.vue";
@@ -10,7 +11,7 @@ const isContactModalVisible = ref(false);
 </script>
 
 <template>
-  <section class="geography section-padding">
+  <section class="geography section-padding" :style="{ '--geo-bg': `url(${geoBg})` }">
     <Container>
       <h2>Мы работаем на всех континентах</h2>
       <div class="geography__text">
@@ -48,11 +49,29 @@ const isContactModalVisible = ref(false);
 
 <style scoped lang="scss">
 .geography {
-  background: #E4E9F4;
-  color: #65758A;
+  background: #0B1024;
+  color: #B1C3DB;
   position: relative;
   padding-bottom: 157px;
   padding-top: 81px;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: var(--geo-bg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.1;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  > * {
+    position: relative;
+    z-index: 1;
+  }
 
   @include down(lg) {
     padding-top: 60px;
@@ -69,7 +88,7 @@ const isContactModalVisible = ref(false);
 
   h2 {
     text-align: center;
-    color: #020617;
+    color: #FFFFFF;
     font-size: 62px;
     line-height: 60px;
     letter-spacing: -2.48px;
@@ -105,8 +124,9 @@ const isContactModalVisible = ref(false);
   &__text {
     margin-top: 32px;
     text-align: center;
-    font-size: 24px;
+    font-size: 21px;
     letter-spacing: -0.96px;
+    color: #B1C3DB;
 
     @include down(md) {
       font-size: 18px;
@@ -130,7 +150,7 @@ const isContactModalVisible = ref(false);
   }
 
   h3 {
-    color: #020617;
+    color: #FFFFFF;
     font-size: 40px;
     letter-spacing: -1.6px;
     margin-top: 42px;
@@ -189,14 +209,14 @@ const isContactModalVisible = ref(false);
         width: 6px;
         height: 6px;
         background-color: #1D65FF;
-        border-radius: 2px;
+        border-radius: 50%;
       }
     }
   }
 
   &__content {
     display: flex;
-    margin-top: 100px;
+    margin-top: 70px;
     position: relative;
     justify-content: space-between;
 
@@ -216,6 +236,7 @@ const isContactModalVisible = ref(false);
       line-height: 27px;
       font-size: 18px;
       letter-spacing: -0.8px;
+      color: #B1C3DB;
 
       @include down(sm) {
         font-size: 18px;
@@ -267,32 +288,37 @@ const isContactModalVisible = ref(false);
 
     &-left {
       position: absolute;
-      width: 733px;
-      height: 452px;
-      left: -75px;
+      width: 700px;
+      height: 600px;
+      left: -50px;
+      top: -80px;
       background-size: contain;
       background-repeat: no-repeat;
-
+      background-position: center;
       @include between(md, lg) {
-        left: -70px;
+        left: -40px;
+        top: 0;
         width: 380px;
         margin: 0 auto;
-        height: 300px;
+        height: 320px;
       }
       @include down(md) {
         left: 50%;
         transform: translateX(-50%);
-        width: 522px;
-        height: 320px;
+        top: -60px;
+        width: 520px;
+        height: 430px;
       }
       @include down(sm) {
-        width: 350px;
-        height: 250px;
+        top: -40px;
+        width: 360px;
+        height: 300px;
       }
       @include between(lg, xl) {
-        width: 50%;
-        left: 0;
-        height: 300px;
+        width: 55%;
+        left: -30px;
+        top: -50px;
+        height: 420px;
       }
     }
   }
