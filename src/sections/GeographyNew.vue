@@ -78,8 +78,8 @@ const isContactModalVisible = ref(false);
     padding-bottom: 60px;
   }
   @include down(sm) {
-    padding-top: 56px;
-    padding-bottom: 56px;
+    padding-top: 72px;
+    padding-bottom: 72px;
     overflow-x: hidden;
   }
   @include between(lg, xl) {
