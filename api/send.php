@@ -4,8 +4,13 @@ declare(strict_types=1);
 
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\PHPMailer;
+use Dotenv\Dotenv;
 
 require __DIR__ . '/vendor/autoload.php';
+
+if (is_file(__DIR__ . '/.env')) {
+    Dotenv::createImmutable(__DIR__)->safeLoad();
+}
 
 header('Content-Type: application/json; charset=utf-8');
 
