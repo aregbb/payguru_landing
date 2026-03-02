@@ -8,7 +8,7 @@ const items = [
   { to: null, href: "", label: "English" },
   { to: { path: "/docs", hash: "#terms" }, href: null, label: "Terms of Service" },
   { to: { path: "/docs", hash: "#privacy" }, href: null, label: "Privacy Policy" },
-  { to: null, href: "https://t.me/AlexPG_BizDev", label: "Contact" },
+  { to: null, href: "https://t.me/AlexPG_BizDev", label: "Contact Us" },
 ];
 </script>
 

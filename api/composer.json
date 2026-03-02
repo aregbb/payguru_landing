@@ -1,0 +1,13 @@
+{
+    "name": "payguru/api",
+    "description": "PayGuru landing form endpoint",
+    "require": {
+        "phpmailer/phpmailer": "6.9"
+    },
+    "authors": [
+        {
+            "name": "Codex",
+            "email": "noreply@example.com"
+        }
+    ]
+}
