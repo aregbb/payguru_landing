@@ -11,13 +11,25 @@
 Файл `api/.env`:
 
 ```bash
-SMTP_USER=no-reply@pay-guru.io
-SMTP_PASS=APP_PASSWORD
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=no-reply@pay-guru.io
+MAIL_PASSWORD=APP_PASSWORD
+MAIL_ENCRYPTION=tls
+MAIL_FROM_ADDRESS=no-reply@pay-guru.io
+MAIL_FROM_NAME=PayGuru
 MAIL_TO=hello@pay-guru.io
-MAIL_FROM=PayGuru
 ```
 
-`SMTP_PASS` должен быть Google App Password для Gmail-аккаунта, который используется для SMTP-отправки.
+Поддерживается любой SMTP-сервер. Для Gmail обычно используются:
+
+```bash
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_ENCRYPTION=tls
+```
+
+Для Gmail `MAIL_PASSWORD` должен быть Google App Password.
 
 Если на сервере заданы системные переменные окружения, они тоже будут прочитаны. Если рядом с `send.php` есть файл `.env`, он также загружается.
 

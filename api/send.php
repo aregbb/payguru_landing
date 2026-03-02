@@ -30,6 +30,17 @@ function get_server_value(string $key): string
     return is_string($value) ? $value : '';
 }
 
+function env_value(string $key, string $default = ''): string
+{
+    $value = $_ENV[$key] ?? $_SERVER[$key] ?? getenv($key);
+
+    if ($value === false || $value === null) {
+        return $default;
+    }
+
+    return is_string($value) ? $value : $default;
+}
+
 function get_length(string $value): int
 {
     return function_exists('mb_strlen') ? mb_strlen($value) : strlen($value);
@@ -102,12 +113,16 @@ if (!$isEmailContact && !$isTelegramContact) {
     respond(422, ['ok' => false]);
 }
 
-$smtpUser = getenv('SMTP_USER') ?: 'no-reply@pay-guru.io';
-$smtpPass = getenv('SMTP_PASS') ?: '';
-$mailTo = getenv('MAIL_TO') ?: 'hello@pay-guru.io';
-$mailFromName = getenv('MAIL_FROM') ?: 'PayGuru';
+$mailHost = env_value('MAIL_HOST', 'smtp.gmail.com');
+$mailPort = (int) env_value('MAIL_PORT', '587');
+$mailUsername = env_value('MAIL_USERNAME', env_value('SMTP_USER', 'no-reply@pay-guru.io'));
+$mailPassword = env_value('MAIL_PASSWORD', env_value('SMTP_PASS', ''));
+$mailEncryption = strtolower(trim(env_value('MAIL_ENCRYPTION', 'tls')));
+$mailFromAddress = env_value('MAIL_FROM_ADDRESS', $mailUsername);
+$mailFromName = env_value('MAIL_FROM_NAME', env_value('MAIL_FROM', 'PayGuru'));
+$mailTo = env_value('MAIL_TO', 'hello@pay-guru.io');
 
-if ($smtpPass === '') {
+if ($mailPassword === '' || $mailUsername === '' || $mailFromAddress === '' || $mailHost === '') {
     respond(500, ['ok' => false, 'error' => 'smtp_not_configured']);
 }
 
@@ -128,15 +143,22 @@ $body = implode("\n", [
 try {
     $mail = new PHPMailer(true);
     $mail->isSMTP();
-    $mail->Host = 'smtp.gmail.com';
-    $mail->Port = 587;
+    $mail->Host = $mailHost;
+    $mail->Port = $mailPort;
     $mail->SMTPAuth = true;
-    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-    $mail->Username = $smtpUser;
-    $mail->Password = $smtpPass;
+    if ($mailEncryption === 'ssl') {
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
+    } elseif ($mailEncryption === 'tls' || $mailEncryption === 'starttls') {
+        $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    } else {
+        $mail->SMTPSecure = false;
+        $mail->SMTPAutoTLS = false;
+    }
+    $mail->Username = $mailUsername;
+    $mail->Password = $mailPassword;
     $mail->CharSet = 'UTF-8';
 
-    $mail->setFrom($smtpUser, $mailFromName);
+    $mail->setFrom($mailFromAddress, $mailFromName);
     $mail->addAddress($mailTo);
     if ($isEmailContact) {
         $mail->addReplyTo($contact, $name);
