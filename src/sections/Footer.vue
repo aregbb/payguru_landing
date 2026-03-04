@@ -1,15 +1,26 @@
 <script setup lang="ts">
-// import { ref } from "vue";
 import { RouterLink } from "vue-router";
-import GreyLogo from "@/assets/img/icons/greylogo.svg"
+import GreyLogo from "@/assets/img/icons/greylogo.svg";
 import Container from "@/components/Container.vue";
+import { trackLinkClick } from "@/lib/analytics";
 
 const items = [
   { to: null, href: "", label: "English" },
-  { to: { path: "/docs", hash: "#terms" }, href: null, label: "Terms of Service" },
-  { to: { path: "/docs", hash: "#privacy" }, href: null, label: "Privacy Policy" },
-  { to: null, href: "https://t.me/AlexPG_BizDev", label: "Contact Us" },
+  { id: "footer_terms", to: { path: "/docs", hash: "#terms" }, href: null, label: "Terms of Service" },
+  { id: "footer_privacy", to: { path: "/docs", hash: "#privacy" }, href: null, label: "Privacy Policy" },
+  { id: "footer_contact", to: null, href: "https://t.me/AlexPG_BizDev", label: "Contact Us" },
 ];
+
+const onFooterLinkClick = (item: { id: string; label: string; href: string | null; to: { path: string; hash?: string } | null }) => {
+  const linkUrl = item.to ? `${item.to.path}${item.to.hash ?? ""}` : (item.href ?? "");
+
+  trackLinkClick({
+    link_id: item.id,
+    link_text: item.label,
+    link_url: linkUrl,
+    link_location: "footer",
+  });
+};
 </script>
 
 <template>
@@ -22,11 +33,12 @@ const items = [
         </div>
         <div class="footer__nav">
           <component
-              v-for="item in items"
-              :key="item.label"
-              :is="item.to ? RouterLink : 'a'"
-              class="footer__text"
-              v-bind="item.to ? { to: item.to } : { href: item.href, target: '_blank', rel: 'noopener' }"
+            v-for="item in items"
+            :key="item.id ?? item.label"
+            :is="item.to ? RouterLink : 'a'"
+            class="footer__text"
+            v-bind="item.to ? { to: item.to } : { href: item.href, target: '_blank', rel: 'noopener' }"
+            @click="item.id && onFooterLinkClick(item)"
           >
             {{ item.label }}
           </component>

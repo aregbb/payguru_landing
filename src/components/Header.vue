@@ -1,27 +1,41 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import Container from "@/components/Container.vue";
-import Logo from "@/assets/img/Logo.svg"
+import Logo from "@/assets/img/Logo.svg";
 import Button from "@/components/Button.vue";
+import { trackLinkClick } from "@/lib/analytics";
 
 const items = ref([
   {
-    label: 'О нас',
-    link: '#'
+    id: "header_about",
+    label: "О нас",
+    link: "#",
   },
   {
-    label: 'API Документация',
-    link: '#'
+    id: "header_api_docs",
+    label: "API Документация",
+    link: "#",
   },
   {
-    label: 'Условия',
-    link: '#'
+    id: "header_terms",
+    label: "Условия",
+    link: "#",
   },
   {
-    label: 'Контакты',
-    link: '#'
+    id: "header_contacts",
+    label: "Контакты",
+    link: "#",
   },
-])
+]);
+
+const onHeaderLinkClick = (item: { id: string; label: string; link: string }) => {
+  trackLinkClick({
+    link_id: item.id,
+    link_text: item.label,
+    link_url: item.link,
+    link_location: "header",
+  });
+};
 </script>
 
 <template>
@@ -32,7 +46,15 @@ const items = ref([
         <span class="header__logo-text">PayGuru</span>
       </div>
       <div class="header__nav">
-        <a class="header__nav-item" v-for="(item, i) in items" :key="i" :href="item.link">{{ item.label }}</a>
+        <a
+          v-for="item in items"
+          :key="item.id"
+          class="header__nav-item"
+          :href="item.link"
+          @click="onHeaderLinkClick(item)"
+        >
+          {{ item.label }}
+        </a>
       </div>
       <Button class="header__auth-btn">Sign in</Button>
     </header>
@@ -68,7 +90,7 @@ const items = ref([
   }
 
   &__auth-btn {
-    margin-left:  auto;
+    margin-left: auto;
   }
 }
 </style>

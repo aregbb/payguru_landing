@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import BaseCheckbox from "@/components/BaseCheckbox.vue";
-//import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 import Modal from "@/components/Modal.vue";
 import Button from "@/components/Button.vue";
 import BaseInput from "@/components/BaseInput.vue";
@@ -124,7 +123,7 @@ const onSubmit = async () => {
       <BaseInput v-model="contactForm.name" label="Имя" required :error="nameError" />
       <BaseInput
         v-model="contactForm.email"
-        label="Контакт (email или telegram)"
+        label="Контакт (email или Telegram)"
         placeholder="example@mail.com | @example"
         required
         :error="contactError"
@@ -147,7 +146,8 @@ const onSubmit = async () => {
         <p v-if="commentError" class="error-text">{{ commentError }}</p>
       </div>
       <BaseCheckbox class="contact-us-modal__check" v-model="isFormApproved">
-        Я соглашаюсь на обработку персональных данных <br> и соглашаюсь с <router-link :to="'/privacy'">политикой конфиденциальности</router-link>
+        Я соглашаюсь на обработку персональных данных <br>
+        и соглашаюсь с <router-link :to="'/privacy'">политикой конфиденциальности</router-link>
       </BaseCheckbox>
       <div v-if="approveError" class="error-text">{{ approveError }}</div>
       <p v-if="submitStatus === 'success'" class="success-text">Спасибо, заявка отправлена</p>
@@ -155,7 +155,6 @@ const onSubmit = async () => {
       <Button class="contact-us-modal__action" :disabled="isLoading">
         <div class="flex items-end">
           <span>Отправить</span>
-<!--          <ChevronRightIcon style="margin-left: 3px; width: 14px; color: white" />-->
         </div>
       </Button>
     </form>

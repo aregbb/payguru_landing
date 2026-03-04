@@ -1,25 +1,34 @@
 <script setup lang="ts">
 import { onBeforeMount, computed } from "vue";
-import Logo from "@/assets/img/logo-blue.svg"
+import Logo from "@/assets/img/logo-blue.svg";
 import { useRoute, useRouter } from "vue-router";
+import { trackLinkClick } from "@/lib/analytics";
 
 const route = useRoute();
 const router = useRouter();
 
-function setTab(tab: 'privacy' | 'terms') {
-  router.replace({ hash: `#${tab}` })
+function setTab(tab: "privacy" | "terms") {
+  router.replace({ hash: `#${tab}` });
 }
 
 const activeTab = computed<"privacy" | "terms">(() => {
   const h = (route.hash || "").replace("#", "");
   if (h === "terms") return "terms";
-  return "privacy"; // дефолт
+  return "privacy";
 });
 
 onBeforeMount(() => {
   if (!route.hash) router.replace({ hash: "#terms" });
-})
+});
 
+function trackLegalDownload(linkId: string, linkText: string, linkUrl: string) {
+  trackLinkClick({
+    link_id: linkId,
+    link_text: linkText,
+    link_url: linkUrl,
+    link_location: "legal_center",
+  });
+}
 </script>
 
 <template>
@@ -45,9 +54,10 @@ onBeforeMount(() => {
               <div class="privacy-page__content-header flex justify-between items-baseline">
                 <h1>Privacy Policy</h1>
                 <a
-                    href="/static/docs/Privacy.docx"
-                    download
-                    class="btn-primary"
+                  href="/static/docs/Privacy.docx"
+                  download
+                  class="btn-primary"
+                  @click="trackLegalDownload('legal_privacy_download', 'Download Privacy Policy', '/static/docs/Privacy.docx')"
                 >
                   Download
                 </a>
@@ -55,7 +65,7 @@ onBeforeMount(() => {
 
               <div class="chapter">
                 <h4>1. General Provisions</h4>
-                This Privacy Policy (the “Policy”) governs the processing of information in connection with the use of the PayGuru technological platform.
+                This Privacy Policy (the "Policy") governs the processing of information in connection with the use of the PayGuru technological platform.
                 <br>
                 The PayGuru platform is a technological solution designed to automate and coordinate interactions between authorized participants within agreed partner models. The platform is not intended for public consumer use and does not provide services directly to end users.
               </div>
@@ -63,7 +73,7 @@ onBeforeMount(() => {
                 <h4>2. Jurisdiction and Regulation</h4>
                 Information processing is conducted within the operational structure registered under the jurisdiction of Nevis.
                 <br>
-                This jurisdiction is selected to ensure operational flexibility and coordination between infrastructure participants. Unless otherwise agreed in writing, applicable law shall be the law of the operating company’s jurisdiction.
+                This jurisdiction is selected to ensure operational flexibility and coordination between infrastructure participants. Unless otherwise agreed in writing, applicable law shall be the law of the operating company's jurisdiction.
               </div>
               <div class="chapter">
                 <h4>3. Purpose of Information Processing</h4>
@@ -104,7 +114,7 @@ onBeforeMount(() => {
                   <li>centralized logging, monitoring and alerting.</li>
                 </ul>
                 <br>
-                The platform’s security architecture follows principles aligned with applicable PCI DSS requirements within the technical scope of platform operations.
+                The platform's security architecture follows principles aligned with applicable PCI DSS requirements within the technical scope of platform operations.
               </div>
               <div class="chapter">
                 <h4>6. Interaction with Third Parties</h4>
@@ -118,7 +128,7 @@ onBeforeMount(() => {
               </div>
               <div class="chapter">
                 <h4>7. Data Retention</h4>
-                Information is retained for the period established by the platform’s internal technical and operational policies.
+                Information is retained for the period established by the platform's internal technical and operational policies.
                 <br>
                 Data deletion or anonymization is performed automatically upon expiration of the applicable retention period or upon agreement with the relevant platform participant.
               </div>
@@ -132,16 +142,17 @@ onBeforeMount(() => {
               <div class="privacy-page__content-header flex justify-between items-baseline">
                 <h1>Terms of Service</h1>
                 <a
-                    href="/static/docs/Terms.docx"
-                    download
-                    class="btn-primary"
+                  href="/static/docs/Terms.docx"
+                  download
+                  class="btn-primary"
+                  @click="trackLegalDownload('legal_terms_download', 'Download Terms of Service', '/static/docs/Terms.docx')"
                 >
                   Download
                 </a>
               </div>
               <div class="chapter">
                 <h4>1. General Provisions</h4>
-                These Terms of Service (hereinafter referred to as the “Terms”) govern the access to and use of the PayGuru technological platform, including its web interfaces, APIs, dashboards and related infrastructure.
+                These Terms of Service (hereinafter referred to as the "Terms") govern the access to and use of the PayGuru technological platform, including its web interfaces, APIs, dashboards and related infrastructure.
                 <br>
                 PayGuru is a <strong>technology platform providing tools for orchestration, coordination and automation of payment-related processes</strong> between independent participants of an agreed partner model.
                 <br>The platform is <strong>not a public service</strong>, does not constitute a public offer and is available exclusively to authorized partners upon prior agreement.
@@ -171,7 +182,7 @@ onBeforeMount(() => {
                   <li>reporting, analytics and reconciliation tools;</li>
                   <li>API-based integrations.</li>
                 </ul>
-                All functionality is <strong>configured individually per partner and project</strong>  and reflects technical coordination logic rather than financial execution.
+                All functionality is <strong>configured individually per partner and project</strong> and reflects technical coordination logic rather than financial execution.
               </div>
               <div class="chapter">
                 <h4>4. Role of PayGuru and Payment Operations</h4>
@@ -183,15 +194,15 @@ onBeforeMount(() => {
                   <li>does <strong>not</strong> initiate or execute financial transfers;</li>
                   <li>does <strong>not</strong> guarantee completion of transactions by third parties.</li>
                 </ul>
-                All payment operations, including fund transfers, currency exchange, settlement and liquidity provision, are executed by <strong>independent third-party providers, executors or counterparties,</strong>  selected by the partner or determined by agreed routing logic.
+                All payment operations, including fund transfers, currency exchange, settlement and liquidity provision, are executed by <strong>independent third-party providers, executors or counterparties,</strong> selected by the partner or determined by agreed routing logic.
                 <br>
-                Any transfer of value occurs <strong>outside of PayGuru’s control</strong> and responsibility.
+                Any transfer of value occurs <strong>outside of PayGuru's control</strong> and responsibility.
               </div>
               <div class="chapter">
                 <h4>5. User Responsibilities</h4>
                 The user agrees to: <br>
                 <ul>
-                  <li> comply with all applicable laws and regulations in their jurisdiction;</li>
+                  <li>comply with all applicable laws and regulations in their jurisdiction;</li>
                   <li>ensure that their use of the platform does not violate third-party rights;</li>
                   <li>provide accurate and lawful information where required;</li>
                 </ul>
@@ -199,7 +210,7 @@ onBeforeMount(() => {
                 The user acknowledges that <strong>all business, financial and regulatory risks remain solely on the user and their counterparties.</strong>
               </div>
               <div class="chapter">
-                <h4>6. Security and Confidentiality </h4>
+                <h4>6. Security and Confidentiality</h4>
                 The user is responsible for safeguarding access credentials, API keys and authentication data. <br>
                 The platform employs technical security measures including encryption, access controls, logging and monitoring.<br>
                 However, PayGuru <strong>does not guarantee uninterrupted operation or absolute security</strong> and shall not be liable for incidents caused by external systems, providers or user-side failures.<br>
@@ -223,10 +234,7 @@ onBeforeMount(() => {
                   <li>PayGuru shall not be responsible for losses resulting from actions or omissions of third-party providers;</li>
                   <li>PayGuru shall not be liable for failed, delayed or reversed transactions executed outside its infrastructure.</li>
                 </ul>
-
-
-
-                The platform is provided <strong>“as is” and “as available”</strong> without warranties of any kind.
+                The platform is provided <strong>"as is" and "as available"</strong> without warranties of any kind.
               </div>
               <div class="chapter">
                 <h4>9. Amendments</h4>
@@ -242,14 +250,14 @@ onBeforeMount(() => {
                   <li>Jurisdiction: Nevis</li>
                   <li>Registration No.: L 24105</li>
                 </ul>
-                These Terms shall be governed by and construed in accordance with the laws applicable to the operating company’s jurisdiction, unless otherwise agreed in writing.
+                These Terms shall be governed by and construed in accordance with the laws applicable to the operating company's jurisdiction, unless otherwise agreed in writing.
                 <br>
               </div>
               <div class="chapter">
                 <h4>11. Final Provisions</h4>
                 PayGuru functions exclusively as <strong>a technological coordination platform</strong> between independent participants.
                 <br>
-                By using the platform, the user confirms full understanding of PayGuru’s role, accepts these Terms and acknowledges that <strong>PayGuru does not act as a financial guarantor or payment processor.</strong>
+                By using the platform, the user confirms full understanding of PayGuru's role, accepts these Terms and acknowledges that <strong>PayGuru does not act as a financial guarantor or payment processor.</strong>
               </div>
             </template>
           </div>
@@ -267,7 +275,7 @@ onBeforeMount(() => {
 <style scoped lang="scss">
 .privacy-page {
   a {
-    color: #3888c2
+    color: #3888c2;
   }
 
   &__container {
@@ -318,6 +326,7 @@ onBeforeMount(() => {
         }
       }
     }
+
     &__text {
       font-size: 32px;
       color: rgb(56, 136, 194);
@@ -419,10 +428,12 @@ onBeforeMount(() => {
         }
       }
     }
+
     &-right {
       width: fit-content;
     }
   }
+
   footer {
     margin-top: 100px;
     padding: 13px 0 16px 0;

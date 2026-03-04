@@ -7,6 +7,7 @@ import App from './App.vue'
 import {isRouteLoading, router} from "@/router";
 import { i18n } from "@/i18n";
 import { setLocale } from "@/i18n";
+import { hasAnalyticsId, initAnalytics, trackPageView } from "@/lib/analytics";
 
 const setTitle = () => {
     const { t } = i18n.global;
@@ -19,7 +20,16 @@ const setTitle = () => {
 
 await setLocale("ru");
 
-router.afterEach(() => setTitle());
+initAnalytics();
+
+router.afterEach(() => {
+    setTitle();
+
+    if (!hasAnalyticsId()) return;
+
+    const pagePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    trackPageView(pagePath, document.title);
+});
 
 watch(
     () => i18n.global.locale.value,

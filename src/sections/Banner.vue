@@ -1,6 +1,19 @@
+<script setup lang="ts">
+import { trackLinkClick } from "@/lib/analytics";
+
+const onBannerClick = () => {
+  trackLinkClick({
+    link_id: "banner_sigma_event",
+    link_text: "See more",
+    link_url: "https://sigma.world/ru/summits/eurasia/",
+    link_location: "banner",
+  });
+};
+</script>
+
 <template>
-  <a href="https://sigma.world/ru/summits/eurasia/" class="banner">
-    Schedule a demo and see what we’re building. Meet us at SiGMA Eurasia in Dubai, February 9-11. <span style=" margin-left: 5px; text-decoration: underline"> See more.</span>
+  <a href="https://sigma.world/ru/summits/eurasia/" class="banner" @click="onBannerClick">
+    Schedule a demo and see what we're building. Meet us at SiGMA Eurasia in Dubai, February 9-11. <span style="margin-left: 5px; text-decoration: underline">See more.</span>
   </a>
 </template>
 
@@ -19,13 +32,16 @@
   background-size: 400% 400%;
   color: white;
 }
+
 @keyframes announcement-gradient {
   0% {
     background-position: 0;
   }
+
   50% {
     background-position: 100%;
   }
+
   100% {
     background-position: 0;
   }
