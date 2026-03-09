@@ -156,7 +156,8 @@ const isContactModalVisible = ref(false);
 
     @include down(sm) {
       margin-top: 24px;
-      justify-self: center;
+      display: flex;
+      justify-content: center;
     }
   }
 }

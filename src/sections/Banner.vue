@@ -5,15 +5,15 @@ const onBannerClick = () => {
   trackLinkClick({
     link_id: "banner_sigma_event",
     link_text: "See more",
-    link_url: "https://sigma.world/ru/summits/eurasia/",
+    link_url: "https://yerevan.affiliateconf.com/?ysclid=mmf2mnoqa8550991250",
     link_location: "banner",
   });
 };
 </script>
 
 <template>
-  <a href="https://sigma.world/ru/summits/eurasia/" class="banner" @click="onBannerClick">
-    Schedule a demo and see what we're building. Meet us at SiGMA Eurasia in Dubai, February 9-11. <span style="margin-left: 5px; text-decoration: underline">See more.</span>
+  <a href="https://yerevan.affiliateconf.com/?ysclid=mmf2mnoqa8550991250" class="banner" @click="onBannerClick">
+    Schedule a demo and see what we're building. Meet us at MAC Affiliate Conference in Armenia, May 26-27. <span style="margin-left: 5px; text-decoration: underline">See more.</span>
   </a>
 </template>
 
