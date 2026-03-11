@@ -67,12 +67,23 @@ const onFooterLinkClick = (item: { id: string; label: string; href: string | nul
       align-items: center;
       gap: 20px;
     }
+
+    @include down(sm) {
+      align-items: stretch;
+      text-align: center;
+      gap: 16px;
+    }
   }
   &__logo {
     display: flex;
     font-size: 23px;
     align-items: center;
     gap: 9px;
+
+    @include down(sm) {
+      justify-content: center;
+      font-size: 20px;
+    }
   }
   &__nav {
     display: flex;
@@ -80,7 +91,8 @@ const onFooterLinkClick = (item: { id: string; label: string; href: string | nul
     align-items: center;
 
     @include down(sm) {
-      gap: 16px;
+      flex-direction: column;
+      gap: 12px;
     }
   }
   &__text {
@@ -89,7 +101,8 @@ const onFooterLinkClick = (item: { id: string; label: string; href: string | nul
     line-height: 24px;
 
     @include down(sm) {
-      font-size: 16px;
+      font-size: 15px;
+      line-height: 22px;
     }
   }
 }

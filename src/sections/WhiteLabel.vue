@@ -68,8 +68,8 @@ const items = ref([
     letter-spacing: -2.48px;
 
     @include down(sm) {
-      font-size: 34px;
-      line-height: 1;
+      font-size: 30px;
+      line-height: 1.1;
       letter-spacing: -0.5px;
     }
     @include between(sm, xl) {
@@ -134,7 +134,7 @@ const items = ref([
 
     img {
       @include down(sm) {
-        width: 290px;
+        width: 100%;
       }
 
       @include between(sm, xl) {
@@ -153,8 +153,8 @@ const items = ref([
       padding-left: 28px;
 
       @include down(sm) {
-        font-size: 22px;
-        line-height: 1;
+        font-size: 20px;
+        line-height: 1.2;
         letter-spacing: -0.5px;
         margin-top: 0px;
         margin-bottom: 10px;
@@ -180,6 +180,7 @@ const items = ref([
       margin-bottom: 51px;
 
       @include down(sm) {
+        font-size: 16px;
         line-height: 24px;
         margin-bottom: 30px;
       }

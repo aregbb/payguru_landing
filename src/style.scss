@@ -14,8 +14,9 @@ h1 {
     }
 
     @include down(sm) {
-        font-size: 36px;
-        line-height: 1;
+        font-size: 32px;
+        line-height: 1.05;
+        letter-spacing: -0.64px;
     }
 
     @include between (md, xl) {
@@ -31,8 +32,8 @@ h2 {
     margin: 0;
 
     @include down(sm) {
-        font-size: 36px;
-        line-height: 1;
+        font-size: 30px;
+        line-height: 1.1;
     }
 }
 
@@ -42,8 +43,8 @@ h3 {
     margin: 0;
 
     @include down(sm) {
-        font-size: 36px;
-        line-height: 1;
+        font-size: 24px;
+        line-height: 1.15;
     }
 }
 
@@ -65,6 +66,10 @@ a {
 
     @include down(md) {
         padding: 60px 0;
+    }
+
+    @include down(sm) {
+        padding: 48px 0;
     }
 
     @include between(md, xl) {

@@ -43,8 +43,8 @@ const isContactFormVisible = ref(false);
     font-weight: 500;
 
     @include down(sm) {
-      font-size: 32px;
-      line-height: 1;
+      font-size: 30px;
+      line-height: 1.1;
       letter-spacing: -0.5px;
       text-align: center;
     }

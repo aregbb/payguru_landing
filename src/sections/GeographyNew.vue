@@ -96,8 +96,8 @@ const isContactModalVisible = ref(false);
     font-weight: 500;
 
     @include down(sm) {
-      font-size: 34px;
-      line-height: 1;
+      font-size: 30px;
+      line-height: 1.1;
       letter-spacing: -0.8px;
     }
 
@@ -130,10 +130,11 @@ const isContactModalVisible = ref(false);
     color: #B1C3DB;
 
     @include down(md) {
-      font-size: 18px;
+      font-size: 17px;
+      line-height: 24px;
       margin-top: 30px;
       letter-spacing: -0.5px;
-      padding-left: 14px;
+      padding-left: 0;
 
       br {
         display: none;
@@ -157,7 +158,8 @@ const isContactModalVisible = ref(false);
     margin-top: 42px;
 
     @include down(sm) {
-      font-size: 28px;
+      font-size: 24px;
+      line-height: 1.2;
       text-align: center;
       margin-top: 0;
     }
@@ -244,10 +246,9 @@ const isContactModalVisible = ref(false);
 
       @include down(sm) {
         font-size: 18px;
-        padding-left: 14px;
         text-align: center;
         margin-top: 16px;
-        line-height: 20px;
+        line-height: 24px;
 
         br {
           display: none;
@@ -286,7 +287,8 @@ const isContactModalVisible = ref(false);
         flex-direction: column;
       }
       @include down(sm) {
-        margin: 380px auto 0;
+        width: 100%;
+        margin: 300px auto 0;
       }
     }
 
@@ -315,8 +317,8 @@ const isContactModalVisible = ref(false);
       }
       @include down(sm) {
         top: -20px;
-        width: 432px;
-        height: 360px;
+        width: 360px;
+        height: 300px;
       }
       @include between(lg, xl) {
         width: 55%;

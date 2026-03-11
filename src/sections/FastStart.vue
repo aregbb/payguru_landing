@@ -73,8 +73,8 @@ const items = ref([
     font-weight: 500;
 
     @include down(md) {
-      font-size: 34px;
-      line-height: 1;
+      font-size: 30px;
+      line-height: 1.1;
       letter-spacing: -0.5px;
       text-align: center;
     }
@@ -115,15 +115,15 @@ const items = ref([
 
     @include down(md) {
       top: 135px;
-      width: 390px;
-      height: 280px;
+      width: 320px;
+      height: 240px;
       position: absolute;
       background-size: contain;
       left: 50%;
-      transform: translateX(-235px);
+      transform: translateX(-50%);
     }
     @include between(sm, md) {
-      transform: translateX(-235px);
+      transform: translateX(-50%);
     }
 
     @include between(md, lg) {
@@ -151,7 +151,7 @@ const items = ref([
     gap: 40px;
 
     @include down(md) {
-      margin-top: 335px;
+      margin-top: 280px;
       gap: 24px;
     }
 
@@ -170,11 +170,20 @@ const items = ref([
       &-title {
         font-size: 21px;
         line-height: 22.5px;
+
+        @include down(sm) {
+          font-size: 18px;
+          line-height: 1.25;
+        }
       }
       &-text {
         margin-top: 10px;
         font-size: 16px;
         color: #627286;
+
+        @include down(sm) {
+          line-height: 22px;
+        }
       }
     }
   }

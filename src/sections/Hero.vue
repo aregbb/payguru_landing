@@ -141,7 +141,8 @@ const isContactModalVisible = ref(false);
     letter-spacing: -0.96px;
 
     @include down(sm) {
-      font-size: 21px;
+      font-size: 18px;
+      line-height: 28px;
       margin-top: 24px;
       text-align: center;
       margin-bottom: 0;

@@ -123,7 +123,8 @@ const isContactModalVisible = ref(false);
         letter-spacing: -1.12px;
 
         @include down(sm) {
-          font-size: 22px;
+          font-size: 20px;
+          line-height: 1.2;
           letter-spacing: -0.5px;
         }
       }
@@ -136,7 +137,8 @@ const isContactModalVisible = ref(false);
 
         @include down(sm) {
           margin-top: 6px;
-          font-size: 18px;
+          font-size: 16px;
+          line-height: 24px;
         }
       }
     }

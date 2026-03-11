@@ -133,8 +133,8 @@ const featuresList = ref([
     font-weight: 500;
 
     @include down(sm) {
-      font-size: 32px;
-      line-height: 1;
+      font-size: 30px;
+      line-height: 1.1;
       letter-spacing: -0.5px;
       text-align: center;
       margin-bottom: 16px;
@@ -176,8 +176,8 @@ const featuresList = ref([
       font-weight: 500;
 
       @include down(sm) {
-        font-size: 22px;
-        line-height: 1;
+        font-size: 20px;
+        line-height: 1.2;
         margin: 10px 0;
       }
     }
@@ -186,6 +186,11 @@ const featuresList = ref([
       font-size: 17px;
       letter-spacing: -0.68px;
       line-height: 24px;
+
+      @include down(sm) {
+        font-size: 16px;
+        line-height: 22px;
+      }
     }
   }
 
@@ -195,6 +200,8 @@ const featuresList = ref([
     letter-spacing: -0.54px;
 
     @include down(sm) {
+      font-size: 16px;
+      line-height: 24px;
       text-align: center;
       br {
         display: none;

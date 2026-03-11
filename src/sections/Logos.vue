@@ -87,8 +87,8 @@ const secondRowItems = ref([
   align-items: center;
 
   @include down(md) {
-    gap: 30px;
-    padding: 40px 0;
+    gap: 24px;
+    padding: 32px 0;
   }
 
   @include between(md, lg) {
@@ -104,8 +104,8 @@ const secondRowItems = ref([
       flex-wrap: wrap;
       align-items: center;
       justify-content: center;
-      gap: 20px;
-      row-gap: 30px;
+      gap: 16px;
+      row-gap: 20px;
     }
 
     @include between(md, xl) {
@@ -114,6 +114,16 @@ const secondRowItems = ref([
       justify-content: center;
       gap: 20px;
       row-gap: 20px;
+    }
+  }
+
+  &__img {
+    @include down(md) {
+      max-width: 132px;
+      max-height: 34px;
+      width: auto;
+      height: auto;
+      object-fit: contain;
     }
   }
 }
