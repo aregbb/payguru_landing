@@ -1,48 +1,49 @@
-import {createApp, nextTick, watch} from 'vue'
-import './style.scss'
-import "@/assets/css/tailwind.css"
-import "@/assets/fonts/fonts.css"
-import App from './App.vue'
+import { createApp, nextTick, watch } from "vue";
 
-import {isRouteLoading, router} from "@/router";
-import { i18n } from "@/i18n";
-import { setLocale } from "@/i18n";
+import "./style.scss";
+import "@/assets/css/tailwind.css";
+import "@/assets/fonts/fonts.css";
+import App from "./App.vue";
+
+import { getInitialLocale, i18n, setLocale } from "@/i18n";
 import { hasAnalyticsId, initAnalytics, trackPageView } from "@/lib/analytics";
+import { isRouteLoading, router } from "@/router";
 
 const setTitle = () => {
-    const { t } = i18n.global;
-    const route = router.currentRoute.value;
+  const route = router.currentRoute.value;
+  const titleKey = route.meta?.title as string | undefined;
+  const appName = i18n.global.t("common.brandName");
 
-    const appName = " Pay Guru "
-    const titleKey = route.meta?.title as string | 'Pay Guru система оркестрации платежей';
-    document.title = titleKey ? `${appName} ${t(titleKey)}` : appName;
-}
+  document.title = titleKey ? `${appName} | ${i18n.global.t(titleKey)}` : appName;
+};
 
-await setLocale("ru");
-
+setLocale(getInitialLocale());
+setTitle();
 initAnalytics();
 
 router.afterEach(() => {
-    setTitle();
+  setTitle();
 
-    if (!hasAnalyticsId()) return;
+  if (!hasAnalyticsId()) {
+    return;
+  }
 
-    const pagePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
-    trackPageView(pagePath, document.title);
+  const pagePath = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  trackPageView(pagePath, document.title);
 });
 
 watch(
-    () => i18n.global.locale.value,
-    () => setTitle()
+  () => i18n.global.locale.value,
+  () => setTitle(),
 );
 
-createApp(App).use(router).use(i18n).mount('#app')
+createApp(App).use(router).use(i18n).mount("#app");
 
 router.isReady().then(async () => {
-    await nextTick();
+  await nextTick();
+  requestAnimationFrame(() => {
     requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-            isRouteLoading.value = false
-        })
-    })
-})
+      isRouteLoading.value = false;
+    });
+  });
+});

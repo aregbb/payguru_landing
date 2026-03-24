@@ -1,24 +1,15 @@
 <script setup lang="ts">
-import Container from "@/components/Container.vue";
-import WebIcon from "@/assets/img/icons/web.svg";
-import Background from "@/assets/img/map.png"
-import Check from "@/assets/img/icons/Check.svg"
-import {ref} from "vue";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
-const items = ref([
-  {
-    text: "Поддержка локальных методов, <br /> банков и валют."
-  },
-  {
-    text: "Маршрутизация по GEO, валюте, банку <br /> или платёжной системе получателя, диапазону <br> сумм и рисковому профилю."
-  },
-  {
-    text: "Гибкая каскадная логика между исполнителями."
-  },
-  {
-    text: "Трансграничные сценарии, конвертация, <br /> многоступенчатые лимиты."
-  }
-])
+import Check from "@/assets/img/icons/Check.svg";
+import WebIcon from "@/assets/img/icons/web.svg";
+import GeographyBg from "@/assets/img/geographyBg.webp";
+import Container from "@/components/Container.vue";
+
+const { tm, t } = useI18n();
+
+const items = computed(() => tm("geographyLegacy.items") as Array<{ textHtml: string }>);
 </script>
 
 <template>
@@ -26,22 +17,22 @@ const items = ref([
     <Container>
       <div class="geography__content">
         <div>
-          <h2>География и покрытие</h2>
+          <h2>{{ t("geographyLegacy.title") }}</h2>
           <div class="geography__card">
-            <div class="geography__card-title">Мы работаем на всех континентах</div>
+            <div class="geography__card-title">{{ t("geographyLegacy.cardTitle") }}</div>
             <div class="flex justify-between align-baseline" style="margin-top: 16px;">
-              <div class="geography__card-text">50+ стран</div>
-              <img alt="icon" :src="WebIcon" />
+              <div class="geography__card-text">{{ t("geographyLegacy.cardText") }}</div>
+              <img alt="" :src="WebIcon" />
             </div>
           </div>
           <div class="geography__list">
-            <div v-for="item in items" class="geography__list-item">
-              <img class="geography__list-item-check" :src="Check"  />
-              <div class="geography__list-item-text" v-html="item.text" />
+            <div v-for="(item, index) in items" :key="index" class="geography__list-item">
+              <img class="geography__list-item-check" :src="Check" alt="" />
+              <div class="geography__list-item-text" v-html="item.textHtml" />
             </div>
           </div>
         </div>
-        <div class="geography__image-bg" :style="{ backgroundImage: `url(${Background})` }" />
+        <div class="geography__image-bg" :style="{ backgroundImage: `url(${GeographyBg})` }" />
       </div>
     </Container>
   </section>
@@ -84,27 +75,27 @@ const items = ref([
     border: 1px solid #1D65FF;
     margin-top: 40px;
     box-shadow:
-        0 26px 70px rgba(0, 0, 0, 0.50),
-        0 18px 50px rgba(29, 101, 255, 0.16);
+      0 26px 70px rgba(0, 0, 0, 0.50),
+      0 18px 50px rgba(29, 101, 255, 0.16);
     background:
-        radial-gradient(
-                140% 170% at 10% 40%,
-                rgba(30, 85, 200, 0.45) 0%,
-                rgba(10, 35, 90, 0.28) 42%,
-                rgba(6, 18, 45, 0.18) 62%,
-                transparent 78%
-        ),
-        radial-gradient(
-                90% 120% at 60% 40%,
-                rgba(255, 255, 255, 0.06) 0%,
-                transparent 55%
-        ),
-        linear-gradient(
-                135deg,
-                #0a1e46 0%,
-                #081a3a 40%,
-                #061229 100%
-        );
+      radial-gradient(
+        140% 170% at 10% 40%,
+        rgba(30, 85, 200, 0.45) 0%,
+        rgba(10, 35, 90, 0.28) 42%,
+        rgba(6, 18, 45, 0.18) 62%,
+        transparent 78%
+      ),
+      radial-gradient(
+        90% 120% at 60% 40%,
+        rgba(255, 255, 255, 0.06) 0%,
+        transparent 55%
+      ),
+      linear-gradient(
+        135deg,
+        #0a1e46 0%,
+        #081a3a 40%,
+        #061229 100%
+      );
 
     @include down(sm) {
       margin-top: 300px;
@@ -118,6 +109,7 @@ const items = ref([
       letter-spacing: -0.63px;
       line-height: 1;
     }
+
     &-text {
       font-size: 24px;
       letter-spacing: -0.48px;
@@ -147,6 +139,7 @@ const items = ref([
         width: 24px;
         height: 24px;
       }
+
       &-text {
         font-size: 21px;
         letter-spacing: -0.84px;

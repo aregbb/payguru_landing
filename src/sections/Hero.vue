@@ -1,13 +1,15 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
-import Container from "@/components/Container.vue";
-import bgImg from "@/assets/img/DesktopBg.webp"
+import bgImg from "@/assets/img/DesktopBg.webp";
+import HeroBg from "@/assets/img/heroBg.webp";
 import Button from "@/components/Button.vue";
-import HeroBg from "@/assets/img/heroBg.webp"
+import Container from "@/components/Container.vue";
 import ContactModal from "@/components/modals/ContactModal.vue";
 
 const isContactModalVisible = ref(false);
+const { t } = useI18n();
 </script>
 
 <template>
@@ -17,16 +19,10 @@ const isContactModalVisible = ref(false);
     <Container>
       <div class="hero__content">
         <div class="hero__content--left">
-          <h1 class="hero__title">
-            Полный контроль <br />
-            над денежными потоками
-          </h1>
-          <p class="hero__text">
-            <strong>Pay Guru</strong> — это многофункциональная система
-            оркестрации платежей с глобальным покрытием.
-          </p>
+          <h1 class="hero__title" v-html="t('hero.titleHtml')" />
+          <p class="hero__text" v-html="t('hero.textHtml')" />
           <div class="hero__action">
-            <Button @click="isContactModalVisible = true">Запланировать звонок</Button>
+            <Button @click="isContactModalVisible = true">{{ t("actions.scheduleCall") }}</Button>
           </div>
         </div>
 
@@ -56,21 +52,24 @@ const isContactModalVisible = ref(false);
 
     @include down(sm) {
       text-align: center;
-      br {
+      :deep(br) {
         display: none;
       }
     }
   }
+
   &__bg {
     background: linear-gradient(180deg, rgba(204, 209, 219, 0.7) 0%, rgba(221, 228, 244, 0.7) 97.6%);
     width: 100%;
     position: absolute;
     height: 100%;
     z-index: -2;
+
     @include down(md) {
       top: 0;
     }
   }
+
   &__bg-figure {
     width: 100%;
     height: 100%;
@@ -83,6 +82,7 @@ const isContactModalVisible = ref(false);
       top: 0;
     }
   }
+
   &__content {
     display: flex;
     align-items: end;
@@ -92,9 +92,9 @@ const isContactModalVisible = ref(false);
       flex-direction: column-reverse;
       height: auto;
     }
+
     @include between(lg, xl) {
       padding: 20px 0 60px 0;
-      //flex-direction: column-reverse;
     }
 
     &--left {
@@ -106,15 +106,18 @@ const isContactModalVisible = ref(false);
         width: 100%;
         margin-top: 30px;
       }
+
       @include between(md, lg) {
         margin-top: 30px;
         margin-bottom: 60px;
       }
+
       @include between(lg, xl) {
         width: 35%;
         margin-top: 35px;
       }
     }
+
     &-picture {
       margin-left: -16px;
 
@@ -123,9 +126,11 @@ const isContactModalVisible = ref(false);
         align-self: center;
         width: 100%;
       }
+
       @include between(md, lg) {
         margin: 40px auto 0 auto;
       }
+
       @include between(lg, xl) {
         width: 635px;
         position: absolute;
@@ -134,6 +139,7 @@ const isContactModalVisible = ref(false);
       }
     }
   }
+
   &__text {
     margin-top: 30px;
     line-height: 33px;
@@ -147,11 +153,12 @@ const isContactModalVisible = ref(false);
       text-align: center;
       margin-bottom: 0;
 
-      br {
+      :deep(br) {
         display: none;
       }
     }
   }
+
   &__action {
     margin-top: 36px;
 

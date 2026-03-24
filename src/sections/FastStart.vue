@@ -1,30 +1,18 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 
-import LogoWithBrads from "@/assets/img/logo-with-brands.webp"
 import Check from "@/assets/img/icons/Check.svg";
-import Container from "@/components/Container.vue";
+import LogoWithBrads from "@/assets/img/logo-with-brands.webp";
 import Button from "@/components/Button.vue";
+import Container from "@/components/Container.vue";
 import ContactModal from "@/components/modals/ContactModal.vue";
-import {ChevronRightIcon} from "@heroicons/vue/24/solid";
 
 const isContactModalVisible = ref(false);
+const { tm, t } = useI18n();
 
-const items = ref([
-  {
-    title: "Брендирование",
-    text: "Полноценный старт под вашим брендом до 7 дней: домен, логотип и первичная конфигурация."
-  },
-  {
-    title: "Настроенные бизнес-процессы",
-    text: "Готовые операционные сценарии, регламенты для поддержки, алертов и онбординга."
-  },
-  {
-    title: "Поддержка запуска",
-    text: "Учебная документация, AI White Label Kit, Trello-доски, чек-листы и пошаговые инструкции."
-  },
-])
-
+const items = computed(() => tm("fastStart.items") as Array<{ title: string; textHtml: string }>);
 </script>
 
 <template>
@@ -32,22 +20,22 @@ const items = ref([
     <Container>
       <div class="first-start__content">
         <div class="first-start__left">
-          <h2>Быстрый запуск</h2>
+          <h2>{{ t("fastStart.title") }}</h2>
           <div class="first-start__list">
-            <div class="first-start__list-item" v-for="item in items">
-              <img class="first-start__list-item-check" :src="Check" />
+            <div
+              v-for="item in items"
+              :key="item.title"
+              class="first-start__list-item"
+            >
+              <img class="first-start__list-item-check" :src="Check" alt="" />
               <div>
-                <div class="first-start__list-item-title">
-                  {{ item.title }}
-                </div>
-                <div class="first-start__list-item-text">
-                  {{ item.text }}
-                </div>
+                <div class="first-start__list-item-title">{{ item.title }}</div>
+                <div class="first-start__list-item-text" v-html="item.textHtml" />
               </div>
             </div>
             <Button class="first-start__action" variant="secondary" @click="isContactModalVisible = true">
               <div class="flex items-end">
-                <span>Запросить доступ к демо</span>
+                <span>{{ t("actions.requestDemo") }}</span>
                 <ChevronRightIcon style="margin-left: 3px; width: 14px;" />
               </div>
             </Button>
@@ -78,6 +66,7 @@ const items = ref([
       letter-spacing: -0.5px;
       text-align: center;
     }
+
     @include between(md, xl) {
       font-size: 52px;
     }
@@ -85,7 +74,7 @@ const items = ref([
 
   &__content {
     display: flex;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     will-change: transform;
 
@@ -109,7 +98,7 @@ const items = ref([
     background-repeat: no-repeat;
     background-position: center;
     background-size: contain;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     will-change: transform;
 
@@ -122,6 +111,7 @@ const items = ref([
       left: 50%;
       transform: translateX(-50%);
     }
+
     @include between(sm, md) {
       transform: translateX(-50%);
     }
@@ -167,6 +157,7 @@ const items = ref([
         width: 22.5px;
         height: 22.5px;
       }
+
       &-title {
         font-size: 21px;
         line-height: 22.5px;
@@ -176,6 +167,7 @@ const items = ref([
           line-height: 1.25;
         }
       }
+
       &-text {
         margin-top: 10px;
         font-size: 16px;

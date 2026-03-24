@@ -1,23 +1,28 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
+import { useI18n } from "vue-i18n";
 import { XMarkIcon } from "@heroicons/vue/24/solid";
 
 defineProps<{
   modelValue: boolean;
   closeOnBackdrop?: boolean;
-  title?: string,
+  title?: string;
 }>();
 
 const emit = defineEmits<{
   (e: "update:modelValue", value: boolean): void;
 }>();
 
+const { t } = useI18n();
+
 const close = () => {
   emit("update:modelValue", false);
 };
 
 const onKeydown = (e: KeyboardEvent) => {
-  if (e.key === "Escape") close();
+  if (e.key === "Escape") {
+    close();
+  }
 };
 
 onMounted(() => {
@@ -33,13 +38,13 @@ onUnmounted(() => {
   <Teleport to="body">
     <Transition name="modal-fade">
       <div
-          v-if="modelValue"
-          class="modal-backdrop"
-          @click="closeOnBackdrop !== false && close()"
+        v-if="modelValue"
+        class="modal-backdrop"
+        @click="closeOnBackdrop !== false && close()"
       >
         <div class="modal-content" @click.stop>
-          <button class="modal-close" @click="close" aria-label="Close">
-            <XMarkIcon  class="modal-close-icon" />
+          <button class="modal-close" @click="close" :aria-label="t('common.close')">
+            <XMarkIcon class="modal-close-icon" />
           </button>
           <slot />
         </div>
@@ -70,8 +75,7 @@ onUnmounted(() => {
   padding: 40px;
   max-width: 642px;
   width: 100%;
-  box-shadow:
-      0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
 
   @include down(sm) {
     padding: 24px;

@@ -1,19 +1,28 @@
 <script setup lang="ts">
+import { useI18n } from "vue-i18n";
+
 import { trackLinkClick } from "@/lib/analytics";
+
+const { t } = useI18n();
+
+const bannerUrl = "https://yerevan.affiliateconf.com/?ysclid=mmf2mnoqa8550991250";
 
 const onBannerClick = () => {
   trackLinkClick({
     link_id: "banner_sigma_event",
-    link_text: "See more",
-    link_url: "https://yerevan.affiliateconf.com/?ysclid=mmf2mnoqa8550991250",
+    link_text: t("banner.linkText"),
+    link_url: bannerUrl,
     link_location: "banner",
   });
 };
 </script>
 
 <template>
-  <a href="https://yerevan.affiliateconf.com/?ysclid=mmf2mnoqa8550991250" class="banner" @click="onBannerClick">
-    Schedule a demo and see what we're building. Meet us at MAC Affiliate Conference in Armenia, May 26-27. <span style="margin-left: 5px; text-decoration: underline">See more.</span>
+  <a :href="bannerUrl" class="banner" @click="onBannerClick">
+    {{ t("banner.text") }}
+    <span style="margin-left: 5px; text-decoration: underline">
+      {{ t("banner.linkText") }}
+    </span>
   </a>
 </template>
 
@@ -21,7 +30,7 @@ const onBannerClick = () => {
 .banner {
   transition: opacity .3s;
   animation: announcement-gradient 12s infinite;
-  line-height: 1;
+  line-height: 1.2;
   padding: 13px 16px;
   text-align: center;
   min-height: 46px;

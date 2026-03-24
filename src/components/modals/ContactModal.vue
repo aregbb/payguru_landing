@@ -1,9 +1,11 @@
 <script setup lang="ts">
-import BaseCheckbox from "@/components/BaseCheckbox.vue";
-import Modal from "@/components/Modal.vue";
-import Button from "@/components/Button.vue";
-import BaseInput from "@/components/BaseInput.vue";
 import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
+
+import BaseCheckbox from "@/components/BaseCheckbox.vue";
+import BaseInput from "@/components/BaseInput.vue";
+import Button from "@/components/Button.vue";
+import Modal from "@/components/Modal.vue";
 
 const contactForm = ref({
   name: "",
@@ -19,15 +21,17 @@ const model = ref(true);
 const isFormApproved = ref(false);
 const wasSubmitted = ref(false);
 
+const { t } = useI18n();
+
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const telegramRegex = /^@[a-zA-Z0-9_]{5,32}$/;
 
 const validateName = (name: string): string => {
   const value = name.trim();
 
-  if (!value) return "Введите имя";
-  if (value.length < 2) return "Имя должно быть минимум 2 символа";
-  if (value.length > 100) return "Имя должно быть не длиннее 100 символов";
+  if (!value) return t("contactModal.validation.nameRequired");
+  if (value.length < 2) return t("contactModal.validation.nameTooShort");
+  if (value.length > 100) return t("contactModal.validation.nameTooLong");
 
   return "";
 };
@@ -35,16 +39,16 @@ const validateName = (name: string): string => {
 const validateContact = (contact: string): string => {
   const value = contact.trim();
 
-  if (!value) return "Введите контакт (email или Telegram)";
+  if (!value) return t("contactModal.validation.contactRequired");
   if (emailRegex.test(value) || telegramRegex.test(value)) return "";
 
-  return "Введите корректный email или Telegram (@username)";
+  return t("contactModal.validation.contactInvalid");
 };
 
 const validateComment = (comment: string): string => {
   const value = comment.trim();
 
-  if (value.length > 2000) return "Комментарий должен быть не длиннее 2000 символов";
+  if (value.length > 2000) return t("contactModal.validation.commentTooLong");
 
   return "";
 };
@@ -54,7 +58,7 @@ const contactError = computed(() => (wasSubmitted.value ? validateContact(contac
 const commentError = computed(() => (wasSubmitted.value ? validateComment(contactForm.value.comment) : ""));
 const approveError = computed(() => (
   wasSubmitted.value && !isFormApproved.value
-    ? "Нужно согласие на обработку данных"
+    ? t("contactModal.validation.consentRequired")
     : ""
 ));
 
@@ -72,14 +76,18 @@ const resetForm = () => {
 };
 
 const onChangeModelVal = (value: boolean) => {
-  if (!value) emit("close");
+  if (!value) {
+    emit("close");
+  }
 };
 
 const onSubmit = async () => {
   wasSubmitted.value = true;
   submitStatus.value = "idle";
 
-  if (!isFormValid.value) return;
+  if (!isFormValid.value) {
+    return;
+  }
 
   isLoading.value = true;
 
@@ -118,13 +126,18 @@ const onSubmit = async () => {
 
 <template>
   <Modal class="contact-us-modal" v-model="model" @update:modelValue="onChangeModelVal">
-    <h3>Связаться с нами</h3>
+    <h3>{{ t("contactModal.title") }}</h3>
     <form class="contact-us-modal__content" @submit.prevent="onSubmit">
-      <BaseInput v-model="contactForm.name" label="Имя" required :error="nameError" />
+      <BaseInput
+        v-model="contactForm.name"
+        :label="t('contactModal.fields.name')"
+        required
+        :error="nameError"
+      />
       <BaseInput
         v-model="contactForm.email"
-        label="Контакт (email или Telegram)"
-        placeholder="example@mail.com | @example"
+        :label="t('contactModal.fields.contact')"
+        :placeholder="t('contactModal.fields.contactPlaceholder')"
         required
         :error="contactError"
       />
@@ -136,25 +149,29 @@ const onSubmit = async () => {
         class="hp"
       />
       <div class="ui-textarea-wrap">
-        <div class="ui-label">Комментарий</div>
+        <div class="ui-label">{{ t("contactModal.fields.comment") }}</div>
         <textarea
           v-model="contactForm.comment"
           class="ul-textarea"
           rows="3"
-          placeholder="Ваше сообщение..."
+          :placeholder="t('contactModal.fields.commentPlaceholder')"
         />
         <p v-if="commentError" class="error-text">{{ commentError }}</p>
       </div>
       <BaseCheckbox class="contact-us-modal__check" v-model="isFormApproved">
-        Я соглашаюсь на обработку персональных данных <br>
-        и соглашаюсь с <router-link :to="'/privacy'">политикой конфиденциальности</router-link>
+        {{ t("contactModal.consent.lead") }}
+        <br>
+        {{ t("contactModal.consent.join") }}
+        <router-link :to="{ path: '/docs', hash: '#privacy' }">
+          {{ t("contactModal.consent.link") }}
+        </router-link>
       </BaseCheckbox>
       <div v-if="approveError" class="error-text">{{ approveError }}</div>
-      <p v-if="submitStatus === 'success'" class="success-text">Спасибо, заявка отправлена</p>
-      <p v-if="submitStatus === 'error'" class="error-text">Ошибка отправки</p>
+      <p v-if="submitStatus === 'success'" class="success-text">{{ t("contactModal.status.success") }}</p>
+      <p v-if="submitStatus === 'error'" class="error-text">{{ t("contactModal.status.error") }}</p>
       <Button class="contact-us-modal__action" :disabled="isLoading">
         <div class="flex items-end">
-          <span>Отправить</span>
+          <span>{{ t("actions.send") }}</span>
         </div>
       </Button>
     </form>

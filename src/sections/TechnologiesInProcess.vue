@@ -1,60 +1,37 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
-import Diagram from "@/assets/img/icons/diagramup.svg"
-import Filters from "@/assets/img/icons/filters horizontal.svg"
-import HandShake from "@/assets/img/icons/handshake.svg"
-import Settings from "@/assets/img/icons/settings.svg"
-import Shield from "@/assets/img/icons/shield-checkmark.svg"
-import Unlock from "@/assets/img/icons/unlock.svg"
+import Diagram from "@/assets/img/icons/diagramup.svg";
+import Filters from "@/assets/img/icons/filters horizontal.svg";
+import HandShake from "@/assets/img/icons/handshake.svg";
+import Settings from "@/assets/img/icons/settings.svg";
+import Shield from "@/assets/img/icons/shield-checkmark.svg";
+import Unlock from "@/assets/img/icons/unlock.svg";
 import Container from "@/components/Container.vue";
 
-const items = ref([
-  {
-    icon: Settings,
-    title: "Автоматизация",
-    text: "99% операций без ручного вмешательства."
-  },
-  {
-    icon: Diagram,
-    title: "Производительность",
-    text: "Стабильная работа <br> при пиковых нагрузках."
-  },
-  {
-    icon: Shield,
-    title: "Безопасность",
-    text: "Соответствие PCI DSS, <br> встроенные меры защиты."
-  },
-  {
-    icon: Filters,
-    title: "Функциональность",
-    text: "Сотни параметров в UI <br> для тонкой настройки."
-  },
-  {
-    icon: Unlock,
-    title: "Контроль",
-    text: "Полный доступ к бизнес-логике, <br> API и параметрам."
-  },
-  {
-    icon: HandShake,
-    title: "Надежность",
-    text: "Поддержка критически важного <br> бизнеса 24/7."
-  },
-])
+const { tm, t } = useI18n();
+
+const icons = [Settings, Diagram, Shield, Filters, Unlock, HandShake];
+
+const items = computed(() => (
+  (tm("technologies.items") as Array<{ title: string; textHtml: string }>)
+    .map((item, index) => ({ ...item, icon: icons[index] }))
+));
 </script>
 
 <template>
   <section class="technologies section-padding">
     <Container>
       <div class="technologies__head">
-        <h2>Технологии в действии</h2>
-        <div class="technologies__head-text">Полный контроль над платежами и бизнес-процессами.</div>
+        <h2>{{ t("technologies.title") }}</h2>
+        <div class="technologies__head-text">{{ t("technologies.text") }}</div>
       </div>
       <div class="technologies__list">
-        <div class="technologies__item" v-for="item in items">
-          <img class="technologies__item-icon" :src="item.icon" />
+        <div v-for="item in items" :key="item.title" class="technologies__item">
+          <img class="technologies__item-icon" :src="item.icon" alt="" />
           <div class="technologies__item-title">{{ item.title }}</div>
-          <div class="technologies__item-text" v-html="item.text" />
+          <div class="technologies__item-text" v-html="item.textHtml" />
         </div>
       </div>
     </Container>
@@ -76,6 +53,7 @@ const items = ref([
         line-height: 1;
         letter-spacing: -0.5px;
       }
+
       @include between(sm, xl) {
         font-size: 52px;
         line-height: 1.2;
@@ -92,6 +70,7 @@ const items = ref([
         font-size: 18px;
         margin-top: 16px;
       }
+
       @include between(md, xl) {
         font-size: 22px;
         margin-top: 16px;
@@ -122,8 +101,8 @@ const items = ref([
     width: 376px;
     border: 1px solid #64748B1A;
     box-shadow:
-        0 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
-        0 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
+      0 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
+      0 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
 
     @include down(sm) {
       width: 100%;
@@ -133,6 +112,7 @@ const items = ref([
     @include between(sm, md) {
       width: 280px;
     }
+
     @include between(md, lg) {
       width: 320px;
     }
@@ -140,7 +120,7 @@ const items = ref([
     &-icon {
       @include down(sm) {
         width: 40px;
-      };
+      }
     }
 
     &-title {
@@ -156,6 +136,7 @@ const items = ref([
         margin-bottom: 10px;
       }
     }
+
     &-text {
       font-size: 17px;
       line-height: 23px;

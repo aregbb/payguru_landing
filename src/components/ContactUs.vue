@@ -1,30 +1,30 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
-import Container from "@/components/Container.vue";
 import Button from "@/components/Button.vue";
+import Container from "@/components/Container.vue";
 import ContactModal from "@/components/modals/ContactModal.vue";
 
 const isContactFormVisible = ref(false);
+const { t } = useI18n();
 </script>
 
 <template>
   <section class="contact-us section-padding">
     <div class="contact-us__gradient" />
     <Container>
-      <h2>Консультация специалиста</h2>
-      <div class="contact-us__info">
-        Короткий звонок с экспертом поможет выбрать оптимальное решение, быстро запуститься <br>
-        и избежать ошибок на старте и в процессе работы.
-      </div>
-      <Button class="contact-us__action" variant="secondary" @click="isContactFormVisible = true">Запланировать звонок</Button>
+      <h2>{{ t("contactUs.title") }}</h2>
+      <div class="contact-us__info" v-html="t('contactUs.textHtml')" />
+      <Button class="contact-us__action" variant="secondary" @click="isContactFormVisible = true">
+        {{ t("actions.scheduleCall") }}
+      </Button>
     </Container>
   </section>
   <ContactModal v-if="isContactFormVisible" @close="isContactFormVisible = false" />
 </template>
 
 <style scoped lang="scss">
-
 .contact-us {
   background: #020617;
   text-align: center;
@@ -48,6 +48,7 @@ const isContactFormVisible = ref(false);
       letter-spacing: -0.5px;
       text-align: center;
     }
+
     @include between(sm, lg) {
       font-size: 48px;
     }
@@ -65,16 +66,18 @@ const isContactFormVisible = ref(false);
       margin-top: 16px;
       letter-spacing: -0.5px;
 
-      br {
+      :deep(br) {
         display: none;
       }
     }
+
     @include between(sm, lg) {
-      br {
+      :deep(br) {
         display: none;
       }
     }
   }
+
   &__action {
     margin: 32px auto 0 auto;
 
@@ -90,20 +93,19 @@ const isContactFormVisible = ref(false);
     pointer-events: none;
 
     background:
-        radial-gradient(
-                75% 185% at 50% 115%,
-                rgba(54, 138, 215, 1) 0%,
-                rgba(54, 138, 215, 0.62) 28%,
-                rgba(54, 138, 215, 0.22) 52%,
-                rgba(54, 138, 215, 0) 72%
-        ),
-        radial-gradient(
-                55% 140% at 62% 112%,
-                rgba(54, 138, 215, 0.22) 0%,
-                rgba(54, 138, 215, 0) 70%
-        ),
-
-        #020617;
+      radial-gradient(
+        75% 185% at 50% 115%,
+        rgba(54, 138, 215, 1) 0%,
+        rgba(54, 138, 215, 0.62) 28%,
+        rgba(54, 138, 215, 0.22) 52%,
+        rgba(54, 138, 215, 0) 72%
+      ),
+      radial-gradient(
+        55% 140% at 62% 112%,
+        rgba(54, 138, 215, 0.22) 0%,
+        rgba(54, 138, 215, 0) 70%
+      ),
+      #020617;
 
     background-repeat: no-repeat;
   }

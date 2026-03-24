@@ -1,31 +1,19 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Container from "@/components/Container.vue";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
+
 import Logo from "@/assets/img/Logo.svg";
 import Button from "@/components/Button.vue";
+import Container from "@/components/Container.vue";
 import { trackLinkClick } from "@/lib/analytics";
 
-const items = ref([
-  {
-    id: "header_about",
-    label: "О нас",
-    link: "#",
-  },
-  {
-    id: "header_api_docs",
-    label: "API Документация",
-    link: "#",
-  },
-  {
-    id: "header_terms",
-    label: "Условия",
-    link: "#",
-  },
-  {
-    id: "header_contacts",
-    label: "Контакты",
-    link: "#",
-  },
+const { t } = useI18n();
+
+const items = computed(() => [
+  { id: "header_about", label: t("nav.about"), link: "#" },
+  { id: "header_api_docs", label: t("nav.api"), link: "#" },
+  { id: "header_terms", label: t("nav.terms"), link: "#" },
+  { id: "header_contacts", label: t("nav.contacts"), link: "#" },
 ]);
 
 const onHeaderLinkClick = (item: { id: string; label: string; link: string }) => {
@@ -42,8 +30,8 @@ const onHeaderLinkClick = (item: { id: string; label: string; link: string }) =>
   <Container>
     <header class="header">
       <div class="header__logo">
-        <img :src="Logo" alt="logo" />
-        <span class="header__logo-text">PayGuru</span>
+        <img :src="Logo" alt="" />
+        <span class="header__logo-text">{{ t("common.brandName") }}</span>
       </div>
       <div class="header__nav">
         <a
@@ -56,7 +44,7 @@ const onHeaderLinkClick = (item: { id: string; label: string; link: string }) =>
           {{ item.label }}
         </a>
       </div>
-      <Button class="header__auth-btn">Sign in</Button>
+      <Button class="header__auth-btn">{{ t("actions.signIn") }}</Button>
     </header>
   </Container>
 </template>

@@ -1,53 +1,44 @@
 <script setup lang="ts">
-import Container from "@/components/Container.vue";
-import { ref } from "vue";
+import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 
-import FeaturesImg from "@/assets/img/featuresImg.webp"
 import Check from "@/assets/img/icons/whiteCheck.svg";
+import FeaturesImg from "@/assets/img/featuresImg.webp";
 import Button from "@/components/Button.vue";
+import Container from "@/components/Container.vue";
 import ContactModal from "@/components/modals/ContactModal.vue";
-import {ChevronRightIcon} from "@heroicons/vue/24/solid";
-
-const items = ref([
-  {
-    title: "Круглосуточная поддержка 24/7",
-    text: "Дежурная команда специалистов <br> для оперативного реагирования."
-  },
-  {
-    title: "Мониторинг",
-    text: "Непрерывный контроль сервисов <br> с автоматическими оповещениями в Telegram."
-  },
-  {
-    title: "Полное логирование",
-    text: "Подробное логгирование, аудит операций <br> и прозрачная трассировка запросов."
-  },
-]);
 
 const isContactModalVisible = ref(false);
+const { tm, t } = useI18n();
+
+const items = computed(() => tm("features.items") as Array<{ title: string; textHtml: string }>);
 </script>
 
 <template>
   <div class="features section-padding">
     <Container>
       <div class="features__content">
-        <img class="features__bg" :src="FeaturesImg" alt="picture" />
+        <img class="features__bg" :src="FeaturesImg" alt="" />
         <div class="features__list">
-          <div class="features__list-item" v-for="item in items">
-            <img class="features__list-item-check" :src="Check" />
+          <div
+            v-for="item in items"
+            :key="item.title"
+            class="features__list-item"
+          >
+            <img class="features__list-item-check" :src="Check" alt="" />
             <div>
-              <div class="features__list-item-title">
-                {{ item.title }}
-              </div>
-              <div class="features__list-item-text" v-html="item.text" />
+              <div class="features__list-item-title">{{ item.title }}</div>
+              <div class="features__list-item-text" v-html="item.textHtml" />
             </div>
-        </div>
-        <Button class="features__action" variant="secondary" @click="isContactModalVisible = true">
-          <div class="flex items-end">
-            <span>Запланировать звонок</span>
-            <ChevronRightIcon style="margin-left: 3px; width: 15px;" />
           </div>
-        </Button>
-      </div>
+          <Button class="features__action" variant="secondary" @click="isContactModalVisible = true">
+            <div class="flex items-end">
+              <span>{{ t("actions.scheduleCall") }}</span>
+              <ChevronRightIcon style="margin-left: 3px; width: 15px;" />
+            </div>
+          </Button>
+        </div>
       </div>
     </Container>
     <ContactModal v-if="isContactModalVisible" @close="isContactModalVisible = false" />
@@ -65,7 +56,7 @@ const isContactModalVisible = ref(false);
     display: flex;
     align-items: center;
     gap: 62px;
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     will-change: transform;
 
@@ -73,15 +64,17 @@ const isContactModalVisible = ref(false);
       flex-direction: column;
       gap: 20px;
     }
+
     @include between(md, xl) {
       justify-content: center;
     }
   }
 
   &__bg {
-    transform: translate3d(0,0,0);
+    transform: translate3d(0, 0, 0);
     backface-visibility: hidden;
     will-change: transform;
+
     @include down(md) {
       width: 300px;
     }
@@ -116,6 +109,7 @@ const isContactModalVisible = ref(false);
         margin-top: 5px;
         height: 22.5px;
       }
+
       &-title {
         font-size: 28px;
         line-height: 30px;
@@ -128,6 +122,7 @@ const isContactModalVisible = ref(false);
           letter-spacing: -0.5px;
         }
       }
+
       &-text {
         margin-top: 13px;
         letter-spacing: -0.84px;

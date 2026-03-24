@@ -1,42 +1,39 @@
 <script setup lang="ts">
-import { ref } from "vue";
-import Container from "@/components/Container.vue";
-import GeographyBg from "@/assets/img/geographyBg.webp";
+import { computed, ref } from "vue";
+import { useI18n } from "vue-i18n";
+import { ChevronRightIcon } from "@heroicons/vue/24/solid";
+
 import geoBg from "@/assets/img/geoBg.webp";
+import GeographyBg from "@/assets/img/geographyBg.webp";
 import Button from "@/components/Button.vue";
-import {ChevronRightIcon} from "@heroicons/vue/24/solid";
+import Container from "@/components/Container.vue";
 import ContactModal from "@/components/modals/ContactModal.vue";
 
 const isContactModalVisible = ref(false);
+const { tm, t } = useI18n();
+
+const bullets = computed(() => tm("geographyNew.bullets") as Array<{ title: string; textHtml: string }>);
 </script>
 
 <template>
   <section class="geography section-padding" :style="{ '--geo-bg': `url(${geoBg})` }">
     <Container>
-      <h2>Мы работаем на всех континентах</h2>
-      <div class="geography__text">
-        Многолетний опыт сотрудничества с проверенными компаниями по всему миру даёт <br> возможность выбрать действительно надёжные решения для бизнеса.
-      </div>
+      <h2>{{ t("geographyNew.title") }}</h2>
+      <div class="geography__text" v-html="t('geographyNew.textHtml')" />
       <div class="geography__content">
-        <div class="geography__content-left" :style="{ backgroundImage: `url(${GeographyBg})`}" />
+        <div class="geography__content-left" :style="{ backgroundImage: `url(${GeographyBg})` }" />
         <div class="geography__content-right">
-          <h3>Глобальное покрытие</h3>
-          <div class="geography__content-text">
-            Поддержка локальных методов с гибкой каскадной <br> маршрутизацией по GEO, банку, валюте, сумме и риску.
-          </div>
+          <h3>{{ t("geographyNew.coverageTitle") }}</h3>
+          <div class="geography__content-text" v-html="t('geographyNew.coverageTextHtml')" />
           <ul class="geography__list">
-            <li>
-              <strong>Антифрод-фильтры: </strong>по суммам, частоте, BIN/<br>ISSUER, времени суток, гео, поведенческим
-              <br> паттернам.
-            </li>
-            <li>
-              <strong>Умные курсы/FX:</strong> внешний источник или фикс<br>
-              по направлению.
+            <li v-for="item in bullets" :key="item.title">
+              <strong>{{ item.title }} </strong>
+              <span v-html="item.textHtml" />
             </li>
           </ul>
           <Button variant="blue" class="geography__action" @click="isContactModalVisible = true">
             <div class="flex items-end">
-              <span>Консультация специалиста</span>
+              <span>{{ t("actions.expertConsultation") }}</span>
               <ChevronRightIcon style="margin-left: 3px; width: 14px; color: white" />
             </div>
           </Button>
@@ -77,11 +74,13 @@ const isContactModalVisible = ref(false);
     padding-top: 60px;
     padding-bottom: 60px;
   }
+
   @include down(sm) {
     padding-top: 72px;
     padding-bottom: 72px;
     overflow-x: hidden;
   }
+
   @include between(lg, xl) {
     padding-bottom: 80px;
     padding-top: 80px;
@@ -136,7 +135,7 @@ const isContactModalVisible = ref(false);
       letter-spacing: -0.5px;
       padding-left: 0;
 
-      br {
+      :deep(br) {
         display: none;
       }
     }
@@ -145,7 +144,7 @@ const isContactModalVisible = ref(false);
       margin-top: 16px;
       font-size: 22px;
 
-      br {
+      :deep(br) {
         display: none;
       }
     }
@@ -168,6 +167,7 @@ const isContactModalVisible = ref(false);
       margin-top: 16px;
       font-size: 32px;
     }
+
     @include between(sm, lg) {
       margin-top: 16px;
     }
@@ -199,7 +199,7 @@ const isContactModalVisible = ref(false);
       @include down(sm) {
         font-size: 16px;
 
-        br {
+        :deep(br) {
           display: none;
         }
       }
@@ -227,6 +227,7 @@ const isContactModalVisible = ref(false);
       flex-direction: column;
       margin-top: 40px;
     }
+
     @include down(sm) {
       margin-top: 56px;
     }
@@ -250,17 +251,13 @@ const isContactModalVisible = ref(false);
         margin-top: 16px;
         line-height: 24px;
 
-        br {
+        :deep(br) {
           display: none;
         }
       }
+
       @include between(sm, xl) {
         margin-top: 16px;
-      }
-      @include between(md, lg) {
-        br {
-         display: none;
-        }
       }
     }
 
@@ -271,13 +268,8 @@ const isContactModalVisible = ref(false);
         max-width: 550px;
       }
 
-
       @include between(md, lg) {
         max-width: 380px;
-
-        br {
-          display: none;
-        }
       }
 
       @include down(md) {
@@ -286,6 +278,7 @@ const isContactModalVisible = ref(false);
         display: flex;
         flex-direction: column;
       }
+
       @include down(sm) {
         width: 100%;
         margin: 300px auto 0;
@@ -301,6 +294,7 @@ const isContactModalVisible = ref(false);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
+
       @include between(md, lg) {
         left: -40px;
         top: 0;
@@ -308,6 +302,7 @@ const isContactModalVisible = ref(false);
         margin: 0 auto;
         height: 320px;
       }
+
       @include down(md) {
         left: 50%;
         transform: translateX(-50%);
@@ -315,11 +310,13 @@ const isContactModalVisible = ref(false);
         width: 520px;
         height: 430px;
       }
+
       @include down(sm) {
         top: -20px;
         width: 360px;
         height: 300px;
       }
+
       @include between(lg, xl) {
         width: 55%;
         left: -30px;

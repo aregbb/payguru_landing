@@ -8,13 +8,13 @@ const routes = [
         path: "/",
         name: "home",
         component: () => import("@/pages/Home.vue"),
-        meta: { layout: "default", title: "pages.main" },
+        meta: { layout: "default", title: "pages.homeTitle" },
     },
     {
         path: "/docs",
         name: "docs",
         component: () => import("@/pages/Privacy.vue"),
-        meta: { layout: "empty", title: "pages.main" },
+        meta: { layout: "empty", title: "pages.legalCenter" },
     },
 ];
 

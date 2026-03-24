@@ -1,36 +1,22 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { computed } from "vue";
+import { useI18n } from "vue-i18n";
 
-import Cloud from "@/assets/img/icons/cloud.svg"
-import Eye from "@/assets/img/icons/eye.svg"
-import Filter from "@/assets/img/icons/filter.svg"
-import List from "@/assets/img/icons/list.svg"
-import TechSupportLeftBg from "@/assets/img/TechSupportLeftBg.webp"
+import Cloud from "@/assets/img/icons/cloud.svg";
+import Eye from "@/assets/img/icons/eye.svg";
+import Filter from "@/assets/img/icons/filter.svg";
+import List from "@/assets/img/icons/list.svg";
+import TechSupportLeftBg from "@/assets/img/TechSupportLeftBg.webp";
 import Container from "@/components/Container.vue";
 
-const featuresList = ref([
-  {
-    icon: List,
-    title: "Подробная документация",
-    description: "С примерами запросов и ответов, подробными схемами <br/> интеграции, описанием ошибок и рекомендациями по <br /> обработке нестандартных сценариев.",
-  },
-  {
-    icon: Cloud,
-    title: "Тестовый сервер",
-    description: "Полноценная песочница для отработки всей цепочки <br/> вызовов: от создания операции до финального колбэка <br/> и обработки статусов.",
-  },
-  {
-    icon: Eye,
-    title: "Прозрачные статус-коды",
-    description: "Чёткая, логичная и предсказуемая система статусов <br/> с понятным поведением в каждом сценарии <br/> и документацией по каждому статусу.",
-  },
-  {
-    icon: Filter,
-    title: "Кастомизация API ",
-    description: "Адаптация API и бизнес-логики под ваши процессы: <br/> дополнительные поля, нестандартные колбэки <br/> методы и функционал по запросу.",
-  },
-]);
+const { tm, t } = useI18n();
 
+const icons = [List, Cloud, Eye, Filter];
+
+const featuresList = computed(() => (
+  (tm("techSupport.items") as Array<{ title: string; textHtml: string }>)
+    .map((item, index) => ({ ...item, icon: icons[index] }))
+));
 </script>
 
 <template>
@@ -38,21 +24,14 @@ const featuresList = ref([
     <div class="tech-support__left-bg" :style="{ backgroundImage: `url(${TechSupportLeftBg})` }" />
     <Container class="tech-support__wrap">
       <div class="tech-support--left">
-        <h3>
-          Техническая поддержка
-          <br/>
-          <span class="text-gradient">White Label</span>
-        </h3>
-        <div class="text-additional">
-          Команда опытных разработчиков для ваших <br /> интеграций, кастомизации функционала <br/>
-          и решения любых задач.
-        </div>
+        <h3 v-html="t('techSupport.titleHtml')" />
+        <div class="text-additional" v-html="t('techSupport.textHtml')" />
       </div>
       <div class="tech-support--right">
-        <div v-for="(item, i) in featuresList" :key="i" class="tech-support__card">
-          <img class="tech-support__card-icon" :src="item.icon" />
+        <div v-for="item in featuresList" :key="item.title" class="tech-support__card">
+          <img class="tech-support__card-icon" :src="item.icon" alt="" />
           <div class="tech-support__card-title">{{ item.title }}</div>
-          <div class="tech-support__card-description" v-html="item.description" />
+          <div class="tech-support__card-description" v-html="item.textHtml" />
         </div>
       </div>
     </Container>
@@ -70,6 +49,7 @@ const featuresList = ref([
   }
 }
 </style>
+
 <style scoped lang="scss">
 .tech-support {
   position: relative;
@@ -83,6 +63,7 @@ const featuresList = ref([
       flex-direction: column;
       gap: 10px;
     }
+
     @include between(sm, lg) {
       gap: 40px;
       flex-direction: column;
@@ -117,6 +98,7 @@ const featuresList = ref([
     @include between(md, xl) {
       max-width: 45%;
     }
+
     @include between(sm, lg) {
       flex-wrap: wrap;
       flex-direction: row;
@@ -148,9 +130,8 @@ const featuresList = ref([
 
   &__card {
     box-shadow:
-        0px 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
-        0px 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
-    //backdrop-filter: blur(32px);
+      0 13.62px 24px -2.72px rgba(224, 224, 224, 0.25),
+      0 5.45px 36.5px -2.72px rgba(224, 224, 224, 0.25);
     padding: 29px 32px;
     background: white;
     border-radius: 20px;
@@ -168,6 +149,7 @@ const featuresList = ref([
       width: 44px;
       height: 44px;
     }
+
     &-title {
       margin: 16px 0;
       font-size: 23px;
@@ -181,6 +163,7 @@ const featuresList = ref([
         margin: 10px 0;
       }
     }
+
     &-description {
       color: #65758A;
       font-size: 17px;
@@ -203,7 +186,8 @@ const featuresList = ref([
       font-size: 16px;
       line-height: 24px;
       text-align: center;
-      br {
+
+      :deep(br) {
         display: none;
       }
     }
