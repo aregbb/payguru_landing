@@ -313,7 +313,7 @@ export const ru: LocaleMessages = {
     fields: {
       name: "Имя",
       contact: "Контакт (email или Telegram)",
-      contactPlaceholder: "example@mail.com | @example",
+      contactPlaceholder: "example{at}mail.com | {at}example",
       comment: "Комментарий",
       commentPlaceholder: "Ваше сообщение...",
     },
@@ -327,7 +327,7 @@ export const ru: LocaleMessages = {
       nameTooShort: "Имя должно быть минимум 2 символа",
       nameTooLong: "Имя должно быть не длиннее 100 символов",
       contactRequired: "Введите контакт (email или Telegram)",
-      contactInvalid: "Введите корректный email или Telegram (@username)",
+      contactInvalid: "Введите корректный email или Telegram ({at}username)",
       commentTooLong: "Комментарий должен быть не длиннее 2000 символов",
       consentRequired: "Нужно согласие на обработку данных",
     },

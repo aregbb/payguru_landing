@@ -313,7 +313,7 @@ export const hi: LocaleMessages = {
     fields: {
       name: "नाम",
       contact: "संपर्क (email या Telegram)",
-      contactPlaceholder: "example@mail.com | @example",
+      contactPlaceholder: "example{at}mail.com | {at}example",
       comment: "टिप्पणी",
       commentPlaceholder: "आपका संदेश...",
     },
@@ -327,7 +327,7 @@ export const hi: LocaleMessages = {
       nameTooShort: "नाम कम से कम 2 अक्षरों का होना चाहिए",
       nameTooLong: "नाम 100 अक्षरों से लंबा नहीं होना चाहिए",
       contactRequired: "संपर्क दर्ज करें (email या Telegram)",
-      contactInvalid: "मान्य email या Telegram दर्ज करें (@username)",
+      contactInvalid: "मान्य email या Telegram दर्ज करें ({at}username)",
       commentTooLong: "टिप्पणी 2000 अक्षरों से लंबी नहीं होनी चाहिए",
       consentRequired: "डेटा प्रसंस्करण के लिए सहमति आवश्यक है",
     },

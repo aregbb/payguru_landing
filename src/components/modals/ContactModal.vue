@@ -22,6 +22,7 @@ const isFormApproved = ref(false);
 const wasSubmitted = ref(false);
 
 const { t } = useI18n();
+const translationParams = { at: "@" };
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const telegramRegex = /^@[a-zA-Z0-9_]{5,32}$/;
@@ -42,7 +43,7 @@ const validateContact = (contact: string): string => {
   if (!value) return t("contactModal.validation.contactRequired");
   if (emailRegex.test(value) || telegramRegex.test(value)) return "";
 
-  return t("contactModal.validation.contactInvalid");
+  return t("contactModal.validation.contactInvalid", translationParams);
 };
 
 const validateComment = (comment: string): string => {
@@ -137,7 +138,7 @@ const onSubmit = async () => {
       <BaseInput
         v-model="contactForm.email"
         :label="t('contactModal.fields.contact')"
-        :placeholder="t('contactModal.fields.contactPlaceholder')"
+        :placeholder="t('contactModal.fields.contactPlaceholder', translationParams)"
         required
         :error="contactError"
       />

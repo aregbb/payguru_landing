@@ -313,7 +313,7 @@ export const pt: LocaleMessages = {
     fields: {
       name: "Nome",
       contact: "Contacto (email ou Telegram)",
-      contactPlaceholder: "example@mail.com | @example",
+      contactPlaceholder: "example{at}mail.com | {at}example",
       comment: "Comentário",
       commentPlaceholder: "A sua mensagem...",
     },
@@ -327,7 +327,7 @@ export const pt: LocaleMessages = {
       nameTooShort: "O nome deve ter pelo menos 2 caracteres",
       nameTooLong: "O nome não pode ter mais de 100 caracteres",
       contactRequired: "Introduza um contacto (email ou Telegram)",
-      contactInvalid: "Introduza um email ou Telegram válido (@username)",
+      contactInvalid: "Introduza um email ou Telegram válido ({at}username)",
       commentTooLong: "O comentário não pode ter mais de 2000 caracteres",
       consentRequired: "É necessário consentimento para o tratamento de dados",
     },
