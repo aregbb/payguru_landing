@@ -2,7 +2,7 @@ import { createI18n } from "vue-i18n";
 
 import { localeOptions, messages, type AppLocale } from "@/locales";
 
-const STORAGE_KEY = "app_locale";
+const STORAGE_KEY = "payguru_locale";
 const DEFAULT_LOCALE: AppLocale = "en";
 
 const localeSet = new Set<AppLocale>(localeOptions.map((option) => option.value));
