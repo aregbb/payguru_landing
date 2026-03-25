@@ -1,34 +1,64 @@
 <script setup lang="ts">
 import { computed, ref } from "vue";
 import { useI18n } from "vue-i18n";
-import { ChevronRightIcon } from "@heroicons/vue/24/solid";
-
-import geoBg from "@/assets/img/geoBg.webp";
-import GeographyBg from "@/assets/img/geographyBg.webp";
-import Button from "@/components/Button.vue";
 import Container from "@/components/Container.vue";
+import GeographyBg from "@/assets/img/geographyBg.webp";
+import geoBg from "@/assets/img/geoBg.webp";
+import Button from "@/components/Button.vue";
+import { ChevronRightIcon } from "@heroicons/vue/24/solid";
 import ContactModal from "@/components/modals/ContactModal.vue";
 
 const isContactModalVisible = ref(false);
-const { tm, t } = useI18n();
+const { t } = useI18n();
 
-const bullets = computed(() => tm("geographyNew.bullets") as Array<{ title: string; textHtml: string }>);
+const splitLines = (value: string) => (
+  value
+    .split(/<br\s*\/?>/i)
+    .map((line) => line.trim())
+    .filter(Boolean)
+);
+
+const introLines = computed(() => splitLines(t("geographyNew.textHtml")));
+const coverageLines = computed(() => splitLines(t("geographyNew.coverageTextHtml")));
+const bullets = computed(() => ([
+  {
+    title: t("geographyNew.bullets.0.title"),
+    lines: splitLines(t("geographyNew.bullets.0.textHtml")),
+  },
+  {
+    title: t("geographyNew.bullets.1.title"),
+    lines: splitLines(t("geographyNew.bullets.1.textHtml")),
+  },
+]));
 </script>
 
 <template>
   <section class="geography section-padding" :style="{ '--geo-bg': `url(${geoBg})` }">
     <Container>
       <h2>{{ t("geographyNew.title") }}</h2>
-      <div class="geography__text" v-html="t('geographyNew.textHtml')" />
+      <div class="geography__text">
+        <template v-for="(line, index) in introLines" :key="`intro-${index}`">
+          <br v-if="index">
+          {{ line }}
+        </template>
+      </div>
       <div class="geography__content">
         <div class="geography__content-left" :style="{ backgroundImage: `url(${GeographyBg})` }" />
         <div class="geography__content-right">
           <h3>{{ t("geographyNew.coverageTitle") }}</h3>
-          <div class="geography__content-text" v-html="t('geographyNew.coverageTextHtml')" />
+          <div class="geography__content-text">
+            <template v-for="(line, index) in coverageLines" :key="`coverage-${index}`">
+              <br v-if="index">
+              {{ line }}
+            </template>
+          </div>
           <ul class="geography__list">
-            <li v-for="item in bullets" :key="item.title">
-              <strong>{{ item.title }} </strong>
-              <span v-html="item.textHtml" />
+            <li v-for="(bullet, bulletIndex) in bullets" :key="bulletIndex">
+              <strong>{{ bullet.title }} </strong>
+              <template v-for="(line, lineIndex) in bullet.lines" :key="`${bulletIndex}-${lineIndex}`">
+                <br v-if="lineIndex">
+                {{ line }}
+              </template>
             </li>
           </ul>
           <Button variant="blue" class="geography__action" @click="isContactModalVisible = true">

@@ -210,17 +210,17 @@ export const de: LocaleMessages = {
   },
   geographyNew: {
     title: "Wir arbeiten auf allen Kontinenten",
-    textHtml: "Langjährige Zusammenarbeit mit vertrauenswürdigen Unternehmen weltweit ermöglicht es uns, wirklich zuverlässige Lösungen für Ihr Geschäft auszuwählen.",
+    textHtml: "Langjährige Zusammenarbeit mit vertrauenswürdigen Unternehmen weltweit <br> ermöglicht es uns, wirklich zuverlässige Lösungen für Ihr Geschäft auszuwählen.",
     coverageTitle: "Globale Abdeckung",
-    coverageTextHtml: "Unterstützung lokaler Methoden mit flexiblem kaskadierendem Routing nach GEO, Bank, Währung, Betrag und Risiko.",
+    coverageTextHtml: "Unterstützung lokaler Methoden mit flexiblem kaskadierendem <br> Routing nach GEO, Bank, Währung, Betrag und Risiko.",
     bullets: [
       {
         title: "Anti-Fraud-Filter:",
-        textHtml: "nach Betrag, Frequenz, BIN/<br>ISSUER, Tageszeit, Geo und Verhaltensmustern.",
+        textHtml: "nach Betrag, Frequenz, BIN/<br>ISSUER, Tageszeit, Geo und <br> Verhaltensmustern.",
       },
       {
         title: "Intelligente Kurse / FX:",
-        textHtml: "externe Quelle oder fixer Kurs je Route.",
+        textHtml: "externe Quelle oder fixer Kurs <br> je Route.",
       },
     ],
   },

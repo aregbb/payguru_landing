@@ -97,9 +97,9 @@ const onFooterLinkClick = (item: {
       display: grid;
       grid-template-columns: repeat(2, max-content);
       grid-template-areas:
-        "logo company"
+        "logo contact"
         "locale terms"
-        "privacy contact";
+        "privacy company";
       justify-content: center;
       align-items: center;
       column-gap: 72px;

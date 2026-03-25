@@ -210,17 +210,17 @@ export const hi: LocaleMessages = {
   },
   geographyNew: {
     title: "हम सभी महाद्वीपों में काम करते हैं",
-    textHtml: "दुनिया भर की विश्वसनीय कंपनियों के साथ वर्षों का सहयोग हमें आपके व्यवसाय के लिए वास्तव में भरोसेमंद समाधान चुनने की क्षमता देता है।",
+    textHtml: "दुनिया भर की विश्वसनीय कंपनियों के साथ वर्षों का सहयोग हमें <br> आपके व्यवसाय के लिए वास्तव में भरोसेमंद समाधान चुनने की क्षमता देता है।",
     coverageTitle: "वैश्विक कवरेज",
-    coverageTextHtml: "GEO, बैंक, मुद्रा, राशि और जोखिम के अनुसार लचीली cascading routing के साथ लोकल मेथड्स का समर्थन।",
+    coverageTextHtml: "GEO, बैंक, मुद्रा, राशि और जोखिम के अनुसार लचीली cascading <br> routing के साथ लोकल मेथड्स का समर्थन।",
     bullets: [
       {
         title: "एंटी-फ्रॉड फ़िल्टर:",
-        textHtml: "राशि, फ़्रीक्वेंसी, BIN/<br>ISSUER, दिन के समय, geo और behavioral patterns के आधार पर।",
+        textHtml: "राशि, फ़्रीक्वेंसी, BIN/<br>ISSUER, दिन के समय, geo और <br> behavioral patterns के आधार पर।",
       },
       {
         title: "स्मार्ट रेट्स / FX:",
-        textHtml: "बाहरी स्रोत या रूट के अनुसार fixed rate.",
+        textHtml: "बाहरी स्रोत या रूट के अनुसार <br> fixed rate.",
       },
     ],
   },

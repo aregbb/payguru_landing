@@ -210,17 +210,17 @@ export const pt: LocaleMessages = {
   },
   geographyNew: {
     title: "Trabalhamos em todos os continentes",
-    textHtml: "Anos de cooperação com empresas de confiança em todo o mundo permitem-nos escolher soluções realmente fiáveis para o seu negócio.",
+    textHtml: "Anos de cooperação com empresas de confiança em todo o mundo <br> permitem-nos escolher soluções realmente fiáveis para o seu negócio.",
     coverageTitle: "Cobertura global",
-    coverageTextHtml: "Suporte para métodos locais com roteamento em cascata flexível por GEO, banco, moeda, montante e risco.",
+    coverageTextHtml: "Suporte para métodos locais com roteamento em cascata <br> flexível por GEO, banco, moeda, montante e risco.",
     bullets: [
       {
         title: "Filtros antifraude:",
-        textHtml: "por montante, frequência, BIN/<br>ISSUER, hora do dia, geografia e padrões comportamentais.",
+        textHtml: "por montante, frequência, BIN/<br>ISSUER, hora do dia, geografia e <br> padrões comportamentais.",
       },
       {
         title: "Taxas inteligentes/FX:",
-        textHtml: "fonte externa ou taxa fixa por rota.",
+        textHtml: "fonte externa ou taxa fixa <br> por rota.",
       },
     ],
   },
