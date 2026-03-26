@@ -205,8 +205,8 @@ export const it: LocaleMessages = {
     contacts: "Contatti",
   },
   hero: {
-    titleHtml: "Controllo totale <br /> sui flussi di denaro",
-    textHtml: "<strong>PayGuru</strong> è un sistema multifunzionale di orchestrazione dei pagamenti con copertura globale.",
+    titleHtml: "Controllo totale <br /> sui flussi <br /> di denaro",
+    textHtml: "<strong>PayGuru</strong> è un sistema multifunzionale <br> di orchestrazione dei pagamenti con copertura globale.",
   },
   geographyNew: {
     title: "Operiamo in tutti i continenti",

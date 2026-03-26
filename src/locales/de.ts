@@ -206,7 +206,7 @@ export const de: LocaleMessages = {
   },
   hero: {
     titleHtml: "Volle Kontrolle <br /> über Geldflüsse",
-    textHtml: "<strong>PayGuru</strong> ist ein multifunktionales Payment-Orchestration-System mit globaler Abdeckung.",
+    textHtml: "<strong>PayGuru</strong> ist ein multifunktionales <br> Payment-Orchestration-System mit globaler Abdeckung.",
   },
   geographyNew: {
     title: "Wir arbeiten auf allen Kontinenten",

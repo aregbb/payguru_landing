@@ -89,8 +89,9 @@ const onFooterLinkClick = (item: {
     @include up(xl) {
       display: flex;
       align-items: center;
-      gap: 28px;
-      flex-wrap: nowrap;
+      justify-content: space-between;
+      gap: clamp(20px, 2vw, 36px);
+      width: 100%;
     }
 
     @include between(md, xl) {
@@ -127,7 +128,7 @@ const onFooterLinkClick = (item: {
     gap: 9px;
 
     @include up(xl) {
-      flex: 0 0 auto;
+      justify-self: start;
     }
 
     @include between(md, xl) {
@@ -145,7 +146,7 @@ const onFooterLinkClick = (item: {
     grid-area: locale;
 
     @include up(xl) {
-      flex: 0 0 auto;
+      justify-self: center;
     }
 
     @include between(md, xl) {
@@ -172,7 +173,8 @@ const onFooterLinkClick = (item: {
 
   &__item {
     @include up(xl) {
-      flex: 0 0 auto;
+      justify-self: center;
+      text-align: center;
     }
 
     @include between(md, xl) {
@@ -197,7 +199,7 @@ const onFooterLinkClick = (item: {
     grid-area: company;
 
     @include up(xl) {
-      margin-left: auto;
+      justify-self: end;
       text-align: right;
     }
 

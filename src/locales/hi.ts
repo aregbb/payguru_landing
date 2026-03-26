@@ -205,7 +205,7 @@ export const hi: LocaleMessages = {
     contacts: "संपर्क",
   },
   hero: {
-    titleHtml: "मनी फ्लो पर <br /> पूरा नियंत्रण",
+    titleHtml: "मनी फ्लो पर <br /> पूरा <br /> नियंत्रण",
     textHtml: "<strong>PayGuru</strong> वैश्विक कवरेज वाला एक बहु-कार्यात्मक पेमेंट ऑर्केस्ट्रेशन सिस्टम है।",
   },
   geographyNew: {
